@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <div className=" container mx-auto pt-14">
-        <div className=" flex flex-wrap items-start">
+        <div className=" flex flex-wrap items-start justify-between">
           <div className=" flex flex-wrap items-center gap-2">
             <Image
               src={"/assets/icon/icon.svg"}
