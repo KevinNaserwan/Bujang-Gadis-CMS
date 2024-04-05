@@ -12,9 +12,22 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "hero-image": "url('/assets/images/hero.png')"
+        
       },
+      colors: {
+        "primary-color": "#F2B414",
+        "secondary-color": "#0C429F",
+        "third-color": "#0C47AD",
+        "dark-color": "#041839"
+      },
+      fontFamily: {
+        redhatdisplay: ["Red Hat Display", "sans-serif"]
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 };
 export default config;
