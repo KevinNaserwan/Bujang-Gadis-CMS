@@ -38,7 +38,7 @@ export default function Header() {
             />
             <div className=" flex gap-14 items-center">
               <Link
-                href={"/"}
+                href={"/sejarah"}
                 className={`text-base font-bold bg-gradient-to-r from-secondary-color to-black inline-block text-transparent bg-clip-text ${showBackground ? " text-white" : ""} `}
               >
                 Beranda
