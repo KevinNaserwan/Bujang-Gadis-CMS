@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Term() {
   return (
     <div className=" relative bg-dark-color overflow-hidden">
-      <div className="lg:py-48 py-32 container mx-auto">
+      <div className="lg:py-48 py-24 container mx-auto">
         <div className=" absolute z-0 top-0 left-0">
           <Image
             src={"/assets/images/ellipse3.svg"}

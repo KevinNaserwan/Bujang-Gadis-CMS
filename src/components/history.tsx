@@ -3,7 +3,7 @@ import Button from "./button";
 
 export default function History() {
   return (
-    <div className=" container mx-auto py-32 lg:py-32">
+    <div className=" container mx-auto py-24 lg:py-32">
       <div className="lg:flex-nowrap flex-wrap gap-12 flex justify-center lg:justify-around lg:items-center">
         <div className=" w-[80%] lg:w-[40%]">
           <h1 className="font-bold text-xl lg:text-4xl text-black lg:leading-[50px]">
@@ -23,7 +23,7 @@ export default function History() {
           />
           </div>
         </div>
-        <Image src="/assets/images/history.png" alt="History Image" width={560} height={340} className=" lg:w-[500px] lg:h-[340px] w-[300px] h-[175px]"/>
+        <Image src="/assets/images/history.png" alt="History Image" width={560} height={340} className=" lg:w-[500px] lg:h-[340px] w-[330px] h-[192px]"/>
       </div>
     </div>
   );
