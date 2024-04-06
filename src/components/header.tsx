@@ -29,7 +29,7 @@ export default function Header() {
   }, []);
   return (
     <header
-      className={` z-50 sticky lg:pt-0 w-full top-0 ${
+      className={` z-10 sticky lg:pt-0 w-full top-0 ${
         showBackground ? " bg-black  shadow-2xl" : "bg-none"
       } `}
     >
