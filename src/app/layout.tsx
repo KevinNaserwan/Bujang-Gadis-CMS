@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: "Official Website Bujang Gadis",
   authors: [{name:"Meets Indonesia", url:"https://www.instagram.com/meets.indonesia/"}],
   keywords:"Bujang Gadis, Voting, Pemilihan Bujang Gadis, Bujang, Gadis, Bujang Gadis Unsri",
+  viewport: {width: "device-Width", initialScale: 1}
 };
 
 export default function RootLayout({
