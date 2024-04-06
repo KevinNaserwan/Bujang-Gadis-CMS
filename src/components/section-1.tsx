@@ -22,7 +22,7 @@ export default function Section1() {
           className=" w-[200px] h-[100px] lg:w-[600px] lg:h-[300px]"
         />
       </div>
-      <div className=" relative container mx-auto py-24 lg:py-24 z-40">
+      <div className=" relative container mx-auto py-24 lg:py-24 z-10">
         <div className=" flex flex-wrap lg:flex-nowrap gap-14 items-center justify-center lg:justify-between">
           <h2 className=" text-white font-bold text-2xl lg:text-4xl text-left w-[80%] lg:w-[30%] lg:leading-12">
             Mari Melangkah Lebih Jauh Bersama Kami
