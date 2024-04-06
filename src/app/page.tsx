@@ -11,16 +11,16 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className=" min-h-full bg-[url('/assets/images/hero.svg')] bg-top bg-auto lg:bg-contain bg-no-repeat">
-      <div className="">
-        <Header />
+    <div className="bg-[url('/assets/images/hero.svg')] h-[530px] lg:h-[665px] bg-bottom lg:bg-cover bg-no-repeat w-full">
+      <main className=" min-h-full">
+      <Header />
         <Jumbotron />
         <Section1 />
         <History />
         {/* <Timeline/> */}
-        <Term/>
-        <Footer/>
-      </div>
-    </main>
+        <Term />
+        <Footer />
+      </main>
+    </div>
   );
 }

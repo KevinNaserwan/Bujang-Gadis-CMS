@@ -10,6 +10,7 @@ export default function Term() {
             alt=""
             width={300}
             height={150}
+            className=" w-[300px] h-[150px]"
           />
         </div>
         <div className=" absolute z-0 bottom-0 -right-20">

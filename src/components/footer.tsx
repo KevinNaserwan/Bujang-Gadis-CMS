@@ -11,6 +11,7 @@ export default function Footer() {
               alt="icon bujang gadis"
               width={120}
               height={120}
+              className=" w-[120px] h-[120px]"
             />
             <p className=" font-bold text-base text-black w-6/12">
               Bujang Gadis Teknik Universitas Sriwijaya
