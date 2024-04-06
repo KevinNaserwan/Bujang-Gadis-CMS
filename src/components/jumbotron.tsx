@@ -90,7 +90,7 @@ export default function Jumbotron({
                 leaveTo="opacity-0 scale-95"
               >
                 <div className="max-w-5xl mx-auto h-full flex items-center">
-                  <Dialog.Panel className="w-full max-h-full rounded-3xl shadow-2xl aspect-video bg-black overflow-hidden">
+                  <Dialog.Panel className="w-full max-h-full rounded-xl shadow-2xl aspect-video bg-black overflow-hidden">
                     <video
                       autoPlay={true}
                       ref={videoRef}
