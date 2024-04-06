@@ -43,30 +43,27 @@ export default function Term() {
               </li>
               <li>Melampirkan fotokopi Kartu Hasil Studi (KHS)</li>
               <li>Tinggi badan minimal :</li>
-              <ol>
-                <li>a. Bujang : 160 cm</li>
-                <li>b. Gadis : 155 cm</li>
-              </ol>
+                <p>a. Bujang : 160 cm</p>
+                <p>b. Gadis : 155 cm</p>
+
               <li>
                 Peserta wajib memiliki spesialisasi dalam bidang tertentu
                 seperti, Public Speaking, Karya Tulis Ilmiah, Olimpiade, atau
                 dalam cabang Seni dan Olahraga.
               </li>
               <li>Melampirkan riwayat prestasi, seperti :</li>
-              <ol>
-                <li> 1) Prestasi akademik</li>
-                <li>a. Memiliki indeks prestasi di atas 3.00</li>
-                <li>
+                <p> 1) Prestasi akademik</p>
+                <p>a. Memiliki indeks prestasi di atas 3.00</p>
+                <p>
                   b. Melampirkan sertifikat perlombaan di tingkat Nasional,
                   Provinsi, atau Kota seperti olimpiade, O2SN, dan sebagainya
-                </li>
-                <li> 2) Prestasi non akademik</li>
-                <li>
+                </p>
+                <p> 2) Prestasi non akademik</p>
+                <p>
                   a. Melampirkan sertifikat perlombaan di tingkat Nasional,
                   Provinsi, atau Kota baik di bidang seni, olahraga, information
                   technology, dan sebagainya
-                </li>
-              </ol>
+                </p>
               <li>Untuk lebih jelas dapat dicek di Instagram @bgtunsri</li>
             </ol>
           </div>
@@ -95,21 +92,17 @@ export default function Term() {
                 Mengumpulkan formulir pendaftaran beserta dengan dokumen
                 persyaratan dan administrasi menggunakan :
               </li>
-              <ol>
-                <li>a. Map buffalo biru (Bujang)</li>
-                <li>b. Map buffalo merah (Gadis)</li>
-              </ol>
+                <p>a. Map buffalo biru (Bujang)</p>
+                <p>b. Map buffalo merah (Gadis)</p>
               <li>
                 Peserta yang telah mendaftar diwajibkan mengumpulkan berkas pada
                 :
               </li>
-              <ol>
-                <li>
+                <p>
                   a. Sekretariat BEM FT Regional Palembang Fakultas Teknik
                   Universitas Sriwijaya
-                </li>
-                <li>b. Waktu : 10.00- 17.00</li>
-              </ol>
+                </p>
+                <p>b. Waktu : 10.00- 17.00</p>
             </ol>
           </div>
         </div>
