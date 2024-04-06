@@ -31,7 +31,7 @@ export default function Term() {
             </h3>
             <ol
               style={{ listStyleType: "decimal" }}
-              className=" text-lg font-semibold text-white pt-9"
+              className=" text-lg font-semibold text-white lg:pt-9 pt-3"
             >
               <li>Melampirkan formulir pendaftaran</li>
               <li>Melampirkan Curriculum Vitae</li>
@@ -74,7 +74,7 @@ export default function Term() {
             </h3>
             <ol
               style={{ listStyleType: "decimal" }}
-              className=" text-lg font-semibold text-white pt-9"
+              className=" text-lg font-semibold text-white lg:pt-9 pt-3"
             >
               <li>
                 Calon peserta harus meregistrasikan diri melalui situs web
