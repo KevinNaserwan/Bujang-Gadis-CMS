@@ -67,6 +67,7 @@ export default function Header() {
           </div>
           <div>
             <Button
+              href="/daftar"
               name="Daftar"
               className={` lg:block py-3 px-12 bg-gradient-to-br ${
                 showBackground ? " from-yellow-600 to-black" : ""

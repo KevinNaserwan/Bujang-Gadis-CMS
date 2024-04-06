@@ -17,13 +17,20 @@ export default function History() {
             Chandra Saputra yang saat ini adalah ketua Yayasan Bujang Gadis...
           </p>
           <div>
-          <Button
-            name="Click To Know"
-            className=" py-3 px-8 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
-          />
+            <Button
+              href="/sejarah"
+              name="Click To Know"
+              className=" py-3 px-8 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
+            />
           </div>
         </div>
-        <Image src="/assets/images/history.svg" alt="History Image" width={560} height={340} className=" lg:w-[500px] lg:h-[340px] w-[330px] h-[192px]"/>
+        <Image
+          src="/assets/images/history.svg"
+          alt="History Image"
+          width={560}
+          height={340}
+          className=" lg:w-[500px] lg:h-[340px] w-[330px] h-[192px]"
+        />
       </div>
     </div>
   );

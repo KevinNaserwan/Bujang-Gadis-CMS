@@ -3,11 +3,12 @@ import Link from "next/link";
 interface ButtonProps {
     name: string;
     className: string;
+    href: string;
   }
 
-export default function Button({name, className}: ButtonProps) {
+export default function Button({name, className, href}: ButtonProps) {
     return (<Link
-        href={"/"}
+        href={href}
         className= {className}
       >
         {name}

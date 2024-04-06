@@ -34,6 +34,7 @@ export default function Jumbotron() {
           </p>
           <div className=" flex row items-center gap-7 lg:gap-12 justify-center mt-8 lg:mt-7">
             <Button
+              href="/"
               name="Ours"
               className="py-3 px-8 bg-gradient-to-br from-secondary-color to-black hover:bg-none hover:bg-black rounded-lg font-semibold text-base text-white"
             />
