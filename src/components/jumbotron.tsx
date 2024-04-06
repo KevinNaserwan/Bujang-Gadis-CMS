@@ -3,8 +3,9 @@ import Button from "./button";
 
 export default function Jumbotron() {
   return (
+    <div rel="preload" className="bg-hero-image bg-bottom bg-cover bg-no-repeat w-full">
       <div className=" relative container mx-auto pb-24">
-        <div className="container mx-auto pt-16 lg:pt-28">
+        <div className="container mx-auto pt-36 lg:pt-48 lg:pb-16 ">
           <div>
             <h1 className=" text-center text-2xl lg:text-4xl font-bold lg:leading-relaxed leading-normal">
               Official Website
@@ -40,5 +41,6 @@ export default function Jumbotron() {
           </div>
         </div>
       </div>
+    </div>
   );
 }

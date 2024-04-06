@@ -11,16 +11,12 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div rel="preload" className="bg-hero-image bg-fill bg-no-repeat w-full">
-      <main className="bg-transparent min-h-full">
-      <Header />
-        <Jumbotron />
-        <Section1 />
-        <History />
-        {/* <Timeline/> */}
-        <Term />
-        <Footer />
-      </main>
-    </div>
+    <main className="bg-transparent min-h-full">
+      <Jumbotron />
+      <Section1 />
+      <History />
+      {/* <Timeline/> */}
+      <Term />
+    </main>
   );
 }
