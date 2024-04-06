@@ -12,7 +12,8 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-image": "url('/assets/images/hero.svg')"
+        "hero-image": "url('/assets/images/hero.svg')",
+        "mobile-hero-image": "url('/assets/images/mobile-hero.svg')"
         
       },
       colors: {
