@@ -18,7 +18,7 @@ export default function Jumbotron() {
             UNIVERSITAS SRIWIJAYA
           </h2>
           <p className=" text-center text-sm lg:text-base w-8/12 lg:w-[30%] mx-auto">
-            Ayo segera daftarkan diri anda menjadi anggota baru bujang gadis
+            Ayo segera daftarkan diri anda menjadi anggota baru bujang gadis 
             teknik
           </p>
           <div className=" flex row items-center gap-7 lg:gap-12 justify-center mt-8 lg:mt-7">
