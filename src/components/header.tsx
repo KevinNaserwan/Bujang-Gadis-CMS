@@ -26,7 +26,7 @@ export default function Header() {
     };
   }, []);
   return (
-    <header className={` z-50 sticky lg:pt-0 mt-3 lg:w-full top-0 ${showBackground ? " bg-dark-color shadow-xl" : "bg-none"} `}>
+    <header className={` z-50 sticky lg:pt-0 lg:w-full top-0 ${showBackground ? " bg-dark-color shadow-xl" : "bg-none"} `}>
       <nav className=" container w-11/12 mx-auto">
         <div className="flex items-center justify-between">
           <div className=" flex items-center w-7/12 justify-between">
