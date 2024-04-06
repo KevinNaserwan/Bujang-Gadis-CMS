@@ -23,7 +23,7 @@ export default function Timeline() {
                 />
                 <div className=" lg:hidden w-20 h-1 bg-primary-color rounded-l-md"></div>
               </div>
-              <p className="font-bold text-center text-xs lg:text-base py-4">
+              <p className="font-bold text-center text-xs lg:text-base lg:py-4 py-2">
                 20 - 22 Maret
               </p>
             </div>
@@ -46,7 +46,7 @@ export default function Timeline() {
                 />
                 <div className=" lg:hidden w-20 h-1 bg-primary-color rounded-l-md"></div>
               </div>
-              <p className="font-bold text-center text-xs lg:text-base py-4">
+              <p className="font-bold text-center text-xs lg:text-base lg:py-4 py-2">
                 20 - 22 Maret
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function Timeline() {
                 />
                 <div className=" lg:hidden w-20 h-1 bg-primary-color rounded-l-md"></div>
               </div>
-              <p className="font-bold text-center text-xs lg:text-base py-4">
+              <p className="font-bold text-center text-xs lg:text-base lg:py-4 py-2">
                 20 - 22 Maret
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function Timeline() {
                   className=" w-10 h-10 lg:w-20 lg:h-20"
                 />
               </div>
-              <p className="font-bold text-center text-xs lg:text-base py-4">
+              <p className="font-bold text-center text-xs lg:text-base lg:py-4 py-2">
                 20 - 22 Maret
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function Timeline() {
                   className=" w-10 h-10 lg:w-20 lg:h-20"
                 />
               </div>
-              <p className="font-bold text-center text-xs lg:text-base py-4">
+              <p className="font-bold text-center text-xs lg:text-base lg:py-4 py-2">
                 20 - 22 Maret
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function Timeline() {
                   className=" w-10 h-10 lg:w-20 lg:h-20"
                 />
               </div>
-              <p className="font-bold text-center text-xs lg:text-base py-4">
+              <p className="font-bold text-center text-xs lg:text-base lg:py-4 py-2">
                 20 - 22 Maret
               </p>
             </div>
