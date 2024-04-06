@@ -55,21 +55,17 @@ export default function Term() {
               <li>Melampirkan riwayat prestasi, seperti :</li>
               <ol>
                 <li> 1) Prestasi akademik</li>
-                <ol>
-                  <li>a. Memiliki indeks prestasi di atas 3.00</li>
-                  <li>
-                    b. Melampirkan sertifikat perlombaan di tingkat Nasional,
-                    Provinsi, atau Kota seperti olimpiade, O2SN, dan sebagainya
-                  </li>
-                </ol>
+                <li>a. Memiliki indeks prestasi di atas 3.00</li>
+                <li>
+                  b. Melampirkan sertifikat perlombaan di tingkat Nasional,
+                  Provinsi, atau Kota seperti olimpiade, O2SN, dan sebagainya
+                </li>
                 <li> 2) Prestasi non akademik</li>
-                <ol>
-                  <li>
-                    a. Melampirkan sertifikat perlombaan di tingkat Nasional,
-                    Provinsi, atau Kota baik di bidang seni, olahraga,
-                    information technology, dan sebagainya
-                  </li>
-                </ol>
+                <li>
+                  a. Melampirkan sertifikat perlombaan di tingkat Nasional,
+                  Provinsi, atau Kota baik di bidang seni, olahraga, information
+                  technology, dan sebagainya
+                </li>
               </ol>
               <li>Untuk lebih jelas dapat dicek di Instagram @bgtunsri</li>
             </ol>
