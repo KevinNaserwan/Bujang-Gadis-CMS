@@ -23,7 +23,7 @@ export default function History() {
           />
           </div>
         </div>
-        <Image src="/assets/images/history.png" alt="History Image" width={560} height={340} className=" lg:w-[500px] lg:h-[340px] w-[330px] h-[192px]"/>
+        <Image src="/assets/images/history.svg" alt="History Image" width={560} height={340} className=" lg:w-[500px] lg:h-[340px] w-[330px] h-[192px]"/>
       </div>
     </div>
   );
