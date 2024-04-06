@@ -11,13 +11,13 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className=" min-h-[100vh]">
-      <div className="bg-[url('/assets/images/hero.png')] bg-contain bg-no-repeat">
+    <main className=" min-h-[100vh] bg-[url('/assets/images/hero.png')] bg-top bg-auto lg:bg-contain bg-no-repeat">
+      <div className="">
         <Header />
         <Jumbotron />
-         <Section1 />
+        <Section1 />
         <History />
-        <Timeline/>
+        {/* <Timeline/> */}
         <Term/>
         <Footer/>
       </div>

@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer>
-      <div className=" container mx-auto pt-14">
-        <div className=" flex flex-wrap items-start justify-between">
-          <div className=" flex flex-wrap items-center gap-2">
+      <div className=" container mx-auto pt-10 lg:pt-14">
+        <div className=" flex flex-wrap items-start justify-between lg:gap-0 gap-11">
+          <div className=" flex flex-wrap items-center justify-center gap-2">
             <Image
               src={"/assets/icon/icon.svg"}
               alt="icon bujang gadis"
@@ -16,45 +16,63 @@ export default function Footer() {
               Bujang Gadis Teknik Universitas Sriwijaya
             </p>
           </div>
-          <div className=" flex flex-wrap justify-between">
-            <div className="w-2/12">
+          <div className=" flex flex-wrap lg:gap-0 gap-6 justify-center lg:justify-between">
+            <div className=" w-10/12 lg:w-2/12">
               <h3 className=" text-xl font-bold text-black">Tentang Kami</h3>
-              <div className=" pt-4 flex flex-wrap  gap-3">
+              <div className=" pt-4 flex flex-wrap lg:w-full w-4/12  gap-3">
                 <div>
-                  <a href="" className=" hover:underline">Sejarah</a>
+                  <a href="" className=" hover:underline">
+                    Sejarah
+                  </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">Visi & Misi</a>
+                  <a href="" className=" hover:underline">
+                    Visi & Misi
+                  </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">Struktural</a>
+                  <a href="" className=" hover:underline">
+                    Struktural
+                  </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">Anggota</a>
+                  <a href="" className=" hover:underline">
+                    Anggota
+                  </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">Program Kerja</a>
+                  <a href="" className=" hover:underline">
+                    Program Kerja
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="w-2/12">
+            <div className=" w-10/12 lg:w-2/12">
               <h3 className=" text-xl font-bold text-black">Vote</h3>
-              <div className=" pt-4 flex flex-wrap gap-3">
+              <div className=" pt-4 flex lg:w-full w-4/12  flex-wrap gap-3">
                 <div>
-                  <a href="" className=" hover:underline">Vote</a>
+                  <a href="" className=" hover:underline">
+                    Vote
+                  </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">Beli Voucher</a>
+                  <a href="" className=" hover:underline">
+                    Beli Voucher
+                  </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">Chart</a>
+                  <a href="" className=" hover:underline">
+                    Chart
+                  </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">Tata Cara Vote</a>
+                  <a href="" className=" hover:underline">
+                    Tata Cara Vote
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="w-3/12">
+            <div className=" w-10/12 lg:w-3/12">
               <h3 className=" text-xl font-bold text-black">Kontak</h3>
               <div className=" pt-4 flex flex-wrap gap-3 items-center">
                 <div>

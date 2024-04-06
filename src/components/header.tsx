@@ -26,8 +26,8 @@ export default function Header() {
     };
   }, []);
   return (
-    <header className={` z-50 sticky w-full top-0 ${showBackground ? " bg-dark-color shadow-xl" : "bg-none"} `}>
-      <nav className=" container mx-auto">
+    <header className={` z-50 sticky lg:pt-0 mt-3 lg:w-full top-0 ${showBackground ? " bg-dark-color shadow-xl" : "bg-none"} `}>
+      <nav className=" container w-11/12 mx-auto">
         <div className="flex items-center justify-between">
           <div className=" flex items-center w-7/12 justify-between">
             <Image
@@ -36,7 +36,7 @@ export default function Header() {
               width={80}
               height={80}
             />
-            <div className=" flex gap-14 items-center">
+            <div className=" hidden lg:flex gap-14 items-center">
               <Link
                 href={"/sejarah"}
                 className={`text-base font-bold bg-gradient-to-r from-secondary-color to-black inline-block text-transparent bg-clip-text ${showBackground ? " text-white" : ""} `}
@@ -116,7 +116,7 @@ export default function Header() {
           <div>
             <Button
               name="Daftar"
-              className={`py-3 px-12 bg-gradient-to-br ${showBackground ? " from-yellow-600 to-black" : ""}   from-secondary-color to-black hover:bg-none hover:bg-black rounded-lg font-semibold text-base text-white`}
+              className={` hidden lg:block py-3 px-12 bg-gradient-to-br ${showBackground ? " from-yellow-600 to-black" : ""}   from-secondary-color to-black hover:bg-none hover:bg-black rounded-lg font-semibold text-base text-white`}
             />
           </div>
         </div>

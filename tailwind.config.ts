@@ -23,6 +23,10 @@ const config: Config = {
       },
       fontFamily: {
         redhatdisplay: ["Red Hat Display", "sans-serif"]
+      },
+      lineHeight: {
+        'extra-loose': '2.5',
+        '12': '3.5rem',
       }
     },
   },

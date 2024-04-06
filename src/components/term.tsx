@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Term() {
   return (
     <div className=" relative bg-dark-color overflow-hidden">
-      <div className="py-48 container mx-auto">
+      <div className="lg:py-48 py-32 container mx-auto">
         <div className=" absolute z-0 top-0 left-0">
           <Image
             src={"/assets/images/ellipse3.svg"}
@@ -20,11 +20,11 @@ export default function Term() {
             height={300}
           />
         </div>
-        <h1 className="font-bold text-3xl text-white text-center">
+        <h1 className=" relative z-20 font-bold text-2xl lg:text-3xl text-white text-center">
           SYARAT DAN KETENTUAN
         </h1>
-        <div className=" relative z-10 flex flex-wrap mt-20 justify-around">
-          <div className=" w-5/12">
+        <div className=" relative z-10 flex flex-wrap gap-14 mt-12 lg:mt-20 justify-around">
+          <div className="lg:w-5/12 w-9/12">
             <h3 className=" font-bold text-primary-color text-2xl text-left">
               Persyaratan Peserta
             </h3>
@@ -74,7 +74,7 @@ export default function Term() {
               <li>Untuk lebih jelas dapat dicek di Instagram @bgtunsri</li>
             </ol>
           </div>
-          <div className=" w-5/12">
+          <div className="lg:w-5/12 w-9/12">
             <h3 className=" relative z-10 font-bold text-primary-color text-2xl text-left">
               Tata Cara Pendaftaran
             </h3>
