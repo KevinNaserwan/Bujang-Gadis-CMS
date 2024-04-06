@@ -1,3 +1,9 @@
+import Header from "@/components/header";
+
 export default function Sejarah() {
-  return <div></div>;
+  return (
+    <main className=" min-h-[100vh]">
+      <Header />
+    </main>
+  );
 }
