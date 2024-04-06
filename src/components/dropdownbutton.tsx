@@ -12,7 +12,7 @@ export default function DropdownButton({className}: DropdownButtonProps) {
     <Menu as={"div"} className={"inline-block relative"}>
       <div>
         <Menu.Button
-          className={` inline-flex items-center text-base font-bold py-2 px-6 hover:bg-black/30 rounded-md ${className}`}
+          className={` inline-flex items-center text-base font-bold py-2 px-6 hover:bg-black/10 rounded-md ${className}`}
         >
           Tentang Kami
           <ChevronDownIcon
