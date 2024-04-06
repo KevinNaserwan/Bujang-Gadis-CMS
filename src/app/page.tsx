@@ -21,7 +21,7 @@ export default function Home() {
       <Jumbotron />
       <Section1 />
       <History />
-      {/* <Timeline/> */}
+      <Timeline/>
       <Term />
     </main>
   );
