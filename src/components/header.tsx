@@ -69,9 +69,9 @@ export default function Header() {
             <Button
             href="/daftar"
               name="Daftar"
-              className={` lg:block py-3 px-12 bg-gradient-to-br ${
-                showBackground ? " from-yellow-600 to-black" : ""
-              }   from-secondary-color to-black hover:bg-none hover:bg-black rounded-lg font-semibold text-base text-white`}
+              className={` lg:block py-3 px-12 bg-gradient-to-br   ${
+                showBackground ? " from-primary-color to-white text-black" : " from-secondary-color to-black text-white"
+              } hover:bg-none hover:bg-black rounded-lg font-semibold text-base`}
             />
           </div>
           {/* <div>
