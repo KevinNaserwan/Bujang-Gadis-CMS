@@ -18,10 +18,14 @@ export default function Home() {
       className="lg:bg-hero-image bg-mobile-hero-image h-full bg-contain bg-no-repeat w-full"
     >
       <Header />
-      <Jumbotron />
+      <Jumbotron
+        video="/assets/video/trailer-hero.mp4"
+        videoHeight={1080}
+        videoWidth={1920}
+      />
       <Section1 />
       <History />
-      <Timeline/>
+      <Timeline />
       <Term />
     </main>
   );
