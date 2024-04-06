@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className=" min-h-full bg-[url('/assets/images/hero.svg')] bg-top bg-auto lg:bg-contain bg-no-repeat">
+    <main className=" min-h-full bg-top bg-auto lg:bg-contain bg-no-repeat">
       <div className="">
         <Header />
         <Jumbotron />
