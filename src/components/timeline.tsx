@@ -34,7 +34,7 @@ export default function Timeline() {
             </p>
             <div className=" lg:w-2 lg:h-20 lg:bg-primary-color lg:rounded-t-md "></div>
           </div>
-          <div className=" lg:w-[20%] w-[100%] flex flex-wrap justify-center lg:gap-4 gap-1 lg:py-0 py-10">
+          <div className=" lg:w-[20%] w-[100%] flex flex-wrap justify-center lg:gap-4 gap-1 lg:py-0 py-32">
             <div className=" flex flex-wrap lg:w-[40%] w-[60%] justify-center">
               <div className=" relative left-9 lg:left-0 flex items-center gap-6">
                 <Image
@@ -81,8 +81,8 @@ export default function Timeline() {
             <div className=" lg:w-2 lg:h-20 lg:bg-primary-color lg:rounded-t-md "></div>
           </div>
         </div>
-        <div className=" relative z-10 bg-dark-color lg:h-2 lg:w-full w-2 h-[700px] rounded-lg"></div>
-        <div className=" lg:flex justify-around lg:w-full w-6/12 relative -left-2 top-28 lg:top-0 lg:left-7">
+        <div className=" relative z-10 bg-dark-color lg:h-2 lg:w-full w-2 h-[980px] rounded-lg"></div>
+        <div className=" lg:flex justify-around lg:w-full w-6/12 relative -left-2 top-48 lg:top-0 lg:left-7">
           <div className=" lg:w-[20%] w-[100%] flex flex-wrap justify-center lg:gap-4 gap-1">
             <div className=" lg:w-2 lg:h-20 lg:bg-primary-color lg:rounded-b-md"></div>
             <p className=" font-semibold text-center lg:text-base text-xs lg:w-full w-[160px] hidden lg:block">
@@ -111,7 +111,7 @@ export default function Timeline() {
               kompetisi
             </p>
           </div>
-          <div className=" lg:w-[20%] w-[100%] flex flex-wrap justify-center lg:gap-4 gap-1 lg:py-0 py-10">
+          <div className=" lg:w-[20%] w-[100%] flex flex-wrap justify-center lg:gap-4 gap-1 lg:py-0 py-32">
             <div className=" lg:w-2 lg:h-20 lg:bg-primary-color lg:rounded-b-md"></div>
             <p className=" font-semibold text-center lg:text-base text-xs lg:w-full w-[160px] hidden lg:block">
               <span className=" text-secondary-color">Sosialisasi</span>{" "}
