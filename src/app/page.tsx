@@ -13,7 +13,11 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="bg-transparent min-h-full">
+    <main
+      rel="preload"
+      className="lg:bg-hero-image bg-mobile-hero-image h-full bg-contain bg-no-repeat w-full"
+    >
+      <Header />
       <Jumbotron />
       <Section1 />
       <History />

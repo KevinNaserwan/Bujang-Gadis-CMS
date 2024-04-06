@@ -24,8 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={"font-redhatdisplay relative"}>
-        <Header />
+      <body className={"font-redhatdisplay"}>
         {children}
         <Footer />
       </body>

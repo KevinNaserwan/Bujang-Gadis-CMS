@@ -28,8 +28,8 @@ export default function Header() {
   }, []);
   return (
       <header
-        className={` z-50 absolute lg:pt-0 w-full top-0 ${
-          showBackground ? " bg-dark-color sticky shadow-xl" : "bg-none"
+        className={` z-50 sticky lg:pt-0 w-full top-0 ${
+          showBackground ? " bg-dark-color  shadow-xl" : "bg-none"
         } `}
       >
         <nav className=" container w-11/12 mx-auto">

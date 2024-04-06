@@ -4,7 +4,7 @@ import Button from "./button";
 export default function History() {
   return (
     <div className=" container mx-auto py-24 lg:py-32">
-      <div className="lg:flex-nowrap flex-wrap gap-12 flex justify-center lg:justify-around lg:items-center">
+      <div className="lg:flex-nowrap flex-wrap-reverse gap-12 flex justify-center lg:justify-around lg:items-center">
         <div className=" w-[80%] lg:w-[40%]">
           <h1 className="font-bold text-xl lg:text-4xl text-black lg:leading-[50px]">
             <span className="  font-bold text-xl lg:text-4xl text-third-color">
