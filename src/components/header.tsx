@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <header
       className={` z-50 sticky lg:pt-0 w-full top-0 ${
-        showBackground ? " bg-dark-color  shadow-xl" : "bg-none"
+        showBackground ? " bg-black  shadow-2xl" : "bg-none"
       } `}
     >
       <nav className=" container w-11/12 mx-auto">
