@@ -21,7 +21,7 @@ export default function Term() {
             height={300}
           />
         </div>
-        <h1 className=" relative z-20 font-bold text-2xl lg:text-3xl text-white text-center">
+        <h1 className=" relative z-10 font-bold text-2xl lg:text-3xl text-white text-center">
           SYARAT DAN KETENTUAN
         </h1>
         <div className=" relative z-10 flex flex-wrap gap-14 mt-12 lg:mt-20 justify-around">
