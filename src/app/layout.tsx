@@ -26,7 +26,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={"font-redhatdisplay"}>
         {children}
-        <Footer />
       </body>
     </html>
   );
