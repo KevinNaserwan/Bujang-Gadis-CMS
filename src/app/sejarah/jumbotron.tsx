@@ -35,7 +35,7 @@ export default function SejarahJumbotron() {
             </h5>
           </div>
           <div>
-            <p className=" text-justify pt-2">
+            <p className=" text-justify pt-2 text-xs">
               Chandra Saputra yang saat ini adalah ketua Yayasan Bujang Gadis
               POLSRI yang dulunya tergabung dalam organisasi Badan Eksekutif
               Mahasiswa (BEM) menjabat sebagai Mentri Kreasi pada tahun 2009.
@@ -47,7 +47,7 @@ export default function SejarahJumbotron() {
               Kebudayaan di Kampus POLSRI bukanlah hal yang mudah.
             </p>
             <br></br>
-            <p className=" text-justify">
+            <p className=" text-justify text-xs">
               Siapapun wajib untuk mengikuti tahapan demi tahapan tes yang
               menguras pemikiran dan tenaga. Perjuangan tidak berhenti hanya
               sampai pada Grand Final saja, Sebagai Duta Pendidikan dan
