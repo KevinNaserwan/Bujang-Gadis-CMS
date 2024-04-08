@@ -26,7 +26,7 @@ export function CarouselDemo() {
     >
       <CarouselContent>
         <CarouselItem>
-          <div className="p-1">
+          <div className="p-0">
             <KetuaCard
               id="1"
               name="Chandra Saputra"
@@ -34,12 +34,13 @@ export function CarouselDemo() {
               image="/assets/images/ketua-1.svg"
               hidden=""
               hidden2="hidden"
-              width="50"
+              width1="w-[110px]"
+              width2="w-[140px]"
             />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="p-1">
+          <div className="p-0">
             <KetuaCard
               id="1"
               name="Budi"
@@ -47,12 +48,13 @@ export function CarouselDemo() {
               image="/assets/images/ketua-1.svg"
               hidden="hidden"
               hidden2="hidden"
-              width="70"
+              width1="w-[155px]"
+              width2="w-[155px]"
             />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="p-1">
+          <div className="p-0">
             <KetuaCard
               id="1"
               name="Agus"
@@ -60,7 +62,8 @@ export function CarouselDemo() {
               image="/assets/images/ketua-1.svg"
               hidden="hidden"
               hidden2=""
-              width="70"
+              width1="w-[140px]"
+              width2="w-[110px]"
             />
           </div>
         </CarouselItem>

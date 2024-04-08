@@ -5,7 +5,8 @@ interface ButtonProps {
   name: string;
   year: number;
   image: string;
-  width: string;
+  width1: string;
+  width2: string;
   hidden?: string;
   hidden2?: string;
 }
@@ -15,7 +16,8 @@ export default function KetuaCard({
   name,
   year,
   image,
-  width,
+  width1,
+  width2,
   hidden,
   hidden2
 }: ButtonProps) {
@@ -36,11 +38,11 @@ export default function KetuaCard({
       <div className=" flex justify-center">
         <div className=" flex items-center">
           <div className={` ${hidden}w-5 h-5 bg-primary-color rounded-full`}></div>
-          <div className={`w-[70px] bg-primary-color h-[1px]`}></div>
+          <div className={`${width1} bg-primary-color h-[1px]`}></div>
           <div>
             <h1 className=" text-white font-bold text-xs px-2">{year}</h1>
           </div>
-          <div className=" w-[70px] bg-primary-color h-[1px]"></div>
+          <div className={`${width2} bg-primary-color h-[1px]`}></div>
           <div className={` ${hidden2}w-5 h-5 bg-primary-color rounded-full`}></div>
         </div>
       </div>
