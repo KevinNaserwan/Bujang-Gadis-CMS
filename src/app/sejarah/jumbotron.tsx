@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SejarahJumbotron() {
   return (
-    <section>
+    <section className=" pb-14">
       <div className=" relative container mx-auto bg-white/40">
         <div className="container mx-auto pt-4 flex flex-wrap justify-center">
           <div>
