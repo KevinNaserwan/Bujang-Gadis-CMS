@@ -4,7 +4,7 @@ import { CarouselDemo } from "./components/carousel";
 
 export default function Ketua() {
   return (
-    <section className=" relative">
+    <section className=" relative bg-dark-color">
       <div className=" absolute top-0">
         <Image
           src="/assets/images/ellipse4.svg"
@@ -29,7 +29,7 @@ export default function Ketua() {
           height={50}
         />
       </div>
-      <div className=" bg-dark-color min-h-80 py-16 container mx-auto">
+      <div className=" min-h-80 py-16 container mx-auto">
         <div className=" text-center">
           <h1 className=" text-white font-bold text-[22px] inline">
             KETUA IKATAN
