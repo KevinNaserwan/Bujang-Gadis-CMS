@@ -15,7 +15,7 @@ import KetuaCard from "./ketua-card";
 
 export function CarouselDemo() {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
+    Autoplay({ delay: 5000, stopOnInteraction: false })
   );
   return (
     <Carousel
