@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Timeline() {
   return (
-    <div className=" container lg:max-w-[1100px] xl:max-w-[1300px] mx-auto lg:py-48 py-24">
+    <div className=" container lg:max-w-[1100px] xl:max-w-[1300px] mx-auto lg:py-32 py-24">
       <h1 className="font-bold lg:text-3xl text-xl text-black text-center">
         <span className="font-bold lg:text-3xl text-xl text-primary-color">
           TIMELINE
