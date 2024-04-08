@@ -33,7 +33,7 @@ export default function Header() {
         showBackground ? " bg-black  shadow-2xl" : "bg-none"
       } `}
     >
-      <nav className=" container w-full lg:max-w-[1200px] xl:max-w-[1300px] mx-auto">
+      <nav className=" container w-11/12 lg:max-w-[1200px] xl:max-w-[1300px] mx-auto">
         <div className="flex items-center justify-between">
           <div className=" flex items-center w-8/12 xl:w-7/12 justify-between">
             <Image
