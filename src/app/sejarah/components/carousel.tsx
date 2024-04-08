@@ -33,7 +33,7 @@ export function CarouselDemo() {
               year={2023}
               image="/assets/images/ketua-1.svg"
               hidden=""
-              hidden2=""
+              hidden2="hidden"
               width="50"
             />
           </div>

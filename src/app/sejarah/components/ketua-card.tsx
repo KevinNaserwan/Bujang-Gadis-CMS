@@ -36,7 +36,7 @@ export default function KetuaCard({
       <div className=" flex justify-center">
         <div className=" flex items-center">
           <div className={` ${hidden}w-5 h-5 bg-primary-color rounded-full`}></div>
-          <div className={`w-[${width}px] bg-primary-color h-[1px]`}></div>
+          <div className={`w-[70px] bg-primary-color h-[1px]`}></div>
           <div>
             <h1 className=" text-white font-bold text-xs px-2">{year}</h1>
           </div>
