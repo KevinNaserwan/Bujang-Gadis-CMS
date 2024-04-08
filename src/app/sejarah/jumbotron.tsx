@@ -24,7 +24,7 @@ export default function SejarahJumbotron() {
             className=" lg:w-[500px] lg:h-[340px] w-[330px] h-[192px] mt-6"
           />
         </div>
-        <div className=" max-w-[360px] mx-auto">
+        <div className=" max-w-[340px] mx-auto">
           <div className=" text-left pt-7">
             <h3 className=" font-bold text-xl text-primary-color">Sejarah</h3>
             <h4 className=" font-semibold text-black text-xs pt-2 pb-1">
