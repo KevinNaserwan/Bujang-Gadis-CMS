@@ -1,4 +1,6 @@
 import Image from "next/image";
+import KetuaCard from "./components/ketua-card";
+import { CarouselDemo } from "./components/carousel";
 
 export default function Ketua() {
   return (
@@ -36,28 +38,7 @@ export default function Ketua() {
             BUJANG GADIS TEKNIK UNIVERSITAS SRIWIJAYA
           </h3>
         </div>
-        <div className=" relative max-w-[340px] mx-auto flex flex-wrap justify-center mt-8 mb-10">
-          <Image
-            src="/assets/images/ketua-1.svg"
-            alt="ketua 2023"
-            width={200}
-            height={220}
-            className=" rounded-lg"
-          />
-          <div className=" py-2 px-6 bg-primary-color rounded-md absolute -bottom-4">
-            <h1 className=" font-bold text-black text-xs">Chandra Saputra</h1>
-          </div>
-        </div>
-        <div className=" flex justify-center">
-          <div className=" flex items-center">
-            <div className=" w-5 h-5 bg-primary-color rounded-full"></div>
-            <div className=" w-[50px] bg-primary-color h-[1px]"></div>
-            <div>
-              <h1 className=" text-white font-bold text-xs px-2">2023</h1>
-            </div>
-            <div className=" w-[70px] bg-primary-color h-[1px]"></div>
-          </div>
-        </div>
+        <CarouselDemo/>
       </div>
     </section>
   );
