@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Term() {
   return (
     <div className=" relative bg-dark-color overflow-hidden">
-      <div className="lg:py-48 py-24 container mx-auto">
+      <div className="lg:py-48 py-24 container xl:max-w-[1300px] lg:max-w-[1100px] mx-auto">
         <div className=" absolute z-0 top-0 left-0">
           <Image
             src={"/assets/images/ellipse3.svg"}
@@ -31,7 +31,7 @@ export default function Term() {
             </h3>
             <ol
               style={{ listStyleType: "decimal" }}
-              className=" text-lg font-semibold text-white lg:pt-9 pt-3"
+              className=" text-lg font-normal text-white lg:pt-6 pt-3"
             >
               <li>Melampirkan formulir pendaftaran</li>
               <li>Melampirkan Curriculum Vitae</li>
@@ -74,7 +74,7 @@ export default function Term() {
             </h3>
             <ol
               style={{ listStyleType: "decimal" }}
-              className=" text-lg font-semibold text-white lg:pt-9 pt-3"
+              className=" text-lg font-normal text-white lg:pt-6 pt-3"
             >
               <li>
                 Calon peserta harus meregistrasikan diri melalui situs web

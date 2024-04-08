@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer>
-      <div className=" container mx-auto pt-10 lg:pt-14">
-        <div className=" flex flex-wrap items-start justify-between lg:gap-0 gap-11">
+      <div className=" container xl:max-w-[1300px] lg:max-w-[1100px] mx-auto pt-10 lg:pt-14">
+        <div className=" flex flex-wrap lg:flex-nowrap items-start justify-between lg:gap-0 gap-11">
           <div className=" flex flex-wrap items-center justify-center gap-2">
             <Image
               src={"/assets/icon/icon.svg"}
@@ -17,7 +17,7 @@ export default function Footer() {
               Bujang Gadis Teknik Universitas Sriwijaya
             </p>
           </div>
-          <div className=" flex flex-wrap lg:gap-0 gap-6 justify-center lg:justify-between">
+          <div className=" flex flex-wrap lg:gap-0 gap-6 justify-center lg:justify-around">
             <div className=" w-10/12 lg:w-2/12">
               <h3 className=" text-xl font-bold text-black">Tentang Kami</h3>
               <div className=" pt-4 flex flex-wrap lg:w-full w-4/12  gap-3">
@@ -73,7 +73,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className=" w-10/12 lg:w-3/12">
+            <div className=" w-10/12 lg:w-auto">
               <h3 className=" text-xl font-bold text-black">Kontak</h3>
               <div className=" pt-4 flex flex-wrap gap-3 items-center">
                 <div>

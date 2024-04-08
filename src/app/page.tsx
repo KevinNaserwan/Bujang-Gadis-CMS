@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main
       rel="preload"
-      className="lg:bg-hero-image bg-mobile-hero-image h-full bg-contain bg-no-repeat w-full"
+      className="lg:bg-hero-image bg-mobile-hero-image bg-contain bg-no-repeat w-full"
     >
       <Header />
       <Jumbotron

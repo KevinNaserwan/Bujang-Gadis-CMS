@@ -22,9 +22,9 @@ export default function Section1() {
           className=" w-[200px] h-[100px] lg:w-[600px] lg:h-[300px]"
         />
       </div>
-      <div className=" relative container mx-auto py-24 lg:py-24 z-10">
-        <div className=" flex flex-wrap lg:flex-nowrap gap-14 items-center justify-center lg:justify-between">
-          <h2 className=" text-white font-bold text-2xl lg:text-4xl text-left w-[80%] lg:w-[30%] lg:leading-12">
+      <div className=" relative container lg:max-w-[1100px] xl:max-w-[1300px] mx-auto py-24 lg:py-24 z-10">
+        <div className=" flex flex-wrap lg:flex-nowrap gap-10 items-center justify-center lg:justify-between">
+          <h2 className=" text-white font-bold text-2xl lg:text-4xl text-left w-[80%] lg:w-[40%] lg:leading-12">
             Mari Melangkah Lebih Jauh Bersama Kami
           </h2>
           <div className=" lg:flex w-9/12 lg:w-full lg:justify-around">
@@ -39,7 +39,7 @@ export default function Section1() {
               <h3 className=" font-bold text-base lg:text-2xl  text-left text-white py-3">
                 Mengembangkan
               </h3>
-              <p className=" text-sm lg:text-base font-normal text-white lg:w-[80%]">
+              <p className=" text-sm lg:text-base font-normal text-white lg:w-[90%]">
                 Turut serta mengembangkan dan memasyarakatkan pentingnya
                 Pendidikan dan Kebudayaan dalam kehidupan.
               </p>
@@ -56,7 +56,7 @@ export default function Section1() {
                 {" "}
                 Mencerdaskan
               </h3>
-              <p className=" text-sm lg:text-base font-normal text-white lg:w-[80%]">
+              <p className=" text-sm lg:text-base font-normal text-white lg:w-[90%]">
                 Membangun kaum cendikia yang memiliki integritas, kepribadian,
                 humanis serta kepedulian sosial.
               </p>
@@ -73,7 +73,7 @@ export default function Section1() {
                 {" "}
                 Menyatukan
               </h3>
-              <p className=" text-sm lg:text-base font-normal text-white lg:w-[100%]">
+              <p className=" text-sm lg:text-base font-normal text-white lg:w-[90%]">
                 Memupuk dan mengembangkan rasa persatuan dan kesatuan di antara
                 anggota.
               </p>

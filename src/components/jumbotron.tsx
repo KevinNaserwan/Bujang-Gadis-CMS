@@ -26,7 +26,7 @@ export default function Jumbotron({
   }
   return (
     <>
-      <div className=" relative container mx-auto pb-24">
+      <div className=" relative container mx-auto pb-24 lg:pb-12">
         <div className="container mx-auto pt-20 lg:pt-24 lg:pb-16 ">
           <div>
             <h1 className=" text-center text-2xl lg:text-4xl font-bold lg:leading-relaxed leading-normal">

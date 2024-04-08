@@ -35,7 +35,7 @@ export default function Header() {
     >
       <nav className=" container w-11/12 mx-auto">
         <div className="flex items-center justify-between">
-          <div className=" flex items-center w-7/12 justify-between">
+          <div className=" flex items-center w-8/12 xl:w-7/12 justify-between">
             <Image
               src={"/assets/icon/icon.svg"}
               alt="Icon Image"
