@@ -47,9 +47,9 @@ export default function BujangGadisCard({
         </div>
       </div>
       <div className=" items-center flex mt-10 ">
-        <div className={`h-[1px]  w-[100%] relative ${bgStart}`}></div>
+        <div className={`h-[1px]  w-[50%] relative ${bgStart}`}></div>
         <div className=" bg-dark-color w-2 h-2 rounded-full"></div>
-        <div className={`h-[1px]  w-[100%] ${bgEnd} relative`}></div>
+        <div className={`h-[1px]  w-[50%] ${bgEnd} relative`}></div>
       </div>
     </div>
   );
