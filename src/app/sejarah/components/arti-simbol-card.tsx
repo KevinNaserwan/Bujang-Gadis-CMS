@@ -17,8 +17,8 @@ export default function SimbolCard({ image, simbol, content }: ButtonProps) {
           height={112}
           className="relative"
         />
-        <div className=" absolute top-[26%] left-[3%]">
-          <Image alt="" src={"/assets/images/logo-bg.svg"} width={60} height={60}/>
+        <div className=" absolute top-[24%] left-[3%]">
+          <Image alt="" src={"/assets/icon/icon.svg"} width={60} height={60}/>
         </div>
       </div>
       <div className=" w-8/12 inline my-3">
