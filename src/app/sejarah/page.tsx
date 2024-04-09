@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import SejarahJumbotron from "./jumbotron";
 import Footer from "@/components/footer";
 import Ketua from "./ketua";
+import BujangGadis from "./bujanggadis";
 
 export default function Sejarah() {
   return (
@@ -9,6 +10,7 @@ export default function Sejarah() {
       <Header />
       <SejarahJumbotron/>
       <Ketua/>
+      <BujangGadis/>
       <Footer/>
     </main>
   );
