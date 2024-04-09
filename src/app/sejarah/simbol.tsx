@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SimbolCard from "./components/arti-simbol-card";
 
 export default function Simbol() {
   return (
@@ -20,7 +21,33 @@ export default function Simbol() {
               className=" pt-5 pb-10"
             />
           </div>
-          <div></div>
+          <div>
+            <SimbolCard
+              image=""
+              simbol="Padi"
+              content="Semakin berisi semakin merunduk, berarti bahwa anggota IBGUIN adalah orang yang selalu rendah hati dan akrab dalam lingkungan sosial."
+            />
+            <SimbolCard
+              image=""
+              simbol="Pena"
+              content="Melambangkan mahasiswa/i yang selalu tekun menuntun ilmu dan berusaha memberikan yang terbaik untuk studi dan karirnya."
+            />
+            <SimbolCard
+              simbol="Bujang dan Gadis"
+              image=""
+              content="Melambangkan, bahwa mahasiswa/i Universitas Islam Negeri Raden Fatah Palembang menjunjung tinggi syariat Islam."
+            />
+            <SimbolCard
+              image=""
+              simbol="Warna Biru"
+              content="Selain menjadi warna identitas kampus Universitas Islam Negeri Raden Fatah Palembang, warna biru sendiri dalam psikologi melambangkan ketenangan."
+            />
+            <SimbolCard
+              image=""
+              simbol="Lambang UIN Raden Fatah"
+              content="Karena berada di lingkungan dan mengabdi di kampus UIN Raden Fatah Palembang."
+            />
+          </div>
         </div>
       </div>
     </section>
