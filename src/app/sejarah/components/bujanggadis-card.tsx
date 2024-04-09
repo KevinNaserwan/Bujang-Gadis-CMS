@@ -14,7 +14,7 @@ export default function BujangGadisCard() {
         <div className=" w-[45px] h-[45px] rounded-full bg-primary-color py-[14px] px-2 text-xs font-bold absolute bottom-[52px] left-[128px]">
           2023
         </div>
-        <div className=" absolute z-10 w-[1px] h-28 border border-dashed border-primary-color left-[149px]"></div>
+        <div className=" absolute z-10 w-[1px] h-28 border border-dashed border-primary-color left-[150px]"></div>
       </div>
       <div className=" flex justify-around pt-4 pb-6">
         <div className=" text-left">
