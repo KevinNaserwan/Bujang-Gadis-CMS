@@ -41,10 +41,10 @@ export function CarouselBujang() {
         <CarouselItem>
           <div className="p-0">
             <BujangGadisCard
-              nameBujang="Hari Randora"
-              nameGadis="Sheila Sicilia"
+              nameBujang="Budi"
+              nameGadis="Siti"
               image="/assets/images/bujang-gadis.svg"
-              tahun="2023"
+              tahun="2022"
               bgStart="bg-primary-color"
               bgEnd="bg-primary-color"
             />
@@ -53,10 +53,10 @@ export function CarouselBujang() {
         <CarouselItem>
           <div className="p-0">
             <BujangGadisCard
-              nameBujang="Hari Randora"
-              nameGadis="Sheila Sicilia"
+              nameBujang="Agus"
+              nameGadis="Dewi"
               image="/assets/images/bujang-gadis.svg"
-              tahun="2024"
+              tahun="2021"
               bgStart="bg-primary-color"
               bgEnd="bg-transparent"
             />
