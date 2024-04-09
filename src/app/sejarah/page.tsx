@@ -7,7 +7,7 @@ import Simbol from "./simbol";
 
 export default function Sejarah() {
   return (
-    <main className="bg-sejarah-hero-image bg-no-repeat bg-contain w-full">
+    <main rel="preload" className="bg-sejarah-hero-image bg-no-repeat bg-contain w-full">
       <Header />
       <SejarahJumbotron/>
       <Ketua/>
