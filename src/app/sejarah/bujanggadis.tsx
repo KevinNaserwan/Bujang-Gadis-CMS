@@ -1,4 +1,5 @@
 import BujangGadisCard from "./components/bujanggadis-card";
+import { CarouselBujang } from "./components/carousel-bujang";
 
 export default function BujangGadis() {
   return (
@@ -8,7 +9,7 @@ export default function BujangGadis() {
             <h1 className=" font-bold text-[22px] text-primary-color">BUJANG GADIS</h1>
             <h3 className=" font-bold text-sm text-black">TEKNIK UNIVERSITAS SRIWIJAYA</h3>
         </div>
-        <BujangGadisCard/>
+        <CarouselBujang/>
       </div>
     </section>
   );

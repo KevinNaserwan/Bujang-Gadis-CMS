@@ -1,19 +1,35 @@
 import Image from "next/image";
 
-export default function BujangGadisCard() {
+interface ButtonProps {
+  image: string;
+  nameBujang: string;
+  nameGadis: string;
+  tahun: string;
+  bgStart: string;
+  bgEnd: string;
+}
+
+export default function BujangGadisCard({
+  image,
+  nameBujang,
+  nameGadis,
+  tahun,
+  bgStart,
+  bgEnd
+}: ButtonProps) {
   return (
     <div>
       <div className=" w-[300px] min-h-52 bg-dark-color mx-auto rounded-[20px] relative mt-8">
         <div className="">
           <Image
             alt=""
-            src={"/assets/images/bujang-gadis.svg"}
+            src={image}
             width={300}
             height={170}
             className=" relative"
           />
           <div className=" w-[45px] h-[45px] rounded-full bg-primary-color py-[14px] px-2 text-xs font-bold absolute bottom-[52px] left-[128px]">
-            2023
+            {tahun}
           </div>
           <div className=" absolute z-10 w-[1px] h-28 border border-dashed border-primary-color left-[149px]"></div>
         </div>
@@ -22,18 +38,18 @@ export default function BujangGadisCard() {
             <h3 className=" font-semibold text-xs text-primary-color">
               Bujang
             </h3>
-            <p className=" font-semibold text-xs text-white">Hari Randora</p>
+            <p className=" font-semibold text-xs text-white">{nameBujang}</p>
           </div>
           <div className=" text-left">
             <h3 className=" font-semibold text-xs text-primary-color">Gadis</h3>
-            <p className=" font-semibold text-xs text-white">Sheila Sicilia</p>
+            <p className=" font-semibold text-xs text-white">{nameGadis}</p>
           </div>
         </div>
       </div>
-      <div className=" items-center flex mt-10 "> 
-        <div className=" h-[1px]  w-[50%] relative"></div>
+      <div className=" items-center flex mt-10 ">
+        <div className={`h-[1px]  w-[100%] relative ${bgStart}`}></div>
         <div className=" bg-dark-color w-2 h-2 rounded-full"></div>
-        <div className=" h-[1px]  w-[50%] bg-primary-color relative"></div>
+        <div className={`h-[1px]  w-[100%] ${bgEnd} relative`}></div>
       </div>
     </div>
   );

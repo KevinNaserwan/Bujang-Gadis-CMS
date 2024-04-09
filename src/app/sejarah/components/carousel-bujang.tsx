@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as React from "react";
 
@@ -12,8 +12,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import KetuaCard from "./ketua-card";
+import BujangGadisCard from "./bujanggadis-card";
 
-export function CarouselKetua() {
+export function CarouselBujang() {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: false })
   );
@@ -27,43 +28,37 @@ export function CarouselKetua() {
       <CarouselContent>
         <CarouselItem>
           <div className="p-0">
-            <KetuaCard
-              id="1"
-              name="Chandra Saputra"
-              year={2023}
-              image="/assets/images/ketua-1.svg"
-              hidden=""
-              hidden2="hidden"
-              width1="w-[110px]"
-              width2="w-[140px]"
+            <BujangGadisCard
+              nameBujang="Hari Randora"
+              nameGadis="Sheila Sicilia"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2023"
+              bgStart="bg-transparent"
+              bgEnd="bg-primary-color"
             />
           </div>
         </CarouselItem>
         <CarouselItem>
           <div className="p-0">
-            <KetuaCard
-              id="1"
-              name="Budi"
-              year={2024}
-              image="/assets/images/ketua-1.svg"
-              hidden="hidden"
-              hidden2="hidden"
-              width1="w-[155px]"
-              width2="w-[155px]"
+            <BujangGadisCard
+              nameBujang="Hari Randora"
+              nameGadis="Sheila Sicilia"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2023"
+              bgStart="bg-primary-color"
+              bgEnd="bg-primary-color"
             />
           </div>
         </CarouselItem>
         <CarouselItem>
           <div className="p-0">
-            <KetuaCard
-              id="1"
-              name="Agus"
-              year={2025}
-              image="/assets/images/ketua-1.svg"
-              hidden="hidden"
-              hidden2=""
-              width1="w-[140px]"
-              width2="w-[110px]"
+            <BujangGadisCard
+              nameBujang="Hari Randora"
+              nameGadis="Sheila Sicilia"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2024"
+              bgStart="bg-primary-color"
+              bgEnd="bg-transparent"
             />
           </div>
         </CarouselItem>

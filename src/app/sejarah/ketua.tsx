@@ -1,6 +1,6 @@
 import Image from "next/image";
 import KetuaCard from "./components/ketua-card";
-import { CarouselDemo } from "./components/carousel";
+import { CarouselKetua } from "./components/carousel";
 
 export default function Ketua() {
   return (
@@ -38,7 +38,7 @@ export default function Ketua() {
             BUJANG GADIS TEKNIK UNIVERSITAS SRIWIJAYA
           </h3>
         </div>
-        <CarouselDemo/>
+        <CarouselKetua/>
       </div>
     </section>
   );
