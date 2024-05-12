@@ -7,13 +7,16 @@ import Simbol from "./simbol";
 
 export default function Sejarah() {
   return (
-    <main rel="preload" className="bg-sejarah-hero-image bg-no-repeat bg-contain w-full">
+    <main
+      rel="preload"
+      className="bg-sejarah-hero-image lg:bg-none bg-no-repeat bg-contain w-full"
+    >
       <Header />
-      <SejarahJumbotron/>
-      <Ketua/>
-      <BujangGadis/>
-      <Simbol/>
-      <Footer/>
+      <SejarahJumbotron />
+      <Ketua />
+      <BujangGadis />
+      <Simbol />
+      <Footer />
     </main>
   );
 }

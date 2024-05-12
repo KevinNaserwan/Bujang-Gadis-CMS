@@ -31,14 +31,14 @@ export default function Ketua() {
       </div>
       <div className=" min-h-80 py-16 container mx-auto">
         <div className=" text-center">
-          <h1 className=" text-white font-bold text-[22px] inline">
+          <h1 className=" text-white font-bold text-[22px] lg:text-[32px] inline">
             KETUA IKATAN
           </h1>
-          <h3 className=" font-semibold text-primary-color text-sm pt-2 w-9/12 mx-auto">
+          <h3 className=" font-semibold text-primary-color text-sm pt-2 lg:pt-5 lg:text-[32px] w-9/12 mx-auto">
             BUJANG GADIS TEKNIK UNIVERSITAS SRIWIJAYA
           </h3>
         </div>
-        <CarouselKetua/>
+        <CarouselKetua />
       </div>
     </section>
   );

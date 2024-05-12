@@ -21,7 +21,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-image": "url('/assets/images/hero.webp')",
         "mobile-hero-image": "url('/assets/images/mobile-hero.webp')",
-        "sejarah-hero-image": "url('/assets/images/bg-pattern.webp')"
+        "sejarah-hero-image": "url('/assets/images/bg-pattern.webp')",
+        "sejarah-hero-image-web": "url('/assets/images/bg-pattern-web.png')"
         
       },
       colors: {

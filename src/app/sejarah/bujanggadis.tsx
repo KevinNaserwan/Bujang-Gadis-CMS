@@ -6,10 +6,14 @@ export default function BujangGadis() {
     <section>
       <div className=" container mx-auto py-16">
         <div className=" text-center">
-            <h1 className=" font-bold text-[22px] text-primary-color">BUJANG GADIS</h1>
-            <h3 className=" font-bold text-sm text-black">TEKNIK UNIVERSITAS SRIWIJAYA</h3>
+          <h1 className=" font-bold text-[22px] lg:text-[32px] text-primary-color">
+            BUJANG GADIS
+          </h1>
+          <h3 className=" font-bold text-sm lg:text-[32px] lg:pt-5 text-black">
+            TEKNIK UNIVERSITAS SRIWIJAYA
+          </h3>
         </div>
-        <CarouselBujang/>
+        <CarouselBujang />
       </div>
     </section>
   );
