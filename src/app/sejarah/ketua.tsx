@@ -34,7 +34,7 @@ export default function Ketua() {
           <h1 className=" text-white font-bold text-[22px] lg:text-[32px] inline">
             KETUA IKATAN
           </h1>
-          <h3 className=" font-semibold text-primary-color text-sm pt-2 lg:pt-5 lg:text-[32px] w-9/12 mx-auto">
+          <h3 className=" font-semibold text-primary-color text-sm pt-2 lg:pt-5 lg:text-[32px] w-9/12 mx-auto lg:font-semibold">
             BUJANG GADIS TEKNIK UNIVERSITAS SRIWIJAYA
           </h3>
         </div>

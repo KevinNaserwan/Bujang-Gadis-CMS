@@ -8,7 +8,7 @@ interface ButtonProps {
 
 export default function SimbolCard({ image, simbol, content }: ButtonProps) {
   return (
-    <div className=" relative w-[360px] min-h-[104px] mt-4 rounded-lg bg-white flex gap-3 items-center">
+    <div className=" relative w-[360px] min-h-[104px] mt-4 rounded-lg bg-white flex gap-3 items-center lg:mb-12">
       <div>
         <div className=" absolute z-[5] top-0">
           <Image
