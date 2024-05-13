@@ -15,11 +15,11 @@ export default function BujangGadisCard({
   nameGadis,
   tahun,
   bgStart,
-  bgEnd
+  bgEnd,
 }: ButtonProps) {
   return (
     <div>
-      <div className=" w-[300px] min-h-52 bg-dark-color mx-auto rounded-[20px] relative mt-8">
+      <div className=" w-[300px] min-h-52 bg-dark-color mx-auto rounded-[20px] relative mt-8 lg:mx-10">
         <div className="">
           <Image
             alt=""

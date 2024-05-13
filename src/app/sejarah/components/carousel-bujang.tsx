@@ -21,12 +21,12 @@ export function CarouselBujang() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className=" mx-auto max-w-xs"
+      className=" mx-auto max-w-xs lg:max-w-[1200px]"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
-        <CarouselItem>
+        <CarouselItem className=" lg:hidden">
           <div className="p-0">
             <BujangGadisCard
               nameBujang="Hari Randora"
@@ -37,8 +37,60 @@ export function CarouselBujang() {
               bgEnd="bg-primary-color"
             />
           </div>
+          <div className="p-0">
+            <BujangGadisCard
+              nameBujang="Budi"
+              nameGadis="Siti"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2022"
+              bgStart="bg-primary-color"
+              bgEnd="bg-primary-color"
+            />
+          </div>
+          <div className="p-0">
+            <BujangGadisCard
+              nameBujang="Agus"
+              nameGadis="Dewi"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2021"
+              bgStart="bg-primary-color"
+              bgEnd="bg-transparent"
+            />
+          </div>
         </CarouselItem>
-        <CarouselItem>
+        <CarouselItem className=" hidden lg:flex justify-center lg:mt-10">
+          <div className="p-0">
+            <BujangGadisCard
+              nameBujang="Hari Randora"
+              nameGadis="Sheila Sicilia"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2023"
+              bgStart="bg-transparent"
+              bgEnd="bg-primary-color"
+            />
+          </div>
+          <div className="p-0">
+            <BujangGadisCard
+              nameBujang="Budi"
+              nameGadis="Siti"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2022"
+              bgStart="bg-primary-color"
+              bgEnd="bg-primary-color"
+            />
+          </div>
+          <div className="p-0">
+            <BujangGadisCard
+              nameBujang="Agus"
+              nameGadis="Dewi"
+              image="/assets/images/bujang-gadis.svg"
+              tahun="2021"
+              bgStart="bg-primary-color"
+              bgEnd="bg-transparent"
+            />
+          </div>
+        </CarouselItem>
+        <CarouselItem className=" lg:hidden">
           <div className="p-0">
             <BujangGadisCard
               nameBujang="Budi"
@@ -50,7 +102,7 @@ export function CarouselBujang() {
             />
           </div>
         </CarouselItem>
-        <CarouselItem>
+        <CarouselItem className=" lg:hidden">
           <div className="p-0">
             <BujangGadisCard
               nameBujang="Agus"

@@ -29,7 +29,7 @@ export default function Ketua() {
           height={50}
         />
       </div>
-      <div className=" min-h-80 py-16 container mx-auto">
+      <div className=" min-h-80 py-16 container mx-auto lg:py-24">
         <div className=" text-center">
           <h1 className=" text-white font-bold text-[22px] lg:text-[32px] inline">
             KETUA IKATAN

@@ -4,7 +4,7 @@ import { CarouselBujang } from "./components/carousel-bujang";
 export default function BujangGadis() {
   return (
     <section>
-      <div className=" container mx-auto py-16">
+      <div className=" container mx-auto py-16 lg:py-24">
         <div className=" text-center">
           <h1 className=" font-bold text-[22px] lg:text-[32px] text-primary-color">
             BUJANG GADIS
