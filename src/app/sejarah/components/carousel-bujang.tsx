@@ -37,26 +37,6 @@ export function CarouselBujang() {
               bgEnd="bg-primary-color"
             />
           </div>
-          <div className="p-0">
-            <BujangGadisCard
-              nameBujang="Budi"
-              nameGadis="Siti"
-              image="/assets/images/bujang-gadis.svg"
-              tahun="2022"
-              bgStart="bg-primary-color"
-              bgEnd="bg-primary-color"
-            />
-          </div>
-          <div className="p-0">
-            <BujangGadisCard
-              nameBujang="Agus"
-              nameGadis="Dewi"
-              image="/assets/images/bujang-gadis.svg"
-              tahun="2021"
-              bgStart="bg-primary-color"
-              bgEnd="bg-transparent"
-            />
-          </div>
         </CarouselItem>
         <CarouselItem className=" hidden lg:flex justify-center lg:mt-10">
           <div className="p-0">
@@ -102,7 +82,7 @@ export function CarouselBujang() {
             />
           </div>
         </CarouselItem>
-        <CarouselItem className=" lg:hidden">
+        <CarouselItem className=" lg;hidden">
           <div className="p-0">
             <BujangGadisCard
               nameBujang="Agus"
