@@ -29,7 +29,8 @@ const config: Config = {
         "primary-color": "#F2B414",
         "secondary-color": "#0C429F",
         "third-color": "#0C47AD",
-        "dark-color": "#041839"
+        "dark-color": "#041839",
+        "blue-color": "#004C85",
       },
       fontFamily: {
         redhatdisplay: ["Red Hat Display", "sans-serif"]

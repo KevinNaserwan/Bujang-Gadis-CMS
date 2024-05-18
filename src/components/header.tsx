@@ -8,7 +8,7 @@ import Jumbotron from "./jumbotron";
 import DropdownButton from "./dropdownbutton";
 
 export default function Header() {
-  const TOP_OFFSET = 100;
+  const TOP_OFFSET = 10;
   const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
@@ -67,10 +67,12 @@ export default function Header() {
           </div>
           <div>
             <Button
-            href="/daftar"
+              href="/daftar"
               name="Daftar"
               className={` lg:block py-3 px-12 bg-gradient-to-br   ${
-                showBackground ? " from-primary-color to-white text-black" : " from-secondary-color to-black text-white"
+                showBackground
+                  ? " from-primary-color to-white text-black"
+                  : " from-secondary-color to-black text-white"
               } hover:bg-none hover:bg-black rounded-lg font-semibold text-base`}
             />
           </div>

@@ -8,7 +8,7 @@ export default function SejarahJumbotron() {
           <h1 className=" text-center text-2xl lg:text-4xl font-bold leading-normal">
             SEJARAH
           </h1>
-          <h1 className=" text-center text-2xl lg:text-4xl font-bold text-secondary-color">
+          <h1 className=" text-center text-2xl lg:text-4xl lg:py-3 font-bold text-secondary-color">
             Bujang Gadis Teknik
           </h1>
         </div>

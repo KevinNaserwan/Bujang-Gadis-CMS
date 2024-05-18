@@ -22,12 +22,12 @@ export default function Footer() {
               <h3 className=" text-xl font-bold text-black">Tentang Kami</h3>
               <div className=" pt-4 flex flex-wrap lg:w-full w-4/12  gap-3">
                 <div>
-                  <a href="" className=" hover:underline">
+                  <a href="/sejarah" className=" hover:underline">
                     Sejarah
                   </a>
                 </div>
                 <div>
-                  <a href="" className=" hover:underline">
+                  <a href="/visi-misi" className=" hover:underline">
                     Visi & Misi
                   </a>
                 </div>
