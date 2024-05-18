@@ -3,13 +3,21 @@ import MisiCard from "./component/misi-card";
 
 export default function Misi() {
   return (
-    <section className=" lg:mt-32 mb-44">
-      <div className=" container mx-auto">
+    <section className=" lg:mt-32 lg:mb-44  mb-28">
+      <div className=" container max-w-[300px] lg:max-w-full mx-auto mt-20">
         <div className=" flex items-center gap-4">
-          <Image src="/assets/icon/misi.png" alt=" " width={45} height={50} />
-          <h1 className=" lg:font-bold lg:text-3xl text-blue-color">Misi</h1>
+          <Image
+            src="/assets/icon/misi.png"
+            alt=" "
+            width={45}
+            height={50}
+            className="lg:w-[45px] lg:h-[50px] w-[31px] h-[36px] "
+          />
+          <h1 className=" lg:font-bold font-semibold lg:text-3xl text-2xl text-blue-color">
+            Misi
+          </h1>
         </div>
-        <div className="lg:flex justify-around flex-wrap mt-16">
+        <div className="lg:flex justify-around flex-wrap lg:mt-16 mt-8">
           <MisiCard
             number={1}
             text="Turut serta mengembangkan dan memasyarakatkan pentingnya Pendidikan dan Kebudayaan dalam hidup."

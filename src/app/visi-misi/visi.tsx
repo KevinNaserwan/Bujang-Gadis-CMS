@@ -9,11 +9,20 @@ export default function Visi() {
           alt="gambar visi bujang gadis teknik universitas sriwijaya"
           width={470}
           height={280}
+          className=" lg:w-[470px] lg:h-[280px] w-[282px] h-[168px] mx-auto"
         />
-        <div className="">
+        <div className=" max-w-[300px] lg:max-w-full mx-auto mt-8 lg:mt-0">
           <div className=" flex items-center gap-4">
-            <Image src="/assets/icon/visi.png" alt=" " width={45} height={50} />
-            <h1 className=" lg:font-bold lg:text-3xl text-blue-color">Visi</h1>
+            <Image
+              src="/assets/icon/visi.png"
+              alt=" "
+              width={45}
+              height={50}
+              className="lg:w-[45px] lg:h-[50px] w-[31px] h-[36px] "
+            />
+            <h1 className=" lg:font-bold font-semibold lg:text-3xl text-2xl text-blue-color">
+              Visi
+            </h1>
           </div>
           <div>
             <p className=" mt-5 lg:text-lg text-justify font-normal lg:w-[500px]">
