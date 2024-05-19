@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import Form from "@/components/form";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,6 +20,7 @@ export default function Daftar() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
+  const router = useRouter();
 
   const validateForm = (): Errors => {
     const errors: Errors = {};
@@ -45,12 +48,25 @@ export default function Daftar() {
     return errors;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
-      // Continue with form submission
-      console.log("Form submitted");
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/v1/user/register",
+          {
+            username,
+            email,
+            password,
+          }
+        );
+        console.log("Form submitted successfully:", response.data);
+        router.push(`/masuk?registered=true`);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        // Handle form submission error, e.g., show an error message
+      }
     } else {
       setErrors(validationErrors);
     }
