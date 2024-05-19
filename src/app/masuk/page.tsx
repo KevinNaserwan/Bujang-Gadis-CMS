@@ -107,7 +107,7 @@ export default function Masuk() {
                 {errors.password && (
                   <p className="text-red-500 text-xs">{errors.password}</p>
                 )}
-                <div className=" flex justify-between items-center mb-5">
+                <div className=" flex justify-between items-center mb-5 mt-2">
                   <div className=" flex gap-2">
                     <input
                       type="checkbox"

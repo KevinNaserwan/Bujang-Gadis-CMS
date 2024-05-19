@@ -32,7 +32,7 @@ export default function Form(props: FormProps) {
 
   return (
     <>
-      <div className="mb-2">
+      <div className="mb-2 mt-2">
         <label className="font-medium text-xs lg:text-sm" htmlFor={htmlFor}>
           {label}
         </label>

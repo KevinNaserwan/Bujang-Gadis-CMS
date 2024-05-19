@@ -79,7 +79,7 @@ export default function Daftar() {
                 className=" mx-auto lg:m-0 lg:mx- lg:w-[100px] lg:h-[100px] w-[70px] h-[70px]"
               />
               <div className=" h-[2px] bg-[#D9D9D9] lg:block hidden"></div>
-              <div className=" mt-1 lg:mt-8">
+              <div className=" mt-2 lg:mt-6">
                 <h1 className=" lg:font-bold lg:text-4xl font-semibold text-2xl">
                   Daftar disini!
                 </h1>
@@ -142,7 +142,7 @@ export default function Daftar() {
                     {errors.confirmPassword}
                   </p>
                 )}
-                <div className=" flex justify-between items-center mb-5">
+                <div className=" flex justify-between items-center mb-5 mt-2">
                   <div className=" flex gap-2">
                     <input
                       type="checkbox"
