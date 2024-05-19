@@ -7,12 +7,10 @@ import Link from "next/link";
 
 interface Errors {
   email?: string;
-  username?: string;
   password?: string;
-  confirmPassword?: string;
 }
 
-export default function Daftar() {
+export default function Masuk() {
   const [email, setEmail] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -24,9 +22,6 @@ export default function Daftar() {
     if (!email) {
       errors.email = "Email is required.";
     }
-    if (!username) {
-      errors.username = "Username is required.";
-    }
     if (!password) {
       errors.password = "Password is required.";
     } else {
@@ -36,11 +31,6 @@ export default function Daftar() {
       if (!/^[A-Z]/.test(password)) {
         errors.password = "Password must start with a capital letter.";
       }
-    }
-    if (!confirmPassword) {
-      errors.confirmPassword = "Confirm Password is required.";
-    } else if (password !== confirmPassword) {
-      errors.confirmPassword = "Passwords do not match.";
     }
     return errors;
   };
@@ -55,7 +45,6 @@ export default function Daftar() {
       setErrors(validationErrors);
     }
   };
-
   return (
     <main className="overflow-hidden lg:bg-none bg-login-hero-image-mobile bg-cover bg-center max-h-screen">
       <div className=" lg:flex lg:items-center overflow-hidden pt-[25%] pb-[50%] lg:mt-0 lg:py-0">
@@ -79,7 +68,7 @@ export default function Daftar() {
                 className=" mx-auto lg:m-0 lg:mx- lg:w-[100px] lg:h-[100px] w-[70px] h-[70px]"
               />
               <div className=" h-[2px] bg-[#D9D9D9] lg:block hidden"></div>
-              <div className=" mt-1 lg:mt-8">
+              <div className=" mt-2 lg:mt-12">
                 <h1 className=" lg:font-bold lg:text-4xl font-semibold text-2xl">
                   Masuk ke Akun Anda!
                 </h1>
@@ -87,7 +76,11 @@ export default function Daftar() {
                   Selamat datang, silahkan masukkan email dan kata sandi Anda.
                 </p>
               </div>
-              <form onSubmit={handleSubmit} className=" = lg:my-4 my-5">
+              <form
+                action=""
+                onSubmit={handleSubmit}
+                className=" = lg:my-12 my-5"
+              >
                 <Form
                   htmlFor="email"
                   label="Email"
@@ -102,19 +95,6 @@ export default function Daftar() {
                   <p className="text-red-500 text-xs">{errors.email}</p>
                 )}
                 <Form
-                  htmlFor="username"
-                  label="Username"
-                  type="text"
-                  imageSrc="/assets/icon/mail.svg"
-                  placeholder="Masukkan Username Anda"
-                  imageClassName="hidden"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                {errors.username && (
-                  <p className="text-red-500 text-xs">{errors.username}</p>
-                )}
-                <Form
                   htmlFor="password"
                   label="Password"
                   type="password"
@@ -126,21 +106,6 @@ export default function Daftar() {
                 />
                 {errors.password && (
                   <p className="text-red-500 text-xs">{errors.password}</p>
-                )}
-                <Form
-                  htmlFor="confirmPassword"
-                  label="Confirm Password"
-                  type="password"
-                  imageSrc="/assets/icon/password.svg"
-                  placeholder="Masukkan password Anda"
-                  imageClassName="mr-4 lg:w-[22px] lg:h-[22px] w-[17px] h-[17px]"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                {errors.confirmPassword && (
-                  <p className="text-red-500 text-xs">
-                    {errors.confirmPassword}
-                  </p>
                 )}
                 <div className=" flex justify-between items-center mb-5">
                   <div className=" flex gap-2">
@@ -164,19 +129,19 @@ export default function Daftar() {
                   </Link>
                 </div>
                 <button className=" w-full bg-blue-color rounded-lg hover:bg-dark-color">
-                  <p className=" font-bold text-white text-sm py-3">Daftar</p>
+                  <p className=" font-bold text-white text-sm py-3">Masuk</p>
                 </button>
               </form>
               <div className=" h-[2px] bg-[#D9D9D9] lg:block hidden"></div>
               <div className=" flex lg:gap-1 gap-1 justify-center mt-3 items-center">
                 <p className=" font-medium text-xs lg:text-sm">
-                  Sudah Punya Akun?
+                  Tidak Punya Akun?
                 </p>
                 <Link
-                  href="/masuk"
+                  href="/daftar"
                   className=" lg:font-medium font-bold hover:underline text-sm text-blue-color"
                 >
-                  Masuk
+                  Daftar
                 </Link>
               </div>
             </div>

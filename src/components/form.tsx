@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,10 +9,21 @@ interface FormProps {
   imageSrc: string;
   placeholder: string;
   imageClassName: string;
+  value?: string;
+  onChange?: (e: any) => void;
 }
 
 export default function Form(props: FormProps) {
-  const { htmlFor, label, imageSrc, type, placeholder, imageClassName } = props;
+  const {
+    htmlFor,
+    label,
+    imageSrc,
+    type,
+    placeholder,
+    imageClassName,
+    value,
+    onChange,
+  } = props;
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -23,7 +32,7 @@ export default function Form(props: FormProps) {
 
   return (
     <>
-      <div className="mb-4">
+      <div className="mb-2">
         <label className="font-medium text-xs lg:text-sm" htmlFor={htmlFor}>
           {label}
         </label>
@@ -36,24 +45,28 @@ export default function Form(props: FormProps) {
             className="lg:w-[22px] lg:h-[22px] w-[17px] h-[17px]"
           />
           <input
-            type={
-              type === "email" ? "email" : showPassword ? "text" : "password"
-            }
+            type={type === "password" && showPassword ? "text" : type}
             id={htmlFor}
             className="w-full lg:font-medium font-normal text-xs text-black lg:text-sm outline-none lg:py-3 py-[6px] bg-transparent"
             placeholder={placeholder}
+            value={value}
+            onChange={onChange}
           />
-          <Link href="" onClick={togglePasswordVisibility}>
-            <Image
-              src={
-                showPassword ? "/assets/icon/hide.svg" : "/assets/icon/show.svg"
-              }
-              alt=""
-              width={22}
-              height={22}
-              className={imageClassName}
-            />
-          </Link>
+          {type === "password" && (
+            <Link href="" onClick={togglePasswordVisibility}>
+              <Image
+                src={
+                  showPassword
+                    ? "/assets/icon/hide.svg"
+                    : "/assets/icon/show.svg"
+                }
+                alt=""
+                width={22}
+                height={22}
+                className={imageClassName}
+              />
+            </Link>
+          )}
         </div>
       </div>
     </>
