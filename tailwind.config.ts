@@ -22,7 +22,8 @@ const config: Config = {
         "hero-image": "url('/assets/images/hero.webp')",
         "mobile-hero-image": "url('/assets/images/mobile-hero.webp')",
         "sejarah-hero-image": "url('/assets/images/bg-pattern.webp')",
-        "sejarah-hero-image-web": "url('/assets/images/bg-pattern-web.png')"
+        "sejarah-hero-image-web": "url('/assets/images/bg-pattern-web.png')",
+        "login-hero-image-mobile": "url('/assets/images/login-image-mobile.png')"
         
       },
       colors: {
