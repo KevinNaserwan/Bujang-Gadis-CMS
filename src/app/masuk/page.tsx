@@ -156,7 +156,7 @@ function LoginContent() {
 
 export default function Masuk() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading....</div>}>
       <LoginContent />
       <Modal />
     </Suspense>
