@@ -36,7 +36,9 @@ export default function Form(props: FormProps) {
             className="lg:w-[22px] lg:h-[22px] w-[17px] h-[17px]"
           />
           <input
-            type={showPassword ? "text" : "password"}
+            type={
+              type === "email" ? "email" : showPassword ? "text" : "password"
+            }
             id={htmlFor}
             className="w-full lg:font-medium font-normal text-xs text-black lg:text-sm outline-none lg:py-3 py-[6px] bg-transparent"
             placeholder={placeholder}
