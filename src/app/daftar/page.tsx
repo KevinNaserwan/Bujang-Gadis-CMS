@@ -81,10 +81,10 @@ export default function Daftar() {
               <div className=" h-[2px] bg-[#D9D9D9] lg:block hidden"></div>
               <div className=" mt-1 lg:mt-8">
                 <h1 className=" lg:font-bold lg:text-4xl font-semibold text-2xl">
-                  Masuk ke Akun Anda!
+                  Daftar disini!
                 </h1>
                 <p className=" lg:font-medium lg:text-sm font-semibold text-xs text-[#414141] mt-1">
-                  Selamat datang, silahkan masukkan email dan kata sandi Anda.
+                  Daftarkan diri kamu menjadi bujang gadis berikutnya.
                 </p>
               </div>
               <form onSubmit={handleSubmit} className=" = lg:my-4 my-5">
