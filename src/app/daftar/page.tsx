@@ -38,6 +38,7 @@ export default function Daftar() {
                 <Form
                   htmlFor="email"
                   label="Email"
+                  type="email"
                   imageSrc="/assets/icon/mail.svg"
                   placeholder="Masukkan email Anda"
                   imageClassName="hidden"
@@ -45,6 +46,7 @@ export default function Daftar() {
                 <Form
                   htmlFor="password"
                   label="Password"
+                  type="password"
                   imageSrc="/assets/icon/password.svg"
                   placeholder="Masukkan password Anda"
                   imageClassName="mr-4 lg:w-[22px] lg:h-[22px] w-[17px] h-[17px]"
