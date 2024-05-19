@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Daftar() {
   return (
     <main className="overflow-hidden lg:bg-none bg-login-hero-image-mobile bg-cover bg-center max-h-screen">
-      <div className=" lg:flex lg:items-center overflow-hidden pt-[50%] pb-[50%] lg:mt-0 lg:py-0">
+      <div className=" lg:flex lg:items-center overflow-hidden pt-[25%] pb-[50%] lg:mt-0 lg:py-0">
         <div className=" hidden lg:block">
           <Image
             src="/assets/images/login-image.webp"
