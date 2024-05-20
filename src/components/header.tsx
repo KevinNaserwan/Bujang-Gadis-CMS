@@ -3,9 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import Button from "./button";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Jumbotron from "./jumbotron";
 import DropdownButton from "./dropdownbutton";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 export default function Header() {
   const TOP_OFFSET = 10;
@@ -75,6 +77,71 @@ export default function Header() {
                   : " from-secondary-color to-black text-white"
               } hover:bg-none hover:bg-black rounded-lg font-semibold text-base`}
             />
+            {/* <Menu as={"div"} className={"relative inline-block text-left"}>
+              <div>
+                <Menu.Button className="flex items-center gap-3 hover:bg-white/40 py-2 px-4 rounded-lg">
+                  <Image
+                    src="/assets/icon/user.png"
+                    width={40}
+                    height={40}
+                    alt=""
+                  />
+                  <p
+                    className={` hidden lg:block text-base font-medium bg-gradient-to-r from-secondary-color to-black inline-block text-transparent bg-clip-text ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                  >
+                    Kevin Naserwan
+                  </p>
+                  <ChevronDownIcon
+                    className={`-mr-1 ml-2 h-5 w-5 text-black ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                    aria-hidden="true"
+                  />
+                </Menu.Button>
+              </div>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                  <div className="px-1 py-1">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link
+                          href="/edit-profile"
+                          className={`${
+                            active ? "bg-black/10 text-black" : "text-gray-900"
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        >
+                          Edit
+                        </Link>
+                      )}
+                    </Menu.Item>
+                  </div>
+                  <div className="px-1 py-1">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link
+                          href="/logout"
+                          className={`${
+                            active ? "bg-black/10 text-black" : "text-gray-900"
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        >
+                          Log out
+                        </Link>
+                      )}
+                    </Menu.Item>
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu> */}
           </div>
           {/* <div>
             <Link href={"/"} className="">

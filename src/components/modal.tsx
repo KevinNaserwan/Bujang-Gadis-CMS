@@ -51,7 +51,8 @@ export default function Modal() {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Akun anda berhasil dibuat, silakan login disini.
+                      Akun anda berhasil dibuat, silakan cek email anda untuk
+                      aktivasi.
                     </p>
                   </div>
                   <div className="mt-4">
@@ -60,7 +61,7 @@ export default function Modal() {
                       className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                      Yes
+                      Baik
                     </button>
                   </div>
                 </Dialog.Panel>

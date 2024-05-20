@@ -6,18 +6,30 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Form from "@/components/form";
 import Image from "next/image";
 import Link from "next/link";
-import Modal from "@/components/modal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Errors {
   email?: string;
   password?: string;
 }
+
 function LoginContent() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
   const [apiError, setApiError] = useState<string | null>(null);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const registered = searchParams.get("registered");
+
+  useEffect(() => {
+    if (registered === "true") {
+      toast.success(
+        "Akun Anda berhasil dibuat, silakan cek email anda untuk aktivasi"
+      );
+    }
+  }, [registered]);
 
   const validateForm = (): Errors => {
     const errors: Errors = {};
@@ -167,6 +179,7 @@ function LoginContent() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </main>
   );
 }
@@ -175,7 +188,6 @@ export default function Masuk() {
   return (
     <Suspense fallback={<div>Loading....</div>}>
       <LoginContent />
-      <Modal />
     </Suspense>
   );
 }
