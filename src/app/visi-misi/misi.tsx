@@ -3,8 +3,8 @@ import MisiCard from "./component/misi-card";
 
 export default function Misi() {
   return (
-    <section className=" lg:mt-32 lg:mb-44  mb-28">
-      <div className=" container max-w-[300px] lg:max-w-full mx-auto mt-20">
+    <section className=" lg:mt-32 lg:mb-52 mb-28">
+      <div className=" container max-w-[300px] lg:max-w-[1200px]  mx-auto mt-20">
         <div className=" flex items-center gap-4">
           <Image
             src="/assets/icon/misi.png"
@@ -28,7 +28,7 @@ export default function Misi() {
           />
           <MisiCard
             number={3}
-            text="Ikut berpartisipasi dengan cara mendukung pembangunan yang berwawasan lingkungan dan dalam usaha peningkatan sumber daya manusia."
+            text="Ikut berpartisipasi dengan cara mendukung pembangunan dalam usaha peningkatan sumber daya manusia."
           />
           <MisiCard
             number={4}

@@ -5,8 +5,8 @@ type MisiCardProps = {
 
 export default function MisiCard({ number, text }: MisiCardProps) {
   return (
-    <div className=" relative lg:mt-0 mt-10 mb-28">
-      <div className=" bg-white shadow-2xl relative h-[300px] lg:p-8 py-14 lg:py-0 px-10 lg:px-0 rounded-xl z-10">
+    <div className=" relative lg:mt-0 mt-20 ">
+      <div className=" bg-white shadow-2xl relative h-[320px] py-14 px-10 rounded-xl z-10 lg:pt-0 pt-[72px]">
         <div className=" bg-blue-color w-11 h-11 flex justify-center items-center shadow-2xl shadow-blue-color rounded font-bold text-lg text-white">
           {number}
         </div>
