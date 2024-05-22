@@ -1,18 +1,17 @@
-"use client";
-
+import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "./button";
-import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import DropdownButton from "./dropdownbutton";
 import { useRouter } from "next/navigation";
+import Button from "./button";
+import DropdownButton from "./dropdownbutton";
 
 export default function Header() {
   const TOP_OFFSET = 10;
   const [showBackground, setShowBackground] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -26,10 +25,13 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Check for token in localStorage
+    // Check for token and email in localStorage
     const token = localStorage.getItem("token");
-    if (token) {
+    const email = localStorage.getItem("email");
+    if (token && email) {
       setIsLoggedIn(true);
+      // Fetch user data
+      fetchUserData(email);
     }
 
     return () => {
@@ -37,8 +39,31 @@ export default function Header() {
     };
   }, []);
 
+  const fetchUserData = async (email: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/v1/user/${email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        setUserName(data.value.username); // Assuming the API returns a field userName
+        console.info("Success get data:", data.message);
+      } else {
+        console.error("Failed to fetch user data:", data.message);
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching user data:", error);
+    }
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
     setIsLoggedIn(false);
     router.push("/"); // Redirect to home page after logout
   };
@@ -108,7 +133,7 @@ export default function Header() {
                         showBackground ? "text-white" : ""
                       }`}
                     >
-                      Kevin Naserwan
+                      {userName}
                     </p>
                     <ChevronDownIcon
                       className={`-mr-1 ml-2 h-5 w-5 ${

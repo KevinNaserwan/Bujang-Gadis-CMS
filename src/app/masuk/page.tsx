@@ -69,6 +69,7 @@ function LoginContent() {
         const data = await response.json();
         if (response.ok) {
           localStorage.setItem("token", data.value.token);
+          localStorage.setItem("email", email);
           router.push("/");
         } else {
           setApiError(data.message);
