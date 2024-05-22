@@ -52,7 +52,7 @@ export default function Simbol() {
               <SimbolCard
                 image=""
                 simbol="Warna Biru"
-                content="Selain menjadi warna identitas kampus Universitas Islam Negeri Raden Fatah Palembang, warna biru sendiri dalam psikologi melambangkan ketenangan."
+                content="Selain menjadi warna identitas kampus Universitas Islam Negeri Raden Fatah Palembang."
               />
               <SimbolCard
                 image=""

@@ -17,7 +17,7 @@ export default function SejarahJumbotron() {
         </h2>
       </div>
       <div className=" relative container mx-auto bg-white/40 lg:bg-transparent">
-        <div className=" max-w-[340px] lg:max-w-[1200px] lg:gap-12 mx-auto lg:pt-24 lg:items-center lg:flex lg:flex-row-reverse">
+        <div className=" max-w-[300px] lg:max-w-[1200px] lg:gap-12 mx-auto lg:pt-24 lg:items-center lg:flex lg:flex-row-reverse">
           <Image
             src="/assets/images/history.svg"
             alt="History Image"
