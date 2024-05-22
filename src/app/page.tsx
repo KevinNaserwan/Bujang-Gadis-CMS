@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, Fragment } from "react";
+import { useEffect, useState, Fragment, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Dialog, Transition } from "@headlessui/react";
 import Button from "@/components/button";
@@ -19,7 +19,7 @@ interface VerifyResponse {
   message: string;
 }
 
-export default function Home() {
+function HomeComponent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,10 +71,7 @@ export default function Home() {
   };
 
   return (
-    <main
-      rel="preload"
-      className="lg:bg-hero-image bg-mobile-hero-image bg-contain bg-no-repeat w-full"
-    >
+    <>
       <Header />
       <Jumbotron
         video="/assets/video/trailer-hero.mp4"
@@ -138,6 +135,19 @@ export default function Home() {
           </div>
         </Dialog>
       </Transition>
+    </>
+  );
+}
+
+export default function Home() {
+  return (
+    <main
+      rel="preload"
+      className="lg:bg-hero-image bg-mobile-hero-image bg-contain bg-no-repeat w-full"
+    >
+      <Suspense fallback={<div>Loading...</div>}>
+        <HomeComponent />
+      </Suspense>
     </main>
   );
 }
