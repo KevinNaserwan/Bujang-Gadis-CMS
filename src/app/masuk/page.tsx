@@ -19,6 +19,7 @@ function LoginContent() {
   const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
   const [apiError, setApiError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const registered = searchParams.get("registered");
@@ -53,6 +54,7 @@ function LoginContent() {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
+      setIsLoading(true);
       try {
         const response = await fetch(
           "http://localhost:5000/api/v1/user/login",
@@ -73,6 +75,8 @@ function LoginContent() {
         }
       } catch (error) {
         setApiError("An error occurred. Please try again.");
+      } finally {
+        setIsLoading(false);
       }
     } else {
       setErrors(validationErrors);
@@ -180,6 +184,11 @@ function LoginContent() {
         </div>
       </div>
       <ToastContainer />
+      {isLoading && (
+        <div className="fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="loader"></div>
+        </div>
+      )}
     </main>
   );
 }

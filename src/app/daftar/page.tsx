@@ -20,6 +20,7 @@ export default function Daftar() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const validateForm = (): Errors => {
@@ -52,6 +53,7 @@ export default function Daftar() {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
+      setIsLoading(true);
       try {
         const response = await axios.post(
           "http://localhost:5000/api/v1/user/register",
@@ -66,6 +68,8 @@ export default function Daftar() {
       } catch (error) {
         console.error("Error submitting form:", error);
         // Handle form submission error, e.g., show an error message
+      } finally {
+        setIsLoading(false); // Setel isLoading menjadi false setelah proses selesai, baik berhasil atau gagal
       }
     } else {
       setErrors(validationErrors);
@@ -199,6 +203,11 @@ export default function Daftar() {
           </div>
         </div>
       </div>
+      {isLoading && (
+        <div className="fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-color"></div>
+        </div>
+      )}
     </main>
   );
 }
