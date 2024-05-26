@@ -159,14 +159,30 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href="/edit-profile"
+                            href="/profile"
                             className={`${
                               active
                                 ? "bg-black/10 text-black"
                                 : "text-gray-900"
                             } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                           >
-                            Edit
+                            Edit Akun Profile
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    </div>
+                    <div className="px-1 py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="/biodata"
+                            className={`${
+                              active
+                                ? "bg-black/10 text-black"
+                                : "text-gray-900"
+                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                          >
+                            Isi Biodata
                           </Link>
                         )}
                       </Menu.Item>
