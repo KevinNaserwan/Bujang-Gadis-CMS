@@ -1,9 +1,55 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import Step from "./components/step";
+import { useState, useEffect } from "react";
+import FormBiodata from "./components/formBiodata";
 
 export default function Biodata() {
+  const [steps, setSteps] = useState({
+    dataDiri: "inProgress",
+    pendidikan: "pending",
+    prestasi: "pending",
+    upload: "pending",
+  });
+
+  // Simulate fetching data from the database
+  useEffect(() => {
+    // Replace with your actual data fetching logic
+    const fetchData = async () => {
+      const dbData = {
+        data_diri: 0,
+        riwayat_pendidikan: 0,
+        prestasi: 0,
+        upload: 0,
+      };
+
+      setSteps({
+        dataDiri: dbData.data_diri ? "completed" : "inProgress",
+        pendidikan: dbData.riwayat_pendidikan
+          ? "completed"
+          : dbData.data_diri
+          ? "inProgress"
+          : "pending",
+        prestasi: dbData.prestasi
+          ? "completed"
+          : dbData.riwayat_pendidikan
+          ? "inProgress"
+          : "pending",
+        upload: dbData.upload
+          ? "completed"
+          : dbData.prestasi
+          ? "inProgress"
+          : "pending",
+      });
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <main>
+    <main className="">
       <div className=" bg-dark-color relative py-12">
         <div className=" lg:max-w-[1300px] mx-auto">
           <Link href="/" className=" lg:flex gap-5">
@@ -12,273 +58,149 @@ export default function Biodata() {
           </Link>
           <div className=" lg:max-w-[1200px] mx-auto bg-white mt-14 rounded-xl">
             <div className=" flex gap-2 justify-center py-11">
-              <div>
-                <div className=" flex items-center gap-2">
-                  <div className=" w-[60px] h-[60px] bg-white border border-[#004C85] flex items-center justify-center rounded-full">
-                    <div className=" w-[50px] h-[50px] bg-[#004C85] rounded-full flex items-center justify-center">
-                      <Image
-                        src="/assets/icon/datadiri.svg"
-                        width={23}
-                        height={23}
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div className=" w-[200px] h-[10px] bg-dark-color rounded-3xl"></div>
-                </div>
-                <div className=" mt-2">
-                  <p className=" font-bold text-xs text-[#979797]">Step 1</p>
-                  <h1 className=" font-bold text-xl text-black py-1">
-                    Biodata
-                  </h1>
-                  <div className="bg-[#EAE8FE] rounded-3xl max-w-[95px]">
-                    <p className=" font-semibold text-xs py-1 px-4">
-                      In Progress
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className=" flex items-center gap-2">
-                  <div className=" w-[60px] h-[60px] bg-white border border-[#004C85] flex items-center justify-center rounded-full">
-                    <div className=" w-[50px] h-[50px] bg-[#004C85] rounded-full flex items-center justify-center">
-                      <Image
-                        src="/assets/icon/datadiri.svg"
-                        width={23}
-                        height={23}
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div className=" w-[200px] h-[10px] bg-dark-color rounded-3xl"></div>
-                </div>
-                <div className=" mt-2">
-                  <p className=" font-bold text-xs text-[#979797]">Step 1</p>
-                  <h1 className=" font-bold text-xl text-black py-1">
-                    Biodata
-                  </h1>
-                  <div className="bg-[#EAE8FE] rounded-3xl max-w-[95px]">
-                    <p className=" font-semibold text-xs py-1 px-4">
-                      In Progress
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className=" flex items-center gap-2">
-                  <div className=" w-[60px] h-[60px] bg-white border border-[#004C85] flex items-center justify-center rounded-full">
-                    <div className=" w-[50px] h-[50px] bg-[#004C85] rounded-full flex items-center justify-center">
-                      <Image
-                        src="/assets/icon/datadiri.svg"
-                        width={23}
-                        height={23}
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div className=" w-[200px] h-[10px] bg-dark-color rounded-3xl"></div>
-                </div>
-                <div className=" mt-2">
-                  <p className=" font-bold text-xs text-[#979797]">Step 1</p>
-                  <h1 className=" font-bold text-xl text-black py-1">
-                    Biodata
-                  </h1>
-                  <div className="bg-[#EAE8FE] rounded-3xl max-w-[95px]">
-                    <p className=" font-semibold text-xs py-1 px-4">
-                      In Progress
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className=" flex items-center gap-2">
-                  <div className=" w-[60px] h-[60px] bg-white border border-[#004C85] flex items-center justify-center rounded-full">
-                    <div className=" w-[50px] h-[50px] bg-[#004C85] rounded-full flex items-center justify-center">
-                      <Image
-                        src="/assets/icon/datadiri.svg"
-                        width={23}
-                        height={23}
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className=" mt-2">
-                  <p className=" font-bold text-xs text-[#979797]">Step 1</p>
-                  <h1 className=" font-bold text-xl text-black py-1">
-                    Biodata
-                  </h1>
-                  <div className="bg-[#EAE8FE] rounded-3xl max-w-[95px]">
-                    <p className=" font-semibold text-xs py-1 px-4">
-                      In Progress
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <Step
+                step="Step 1"
+                title="Biodata"
+                hiddenLine=""
+                image="/assets/icon/datadiri.svg"
+                colorIcon={`${
+                  steps.dataDiri === "completed"
+                    ? "bg-[#07590F]"
+                    : "bg-[#004C85]"
+                }`}
+                colorStatus={`${
+                  steps.dataDiri === "completed"
+                    ? "bg-[#D8FFEC]"
+                    : "bg-[#EAE8FE]"
+                }`}
+                status={`${
+                  steps.dataDiri === "completed" ? "Completed" : "In Progress"
+                }`}
+                colorBorder={`${
+                  steps.dataDiri === "completed"
+                    ? "border-[#07590F]"
+                    : "border-[#004C85]"
+                }`}
+                width="max-w-[95px]"
+              />
+              <Step
+                step="Step 2"
+                title="Riwayat Pendidikan"
+                hiddenLine=""
+                image="/assets/icon/pendidikan.svg"
+                colorIcon={`${
+                  steps.pendidikan === "completed"
+                    ? "bg-[#07590F]"
+                    : steps.pendidikan === "inProgress"
+                    ? "bg-[#004C85]"
+                    : "bg-[#979797]"
+                }`}
+                colorStatus={`${
+                  steps.pendidikan === "completed"
+                    ? "bg-[#D8FFEC]"
+                    : steps.pendidikan === "inProgress"
+                    ? "bg-[#EAE8FE]"
+                    : "bg-[#FFFFFF]"
+                }`}
+                status={`${
+                  steps.pendidikan === "completed"
+                    ? "Completed"
+                    : steps.pendidikan === "inProgress"
+                    ? "In Progress"
+                    : "Pending"
+                }`}
+                colorBorder={`${
+                  steps.pendidikan === "completed"
+                    ? "border-[#07590F]"
+                    : steps.pendidikan === "inProgress"
+                    ? "border-[#004C85]"
+                    : "border-[#979797]"
+                }`}
+                width="max-w-[95px]"
+              />
+              <Step
+                step="Step 3"
+                title="Prestasi"
+                hiddenLine=""
+                image="/assets/icon/prestasi.svg"
+                colorIcon={`${
+                  steps.prestasi === "completed"
+                    ? "bg-[#07590F]"
+                    : steps.prestasi === "inProgress"
+                    ? "bg-[#004C85]"
+                    : "bg-[#979797]"
+                }`}
+                colorStatus={`${
+                  steps.prestasi === "completed"
+                    ? "bg-[#D8FFEC]"
+                    : steps.prestasi === "inProgress"
+                    ? "bg-[#EAE8FE]"
+                    : "bg-[#FFFFFF]"
+                }`}
+                status={`${
+                  steps.prestasi === "completed"
+                    ? "Completed"
+                    : steps.prestasi === "inProgress"
+                    ? "In Progress"
+                    : "Pending"
+                }`}
+                colorBorder={`${
+                  steps.prestasi === "completed"
+                    ? "border-[#07590F]"
+                    : steps.prestasi === "inProgress"
+                    ? "border-[#004C85]"
+                    : "border-[#979797]"
+                }`}
+                width="max-w-[95px]"
+              />
+              <Step
+                step="Step 4"
+                title="Upload File"
+                hiddenLine="hidden"
+                image="/assets/icon/upload.svg"
+                colorIcon={`${
+                  steps.upload === "completed"
+                    ? "bg-[#07590F]"
+                    : steps.upload === "inProgress"
+                    ? "bg-[#004C85]"
+                    : "bg-[#979797]"
+                }`}
+                colorStatus={`${
+                  steps.upload === "completed"
+                    ? "bg-[#D8FFEC]"
+                    : steps.upload === "inProgress"
+                    ? "bg-[#EAE8FE]"
+                    : "bg-[#FFFFFF]"
+                }`}
+                status={`${
+                  steps.upload === "completed"
+                    ? "Completed"
+                    : steps.upload === "inProgress"
+                    ? "In Progress"
+                    : "Pending"
+                }`}
+                colorBorder={`${
+                  steps.upload === "completed"
+                    ? "border-[#07590F]"
+                    : steps.upload === "inProgress"
+                    ? "border-[#004C85]"
+                    : "border-[#979797]"
+                }`}
+                width="max-w-[95px]"
+              />
             </div>
             <div className=" w-full h-[2px] bg-[#D9D9D9]"></div>
-            <div className=" py-16 pb-36 relative">
-              <h1 className=" font-bold text-black text-xl text-center">
-                Biodata
-              </h1>
-              <div className=" mt-14 ">
-                <form action="">
-                  <div className=" flex justify-around">
-                    <div>
-                      <div>
-                        <label htmlFor="name" className=" font-medium text-sm">
-                          Nama
-                          <br />
-                          <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            placeholder="Masukkan Nama Lengkap"
-                            className=" rounded-lg border py-3 px-4 border-black text-black mt-1 w-[400px]"
-                          />
-                        </label>
-                      </div>
-                      <div className=" mt-5">
-                        <label
-                          htmlFor="jenis_kelamin"
-                          className="font-medium text-sm"
-                        >
-                          Jenis Kelamin
-                        </label>
-                        <br />
-                        <input
-                          type="radio"
-                          name="jenis_kelamin"
-                          id="laki-laki"
-                          value="L"
-                          className="mr-2 mt-3"
-                        />
-                        <label htmlFor="laki-laki">Laki-laki</label>
-                        <input
-                          type="radio"
-                          name="jenis_kelamin"
-                          id="perempuan"
-                          value="P"
-                          className=" mr-2 ml-5"
-                        />
-                        <label htmlFor="perempuan">Perempuan</label>
-                      </div>
-                      <div className=" mt-5">
-                        <label
-                          htmlFor="tempat_lahir"
-                          className=" font-medium text-sm"
-                        >
-                          Tempat Lahir
-                          <br />
-                          <input
-                            type="date"
-                            name="tempat_lahir"
-                            id="tempat_lahir"
-                            placeholder="Masukkan Tempat Lahir"
-                            className=" rounded-lg border py-3 px-4 border-black text-black mt-2 w-[400px]"
-                          />
-                        </label>
-                      </div>
-                      <div className="mt-5">
-                        <label htmlFor="hobi">
-                          Hobi
-                          <br />
-                          <textarea
-                            name="hobi"
-                            id="hobi"
-                            placeholder="Masukkan Hobi"
-                            className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[400px]"
-                            rows={2}
-                          ></textarea>
-                        </label>
-                      </div>
-                      <div className="mt-5">
-                        <label htmlFor="alamat">
-                          Alamat
-                          <br />
-                          <textarea
-                            name="alamat"
-                            id="alamat"
-                            placeholder="Masukkan alamat"
-                            className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[400px]"
-                            rows={2}
-                          ></textarea>
-                        </label>
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <label htmlFor="nim" className=" font-medium text-sm">
-                          NIM
-                          <br />
-                          <input
-                            type="text"
-                            name="nim"
-                            id="nim"
-                            placeholder="Masukkan NIM"
-                            className=" rounded-lg border py-3 px-4 border-black text-black mt-1 w-[400px]"
-                          />
-                        </label>
-                      </div>
-                      <div className=" mt-5">
-                        <label
-                          htmlFor="jusuran"
-                          className=" font-medium text-sm"
-                        >
-                          Jurusan
-                          <br />
-                          <input
-                            type="text"
-                            name="jurusan"
-                            id="jurusan"
-                            placeholder="Masukkan Jurusan"
-                            className=" rounded-lg border py-3 px-4 border-black text-black mt-1 w-[400px]"
-                          />
-                        </label>
-                      </div>
-                      <div className=" mt-5">
-                        <label
-                          htmlFor="fakultas"
-                          className=" font-medium text-sm"
-                        >
-                          Fakultas
-                          <br />
-                          <input
-                            type="text"
-                            name="fakultas"
-                            id="fakultas"
-                            placeholder="Masukkan fakultas"
-                            className=" rounded-lg border py-3 px-4 border-black text-black mt-1 w-[400px]"
-                          />
-                        </label>
-                      </div>
-                      <div className=" mt-5">
-                        <label
-                          htmlFor="angkatan"
-                          className=" font-medium text-sm"
-                        >
-                          Angkatan
-                          <br />
-                          <input
-                            type="text"
-                            name="angkatan"
-                            id="angkatan"
-                            placeholder="Masukkan angkatan"
-                            className=" rounded-lg border py-3 px-4 border-black text-black mt-1 w-[400px]"
-                          />
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <button
-                className="py-3 absolute right-28 bottom-16 px-8 mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
-                type="submit"
-              >
-                Selanjutnya
-              </button>
-            </div>
+            {steps.dataDiri === "inProgress" ? (
+              <FormBiodata />
+            ) : steps.pendidikan === "inProgress" ? (
+              "halaman form pendidikan"
+            ) : steps.prestasi === "inProgress" ? (
+              "halaman form prestasi"
+            ) : steps.upload === "inProgress" ? (
+              "halaman form upload"
+            ) : (
+              "selesai isi form"
+            )}
           </div>
         </div>
       </div>
