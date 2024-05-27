@@ -5,6 +5,9 @@ import Link from "next/link";
 import Step from "./components/step";
 import { useState, useEffect } from "react";
 import FormBiodata from "./components/formBiodata";
+import FormPendidikan from "./components/formPendidikan";
+import FormPrestasi from "./components/formPrestasi";
+import FormUpload from "./components/formUpload";
 
 export default function Biodata() {
   const [steps, setSteps] = useState({
@@ -14,35 +17,53 @@ export default function Biodata() {
     upload: "pending",
   });
 
-  // Simulate fetching data from the database
   useEffect(() => {
-    // Replace with your actual data fetching logic
-    const fetchData = async () => {
-      const dbData = {
-        data_diri: 0,
-        riwayat_pendidikan: 0,
-        prestasi: 0,
-        upload: 0,
-      };
+    const email = localStorage.getItem("email");
 
-      setSteps({
-        dataDiri: dbData.data_diri ? "completed" : "inProgress",
-        pendidikan: dbData.riwayat_pendidikan
-          ? "completed"
-          : dbData.data_diri
-          ? "inProgress"
-          : "pending",
-        prestasi: dbData.prestasi
-          ? "completed"
-          : dbData.riwayat_pendidikan
-          ? "inProgress"
-          : "pending",
-        upload: dbData.upload
-          ? "completed"
-          : dbData.prestasi
-          ? "inProgress"
-          : "pending",
-      });
+    const fetchData = async () => {
+      if (email) {
+        try {
+          const response = await fetch(
+            `http://localhost:5000/api/v1/user/${email}`,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+
+          if (response.ok) {
+            const dbData = await response.json();
+            console.log(dbData);
+            setSteps({
+              dataDiri:
+                dbData.value.data_diri == true ? "completed" : "inProgress",
+              pendidikan:
+                dbData.value.riwayat_pendidikan == true
+                  ? "completed"
+                  : dbData.value.data_diri == true
+                  ? "inProgress"
+                  : "pending",
+              prestasi:
+                dbData.value.prestasi == true
+                  ? "completed"
+                  : dbData.value.riwayat_pendidikan == true
+                  ? "inProgress"
+                  : "pending",
+              upload:
+                dbData.value.upload == true
+                  ? "completed"
+                  : dbData.value.prestasi == true
+                  ? "inProgress"
+                  : "pending",
+            });
+          } else {
+            console.error("Failed to fetch user data");
+          }
+        } catch (error) {
+          console.error("An error occurred while fetching user data:", error);
+        }
+      }
     };
 
     fetchData();
@@ -50,14 +71,14 @@ export default function Biodata() {
 
   return (
     <main className="">
-      <div className=" bg-dark-color relative py-12">
-        <div className=" lg:max-w-[1300px] mx-auto">
-          <Link href="/" className=" lg:flex gap-5">
+      <div className="bg-dark-color relative py-16 h-fit">
+        <div className="lg:max-w-[1300px] mx-auto">
+          <Link href="/" className="lg:flex gap-5">
             <Image src="/assets/icon/back.svg" width={30} height={22} alt="" />
-            <h1 className=" font-bold text-[24px] text-white">Isi Data Diri</h1>
+            <h1 className="font-bold text-[24px] text-white">Isi Data Diri</h1>
           </Link>
-          <div className=" lg:max-w-[1200px] mx-auto bg-white mt-14 rounded-xl">
-            <div className=" flex gap-2 justify-center py-11">
+          <div className="lg:max-w-[1200px] mx-auto bg-white mt-10 rounded-xl">
+            <div className="flex gap-2 justify-center py-11">
               <Step
                 step="Step 1"
                 title="Biodata"
@@ -189,17 +210,17 @@ export default function Biodata() {
                 width="max-w-[95px]"
               />
             </div>
-            <div className=" w-full h-[2px] bg-[#D9D9D9]"></div>
+            <div className="w-full h-[2px] bg-[#D9D9D9]"></div>
             {steps.dataDiri === "inProgress" ? (
               <FormBiodata />
             ) : steps.pendidikan === "inProgress" ? (
-              "halaman form pendidikan"
+              <FormPendidikan />
             ) : steps.prestasi === "inProgress" ? (
-              "halaman form prestasi"
+              <FormPrestasi />
             ) : steps.upload === "inProgress" ? (
-              "halaman form upload"
+              <FormUpload />
             ) : (
-              "selesai isi form"
+              "Selesai isi form"
             )}
           </div>
         </div>
