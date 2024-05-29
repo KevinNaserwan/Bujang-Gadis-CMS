@@ -71,14 +71,39 @@ export default function Biodata() {
 
   return (
     <main className="">
-      <div className="bg-dark-color relative py-16 h-fit">
-        <div className="lg:max-w-[1300px] mx-auto">
+      <div className="lg:bg-dark-color bg-white relative lg:py-16 lg:h-fit">
+        <div className="lg:max-w-[1300px] max-w-[330px] mx-auto">
           <Link href="/" className="lg:flex gap-5">
-            <Image src="/assets/icon/back.svg" width={30} height={22} alt="" />
-            <h1 className="font-bold text-[24px] text-white">Isi Data Diri</h1>
+            <Image
+              src="/assets/icon/back.svg"
+              width={30}
+              height={22}
+              alt=""
+              className="lg:pt-0 pt-10 hidden lg:block"
+            />
+            <Image
+              src="/assets/icon/back-mobile.svg"
+              width={30}
+              height={22}
+              alt=""
+              className="lg:pt-0 pt-5 lg:hidden block"
+            />
+            <h1 className="font-bold text-[24px] text-white hidden lg:block">
+              Isi Data Diri
+            </h1>
+            <h1 className="font-bold lg:text-[24px] text-base text-black lg:text-white lg:hidden block lg:mt-0 mt-5">
+              Lengkapi Data Diri!
+            </h1>
+            <p className=" font-medium lg:hidden block text-xs mt-1 mb-5">
+              Lengkapi form data diri dibawah
+            </p>
           </Link>
-          <div className="lg:max-w-[1200px] mx-auto bg-white mt-10 rounded-xl">
-            <div className="flex gap-2 justify-center py-11">
+          <div className="lg:max-w-[1200px] mx-auto bg-white lg:mt-10 rounded-xl">
+            <h1 className=" lg:hidden text-center font-bold text-base text-blue-color">
+              {" "}
+              Step 1
+            </h1>
+            <div className="flex lg:gap-2 justify-center lg:py-11 py-5">
               <Step
                 step="Step 1"
                 title="Biodata"
@@ -106,7 +131,7 @@ export default function Biodata() {
               />
               <Step
                 step="Step 2"
-                title="Riwayat Pendidikan"
+                title="Pendidikan"
                 hiddenLine=""
                 image="/assets/icon/pendidikan.svg"
                 colorIcon={`${
@@ -210,7 +235,7 @@ export default function Biodata() {
                 width="max-w-[95px]"
               />
             </div>
-            <div className="w-full h-[2px] bg-[#D9D9D9]"></div>
+            <div className="w-full h-[2px] lg:block hidden bg-[#D9D9D9]"></div>
             {steps.dataDiri === "inProgress" ? (
               <FormBiodata />
             ) : steps.pendidikan === "inProgress" ? (

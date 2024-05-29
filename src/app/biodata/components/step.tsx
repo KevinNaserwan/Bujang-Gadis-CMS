@@ -26,24 +26,36 @@ export default function Step({
 }: step) {
   return (
     <div>
-      <div className=" flex items-center gap-2">
+      <div className=" flex items-center lg:gap-2 gap-0">
         <div
-          className={` w-[60px] h-[60px] bg-white border ${colorBorder} flex items-center justify-center rounded-full`}
+          className={` lg:w-[60px] lg:h-[60px]  bg-white border ${colorBorder} flex items-center justify-center rounded-full`}
         >
           <div
-            className={` w-[50px] h-[50px] ${colorIcon} rounded-full flex items-center justify-center`}
+            className={` lg:w-[50px] lg:h-[50px] w-[35px] h-[35px] ${colorIcon} rounded-full flex items-center justify-center`}
           >
-            <Image src={image} width={23} height={23} alt="" />
+            <Image
+              src={image}
+              width={23}
+              height={23}
+              className="lg:w-[23px] lg:h-[23px] w-[15px] h-[15px]"
+              alt=""
+            />
           </div>
         </div>
         <div
-          className={` w-[200px] h-[10px] ${colorIcon}  rounded-3xl ${hiddenLine}`}
+          className={` lg:w-[200px] lg:h-[10px] w-[55px] h-[5px] ${colorIcon}  lg:rounded-3xl ${hiddenLine}`}
         ></div>
       </div>
       <div className=" mt-2">
-        <p className=" font-bold text-xs text-[#979797]">{step}</p>
-        <h1 className=" font-bold text-xl text-black py-1">{title}</h1>
-        <div className={`${colorStatus} border rounded-3xl ${width}`}>
+        <p className=" font-bold text-xs text-[#979797] lg:block hidden">
+          {step}
+        </p>
+        <h1 className=" font-medium lg:font-bold text-xs lg:text-xl text-black py-1 lg:max-w-full max-w-[20px]">
+          {title}
+        </h1>
+        <div
+          className={`${colorStatus} border rounded-3xl lg:block hidden ${width}`}
+        >
           <p className={` font-semibold text-[${colorIcon}] text-xs py-1 px-4`}>
             {status}
           </p>

@@ -4,12 +4,31 @@ import React, { useState, useEffect } from "react";
 interface FormEntry {
   id: number;
   key: number;
+  nama: string;
+  jenjang: string;
+  tahun_masuk: string;
+  tahun_keluar: string;
+}
+
+interface Errors {
+  [key: string]: {
+    nama?: string;
+    jenjang?: string;
+    tahun_masuk?: string;
+    tahun_keluar?: string;
+  };
 }
 
 export default function FormPendidikan() {
-  const [forms, setForms] = useState<FormEntry[]>([{ id: 1, key: 1 }]);
+  const [forms, setForms] = useState<FormEntry[]>([
+    { id: 1, key: 1, nama: "", jenjang: "", tahun_masuk: "", tahun_keluar: "" },
+  ]);
   const [counter, setCounter] = useState(2);
   const [userId, setUserId] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<Errors>({});
+
   useEffect(() => {
     const email = localStorage.getItem("email");
 
@@ -41,7 +60,17 @@ export default function FormPendidikan() {
   };
 
   const handleAddForm = () => {
-    setForms([...forms, { id: counter, key: counter }]);
+    setForms([
+      ...forms,
+      {
+        id: counter,
+        key: counter,
+        nama: "",
+        jenjang: "",
+        tahun_masuk: "",
+        tahun_keluar: "",
+      },
+    ]);
     setCounter(counter + 1);
   };
 
@@ -49,48 +78,97 @@ export default function FormPendidikan() {
     setForms(forms.filter((form) => form.id !== id));
   };
 
-  const handleSubmit = async () => {
-    // Konstruk payload data
-    const formData = {
-      pendidikan: forms.map((form) => ({
-        user_id: userId,
-        nama: (document.getElementById(`nama_${form.id}`) as HTMLInputElement)
-          .value,
-        jenjang: (
-          document.getElementById(`jenjang_${form.id}`) as HTMLSelectElement
-        ).value,
-        tahun_masuk: (
-          document.getElementById(`tahun_masuk_${form.id}`) as HTMLInputElement
-        ).value,
-        tahun_keluar: (
-          document.getElementById(`tahun_keluar_${form.id}`) as HTMLInputElement
-        ).value,
-      })),
-    };
+  const handleInputChange = (
+    id: number,
+    field: keyof FormEntry,
+    value: string
+  ) => {
+    setForms((prevForms) =>
+      prevForms.map((form) =>
+        form.id === id ? { ...form, [field]: value } : form
+      )
+    );
+  };
 
-    // Kirim permintaan POST ke API
-    try {
-      const response = await fetch(
-        "http://localhost:5000/api/v1/user-pendidikan/upload",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      const data = await response.json();
-      if (response.ok) {
-        console.info("Data successfully submitted:", data.message);
-      } else {
-        console.error("Failed to submit data:", data.message);
-      }
-    } catch (error) {
-      console.error("Terjadi kesalahan:", error);
+  const handleOpenModal = () => {
+    const validationErrors = validateForms();
+    if (Object.keys(validationErrors).length === 0) {
+      setIsModalOpen(true);
+    } else {
+      setErrors(validationErrors);
     }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const validateForms = () => {
+    const errors: Errors = {};
+    forms.forEach((form) => {
+      const formErrors: {
+        nama?: string;
+        jenjang?: string;
+        tahun_masuk?: string;
+        tahun_keluar?: string;
+      } = {};
+      if (!form.nama) formErrors.nama = "Nama Sekolah is required";
+      if (!form.jenjang) formErrors.jenjang = "Tingkat Pendidikan is required";
+      if (!form.tahun_masuk) formErrors.tahun_masuk = "Tahun Masuk is required";
+      if (!form.tahun_keluar)
+        formErrors.tahun_keluar = "Tahun Keluar is required";
+      if (isNaN(Number(form.tahun_masuk)))
+        formErrors.tahun_masuk = "Tahun Masuk must be a number";
+      if (isNaN(Number(form.tahun_keluar)))
+        formErrors.tahun_keluar = "Tahun Keluar must be a number";
+      if (Object.keys(formErrors).length > 0) {
+        errors[form.id] = formErrors;
+      }
+    });
+    return errors;
+  };
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    setIsModalOpen(false);
+
+    setTimeout(async () => {
+      const formData = {
+        pendidikan: forms.map((form) => ({
+          user_id: userId,
+          nama: form.nama,
+          jenjang: form.jenjang,
+          tahun_masuk: form.tahun_masuk,
+          tahun_keluar: form.tahun_keluar,
+        })),
+      };
+
+      try {
+        const response = await fetch(
+          "http://localhost:5000/api/v1/user-pendidikan/upload",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify(formData),
+          }
+        );
+
+        const data = await response.json();
+        if (response.ok) {
+          console.info("Data successfully submitted:", data.message);
+        } else {
+          console.error("Failed to submit data:", data.message);
+        }
+      } catch (error) {
+        console.error("Terjadi kesalahan:", error);
+      } finally {
+        setIsLoading(false);
+        window.location.reload();
+      }
+    }, 400);
   };
 
   return (
@@ -119,7 +197,16 @@ export default function FormPendidikan() {
                       id={`nama_${form.id}`}
                       placeholder="Masukkan Nama Sekolah"
                       className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[250px]"
+                      value={form.nama}
+                      onChange={(e) =>
+                        handleInputChange(form.id, "nama", e.target.value)
+                      }
                     />
+                    {errors[form.id]?.nama && (
+                      <p className="text-red-500 text-xs pt-2">
+                        {errors[form.id]?.nama}
+                      </p>
+                    )}
                   </label>
                 </div>
                 <div>
@@ -134,15 +221,22 @@ export default function FormPendidikan() {
                         name={`jenjang_${form.id}`}
                         id={`jenjang_${form.id}`}
                         className="appearance-none rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
+                        value={form.jenjang}
+                        onChange={(e) =>
+                          handleInputChange(form.id, "jenjang", e.target.value)
+                        }
                       >
-                        <option defaultValue="">
-                          Pilih Tingkat Pendidikan
-                        </option>
+                        <option value="">Pilih Tingkat Pendidikan</option>
                         <option value="SD">SD</option>
                         <option value="SMP">SMP</option>
                         <option value="SMA">SMA</option>
                       </select>
                     </div>
+                    {errors[form.id]?.jenjang && (
+                      <p className="text-red-500 text-xs pt-2">
+                        {errors[form.id]?.jenjang}
+                      </p>
+                    )}
                   </label>
                 </div>
                 <div>
@@ -158,7 +252,20 @@ export default function FormPendidikan() {
                       id={`tahun_masuk_${form.id}`}
                       placeholder="Masukkan Tahun Masuk"
                       className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
+                      value={form.tahun_masuk}
+                      onChange={(e) =>
+                        handleInputChange(
+                          form.id,
+                          "tahun_masuk",
+                          e.target.value
+                        )
+                      }
                     />
+                    {errors[form.id]?.tahun_masuk && (
+                      <p className="text-red-500 text-xs pt-2">
+                        {errors[form.id]?.tahun_masuk}
+                      </p>
+                    )}
                   </label>
                 </div>
                 <div>
@@ -174,7 +281,20 @@ export default function FormPendidikan() {
                       id={`tahun_keluar_${form.id}`}
                       placeholder="Masukkan Tahun Keluar"
                       className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
+                      value={form.tahun_keluar}
+                      onChange={(e) =>
+                        handleInputChange(
+                          form.id,
+                          "tahun_keluar",
+                          e.target.value
+                        )
+                      }
                     />
+                    {errors[form.id]?.tahun_keluar && (
+                      <p className="text-red-500 text-xs pt-2">
+                        {errors[form.id]?.tahun_keluar}
+                      </p>
+                    )}
                   </label>
                 </div>
               </div>
@@ -209,10 +329,42 @@ export default function FormPendidikan() {
       <button
         className="py-3 absolute right-28 bottom-16 px-8 mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
         type="button"
-        onClick={handleSubmit}
+        onClick={handleOpenModal}
       >
         Kirim
       </button>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h2 className="text-xl font-bold mb-4">Konfirmasi</h2>
+            <p>
+              Pastikan data yang Anda input sudah benar karena data tidak bisa
+              diubah kembali.
+            </p>
+            <div className="flex justify-end mt-4">
+              <button
+                className="px-4 py-2 mr-4 bg-red-700 hover:bg-red-400 text-white rounded"
+                onClick={handleCloseModal}
+              >
+                Periksa Kembali
+              </button>
+              <button
+                className="px-4 py-2 bg-blue-700 hover:bg-blue-400 text-white rounded"
+                onClick={handleSubmit}
+              >
+                Lanjut
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isLoading && (
+        <div className="fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-color"></div>
+        </div>
+      )}
     </div>
   );
 }
