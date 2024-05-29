@@ -164,16 +164,18 @@ export default function FormPrestasi() {
   };
 
   return (
-    <div className="pt-14 pb-36 mb-12 relative">
-      <h1 className="font-bold text-black text-xl text-center">Prestasi</h1>
-      <div className="mt-10">
+    <div className="lg:pt-14 lg:pb-36 mb-12 relative">
+      <h1 className="font-bold text-black text-xl text-center lg:block hidden">
+        Prestasi
+      </h1>
+      <div className="lg:mt-10 mt-4">
         <form action="">
           {forms.map((form, index) => (
             <div
               key={form.key}
-              className="flex items-end justify-center gap-6  mb-4"
+              className="lg:flex items-end justify-center gap-6  mb-4"
             >
-              <div className="flex justify-around gap-6">
+              <div className="lg:flex justify-around gap-6">
                 <div>
                   <label
                     htmlFor={`nama_${form.id}`}
@@ -186,7 +188,7 @@ export default function FormPrestasi() {
                       name={`nama_${form.id}`}
                       id={`nama_${form.id}`}
                       placeholder="Masukkan Nama Prestasi"
-                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[250px]"
+                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 lg:w-[250px] w-[330px]"
                       value={form.nama}
                       onChange={(e) =>
                         handleInputChange(form.id, "nama", e.target.value)
@@ -199,7 +201,7 @@ export default function FormPrestasi() {
                     )}
                   </label>
                 </div>
-                <div>
+                <div className="py-3 lg:py-0">
                   <label
                     htmlFor={`tingkat_${form.id}`}
                     className="font-medium text-sm"
@@ -210,7 +212,7 @@ export default function FormPrestasi() {
                       <select
                         name={`tingkat_${form.id}`}
                         id={`tingkat_${form.id}`}
-                        className="appearance-none rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
+                        className="appearance-none rounded-lg border py-3 px-4 border-black text-black mt-1 w-[330px] lg:w-[200px]"
                         value={form.tingkat}
                         onChange={(e) =>
                           handleInputChange(form.id, "tingkat", e.target.value)
@@ -231,7 +233,7 @@ export default function FormPrestasi() {
                     )}
                   </label>
                 </div>
-                <div>
+                <div className=" pb-6">
                   <label
                     htmlFor={`tahun_${form.id}`}
                     className="font-medium text-sm"
@@ -243,7 +245,7 @@ export default function FormPrestasi() {
                       name={`tahun_${form.id}`}
                       id={`tahun_${form.id}`}
                       placeholder="Masukkan Tahun Prestasi"
-                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
+                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[330px] lg:w-[200px]"
                       value={form.tahun}
                       onChange={(e) =>
                         handleInputChange(form.id, "tahun", e.target.value)
@@ -286,7 +288,7 @@ export default function FormPrestasi() {
         </form>
       </div>
       <button
-        className="py-3 absolute right-28 bottom-16 px-8 mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
+        className="py-3 lg:absolute right-28 bottom-16 px-8 lg:mt-12 mt-6 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
         type="submit"
         onClick={handleOpenModal}
       >
@@ -294,7 +296,7 @@ export default function FormPrestasi() {
       </button>
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+          <div className="bg-white p-8 rounded-lg shadow-lg lg:max-w-full max-w-[330px]">
             <h2 className="text-xl font-bold mb-4">Konfirmasi</h2>
             <p>
               Pastikan data yang Anda input sudah benar karena data tidak bisa

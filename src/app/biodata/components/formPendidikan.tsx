@@ -172,18 +172,18 @@ export default function FormPendidikan() {
   };
 
   return (
-    <div className="pt-14 pb-36 mb-12 relative">
-      <h1 className="font-bold text-black text-xl text-center">
+    <div className="lg:pt-14 lg:pb-36 mb-12 relative">
+      <h1 className="font-bold text-black text-xl text-center lg:block hidden">
         Riwayat Pendidikan
       </h1>
-      <div className="mt-10">
+      <div className="lg:mt-10 mt-4">
         <form>
           {forms.map((form, index) => (
             <div
               key={form.key}
-              className="flex items-end justify-center gap-6 mb-4"
+              className="lg:flex items-end justify-center gap-6 mb-4"
             >
-              <div className="flex justify-center gap-6">
+              <div className="lg:flex justify-center lg:gap-6">
                 <div>
                   <label
                     htmlFor={`nama_${form.id}`}
@@ -196,7 +196,7 @@ export default function FormPendidikan() {
                       name={`nama_${form.id}`}
                       id={`nama_${form.id}`}
                       placeholder="Masukkan Nama Sekolah"
-                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[250px]"
+                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 lg:w-[250px] w-[330px]"
                       value={form.nama}
                       onChange={(e) =>
                         handleInputChange(form.id, "nama", e.target.value)
@@ -209,7 +209,7 @@ export default function FormPendidikan() {
                     )}
                   </label>
                 </div>
-                <div>
+                <div className=" py-3 lg:py-0">
                   <label
                     htmlFor={`jenjang_${form.id}`}
                     className="font-medium text-sm"
@@ -220,7 +220,7 @@ export default function FormPendidikan() {
                       <select
                         name={`jenjang_${form.id}`}
                         id={`jenjang_${form.id}`}
-                        className="appearance-none rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
+                        className="appearance-none rounded-lg border py-3 px-4 border-black text-black mt-1 w-[330px] lg:w-[200px]"
                         value={form.jenjang}
                         onChange={(e) =>
                           handleInputChange(form.id, "jenjang", e.target.value)
@@ -239,63 +239,65 @@ export default function FormPendidikan() {
                     )}
                   </label>
                 </div>
-                <div>
-                  <label
-                    htmlFor={`tahun_masuk_${form.id}`}
-                    className="font-medium text-sm"
-                  >
-                    Tahun Masuk
-                    <br />
-                    <input
-                      type="text"
-                      name={`tahun_masuk_${form.id}`}
-                      id={`tahun_masuk_${form.id}`}
-                      placeholder="Masukkan Tahun Masuk"
-                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
-                      value={form.tahun_masuk}
-                      onChange={(e) =>
-                        handleInputChange(
-                          form.id,
-                          "tahun_masuk",
-                          e.target.value
-                        )
-                      }
-                    />
-                    {errors[form.id]?.tahun_masuk && (
-                      <p className="text-red-500 text-xs pt-2">
-                        {errors[form.id]?.tahun_masuk}
-                      </p>
-                    )}
-                  </label>
-                </div>
-                <div>
-                  <label
-                    htmlFor={`tahun_keluar_${form.id}`}
-                    className="font-medium text-sm"
-                  >
-                    Tahun Keluar
-                    <br />
-                    <input
-                      type="text"
-                      name={`tahun_keluar_${form.id}`}
-                      id={`tahun_keluar_${form.id}`}
-                      placeholder="Masukkan Tahun Keluar"
-                      className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[200px]"
-                      value={form.tahun_keluar}
-                      onChange={(e) =>
-                        handleInputChange(
-                          form.id,
-                          "tahun_keluar",
-                          e.target.value
-                        )
-                      }
-                    />
-                    {errors[form.id]?.tahun_keluar && (
-                      <p className="text-red-500 text-xs pt-2">
-                        {errors[form.id]?.tahun_keluar}
-                      </p>
-                    )}
-                  </label>
+                <div className=" lg:gap-5 flex justify-between">
+                  <div>
+                    <label
+                      htmlFor={`tahun_masuk_${form.id}`}
+                      className="font-medium text-sm"
+                    >
+                      Tahun Masuk
+                      <br />
+                      <input
+                        type="text"
+                        name={`tahun_masuk_${form.id}`}
+                        id={`tahun_masuk_${form.id}`}
+                        placeholder="Masukkan Tahun Masuk"
+                        className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[160px] lg:w-[200px]"
+                        value={form.tahun_masuk}
+                        onChange={(e) =>
+                          handleInputChange(
+                            form.id,
+                            "tahun_masuk",
+                            e.target.value
+                          )
+                        }
+                      />
+                      {errors[form.id]?.tahun_masuk && (
+                        <p className="text-red-500 text-xs pt-2">
+                          {errors[form.id]?.tahun_masuk}
+                        </p>
+                      )}
+                    </label>
+                  </div>
+                  <div className="pb-6 lg:py-0">
+                    <label
+                      htmlFor={`tahun_keluar_${form.id}`}
+                      className="font-medium text-sm"
+                    >
+                      Tahun Keluar
+                      <br />
+                      <input
+                        type="text"
+                        name={`tahun_keluar_${form.id}`}
+                        id={`tahun_keluar_${form.id}`}
+                        placeholder="Masukkan Tahun Keluar"
+                        className="rounded-lg border py-3 px-4 border-black text-black mt-1 w-[160px] lg:w-[200px]"
+                        value={form.tahun_keluar}
+                        onChange={(e) =>
+                          handleInputChange(
+                            form.id,
+                            "tahun_keluar",
+                            e.target.value
+                          )
+                        }
+                      />
+                      {errors[form.id]?.tahun_keluar && (
+                        <p className="text-red-500 text-xs pt-2">
+                          {errors[form.id]?.tahun_keluar}
+                        </p>
+                      )}
+                    </label>
+                  </div>
                 </div>
               </div>
               <button
@@ -327,7 +329,7 @@ export default function FormPendidikan() {
         </form>
       </div>
       <button
-        className="py-3 absolute right-28 bottom-16 px-8 mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
+        className="py-3 lg:absolute right-28 bottom-16 px-8 mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
         type="button"
         onClick={handleOpenModal}
       >
@@ -336,7 +338,7 @@ export default function FormPendidikan() {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+          <div className="bg-white p-8 rounded-lg shadow-lg lg:max-w-full max-w-[330px]">
             <h2 className="text-xl font-bold mb-4">Konfirmasi</h2>
             <p>
               Pastikan data yang Anda input sudah benar karena data tidak bisa

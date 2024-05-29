@@ -131,14 +131,14 @@ export default function FormUpload() {
     acceptTypes: string,
     description: string
   ) => (
-    <div className="flex justify-center relative mt-3">
+    <div className="flex lg:justify-center relative mt-3">
       <div
         {...getRootProps()}
         className={`border-dashed border-2 ${
           draggingOver === fileType
             ? "border-blue-500 bg-slate-100 opacity-100"
             : "border-gray-400 bg-white bg-opacity-100"
-        } rounded-lg w-[300px] h-[200px] flex flex-col items-center justify-center cursor-pointer`}
+        } rounded-lg w-[300px] h-[120px] lg:h-[200px] flex flex-col items-center justify-center cursor-pointer`}
       >
         <input {...getInputProps()} />
         {draggingOver === fileType && (
@@ -179,13 +179,17 @@ export default function FormUpload() {
               width={40}
               height={40}
               alt="upload icon"
+              className=" lg:block hidden"
             />
-            <p className="text-black text-xs font-bold mt-2">
+            <p className="text-black text-xs font-bold mt-2 lg:block hidden">
               Drag and Drop file
             </p>
-            <p className="text-black text-xs font-bold">or</p>
-            <a className="bg-blue-color text-white text-sm px-4 py-1 rounded mt-2 relative z-20 hover:bg-blue-500">
+            <p className="text-black text-xs font-bold lg:block hidden">or</p>
+            <a className="bg-blue-color lg:block hidden text-white text-sm px-4 py-1 rounded mt-2 relative z-20 hover:bg-blue-500">
               Browse
+            </a>
+            <a className="bg-blue-color lg:hidden block text-white text-sm px-4 py-1 rounded mt-2 relative z-20 hover:bg-blue-500">
+              Upload
             </a>
             <p className="text-gray-500 text-sm mt-2">
               Files supported: {acceptTypes}
@@ -198,13 +202,17 @@ export default function FormUpload() {
   );
 
   return (
-    <div className="py-16 pb-36 relative">
-      <h1 className="font-bold text-black text-xl text-center">Upload File</h1>
-      <div className="mt-14">
+    <div className="lg:py-16 lg:pb-36 mb-12 relative">
+      <h1 className="font-bold text-black text-xl text-center lg:block hidden">
+        Upload File
+      </h1>
+      <div className="lg:mt-14 mt-6">
         <form onSubmit={handleSubmit}>
-          <div className="flex justify-center gap-8 pb-24">
+          <div className="lg:flex max-w-[300px] mx-auto justify-center gap-8 lg:pb-24 pb-12">
             <div>
-              <h1 className="font-bold text-black text-xl">Curriculum Vitae</h1>
+              <h1 className="lg:font-bold text-black lg:text-xl text-lg font-normal">
+                Curriculum Vitae
+              </h1>
               {renderDropzone(
                 getRootPropsCV,
                 getInputPropsCV,
@@ -214,8 +222,10 @@ export default function FormUpload() {
                 "Curriculum Vitae"
               )}
             </div>
-            <div>
-              <h1 className="font-bold text-black text-xl">Foto</h1>
+            <div className=" py-7 lg:py-0">
+              <h1 className="lg:font-bold text-black lg:text-xl text-lg font-normal">
+                Foto
+              </h1>
               {renderDropzone(
                 getRootPropsFoto,
                 getInputPropsFoto,
@@ -226,7 +236,9 @@ export default function FormUpload() {
               )}
             </div>
             <div>
-              <h1 className="font-bold text-black text-xl">Sertifikat</h1>
+              <h1 className="lg:font-bold text-black lg:text-xl text-lg font-normal">
+                Sertifikat
+              </h1>
               {renderDropzone(
                 getRootPropsSertifikat,
                 getInputPropsSertifikat,
@@ -238,7 +250,7 @@ export default function FormUpload() {
             </div>
           </div>
           <button
-            className="py-3 absolute right-28 bottom-16 px-8 mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
+            className="py-3 lg:absolute right-28 bottom-16 px-8 lg:mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
             type="submit"
             disabled={isUploading}
           >
