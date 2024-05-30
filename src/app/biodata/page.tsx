@@ -101,14 +101,28 @@ export default function Biodata() {
           <div className="lg:max-w-[1200px] mx-auto bg-white lg:mt-10 rounded-xl">
             <h1 className=" lg:hidden text-center font-bold text-base text-blue-color">
               {" "}
-              Step 1
+              {`${
+                steps.upload === "completed"
+                  ? "Finish"
+                  : steps.prestasi === "completed"
+                  ? "Step 4"
+                  : steps.pendidikan === "completed"
+                  ? "Step 3"
+                  : steps.dataDiri === "completed"
+                  ? "Step 2"
+                  : "Step 1"
+              } `}
             </h1>
             <div className="flex lg:gap-2 justify-center lg:py-11 py-5">
               <Step
                 step="Step 1"
                 title="Biodata"
                 hiddenLine=""
-                image="/assets/icon/datadiri.svg"
+                image={`${
+                  steps.dataDiri === "completed"
+                    ? "/assets/icon/success.svg"
+                    : "/assets/icon/datadiri.svg"
+                }`}
                 colorIcon={`${
                   steps.dataDiri === "completed"
                     ? "bg-[#07590F]"
@@ -133,7 +147,13 @@ export default function Biodata() {
                 step="Step 2"
                 title="Pendidikan"
                 hiddenLine=""
-                image="/assets/icon/pendidikan.svg"
+                image={`${
+                  steps.pendidikan === "completed"
+                    ? "/assets/icon/success.svg"
+                    : steps.pendidikan === "inProgress"
+                    ? "/assets/icon/pendidikan.svg"
+                    : "/assets/icon/pendidikan.svg"
+                }`}
                 colorIcon={`${
                   steps.pendidikan === "completed"
                     ? "bg-[#07590F]"
@@ -168,7 +188,13 @@ export default function Biodata() {
                 step="Step 3"
                 title="Prestasi"
                 hiddenLine=""
-                image="/assets/icon/prestasi.svg"
+                image={`${
+                  steps.prestasi === "completed"
+                    ? "/assets/icon/success.svg"
+                    : steps.prestasi === "inProgress"
+                    ? "/assets/icon/prestasi.svg"
+                    : "/assets/icon/prestasi.svg"
+                }`}
                 colorIcon={`${
                   steps.prestasi === "completed"
                     ? "bg-[#07590F]"
@@ -203,7 +229,13 @@ export default function Biodata() {
                 step="Step 4"
                 title="Upload File"
                 hiddenLine="hidden"
-                image="/assets/icon/upload.svg"
+                image={`${
+                  steps.upload === "completed"
+                    ? "/assets/icon/success.svg"
+                    : steps.upload === "inProgress"
+                    ? "/assets/icon/upload.svg"
+                    : "/assets/icon/upload.svg"
+                }`}
                 colorIcon={`${
                   steps.upload === "completed"
                     ? "bg-[#07590F]"

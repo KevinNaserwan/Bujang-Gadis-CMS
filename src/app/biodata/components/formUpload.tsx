@@ -16,6 +16,8 @@ export default function FormUpload() {
   const [sertifikatFile, setSertifikatFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [draggingOver, setDraggingOver] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const email = localStorage.getItem("email");
@@ -76,45 +78,56 @@ export default function FormUpload() {
     onDragLeave: () => setDraggingOver(""),
   });
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const token = localStorage.getItem("token");
-    if (!username || !userId || !token) {
-      alert("Username, User ID or token is not available.");
-      return;
-    }
+    setIsLoading(true);
+    setIsModalOpen(false);
+    setTimeout(async () => {
+      const token = localStorage.getItem("token");
+      if (!username || !userId || !token) {
+        alert("Username, User ID or token is not available.");
+        return;
+      }
 
-    setIsUploading(true);
-
-    try {
-      let cvFilename = "";
-      let fotoFilename = "";
-      let sertifikatFilename = "";
-
-      const payload = {
-        cv: cvFilename,
-        sertifikat: sertifikatFilename,
-        foto: fotoFilename,
-        user_id: userId,
-      };
-
-      await axios.post(
-        "http://localhost:5000/api/v1/user-file/upload",
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+      try {
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("user_id", userId);
+        if (cvFile) {
+          formData.append("cv", cvFile);
         }
-      );
-      alert("Files uploaded successfully");
-    } catch (error) {
-      console.error("Error uploading files:", error);
-      alert("Failed to upload files");
-    } finally {
-      setIsUploading(false);
-    }
+        if (fotoFile) {
+          formData.append("foto", fotoFile);
+        }
+        if (sertifikatFile) {
+          formData.append("sertifikat", sertifikatFile);
+        }
+
+        await axios.post(
+          "http://localhost:5000/api/v1/user-file/upload",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      } catch (error) {
+        console.error("Error uploading files:", error);
+      } finally {
+        setIsLoading(false);
+        window.location.reload();
+      }
+    }, 400);
   };
 
   const handleFileRemove = (fileType: string) => {
@@ -249,15 +262,45 @@ export default function FormUpload() {
               )}
             </div>
           </div>
-          <button
-            className="py-3 lg:absolute right-28 bottom-16 px-8 lg:mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
-            type="submit"
-            disabled={isUploading}
-          >
-            {isUploading ? "Uploading..." : "Kirim"}
-          </button>
         </form>
+        <button
+          className="py-3 lg:absolute right-28 bottom-16 px-8 lg:mt-12 text-sm bg-gradient-to-br hover:bg-none hover:bg-black from-secondary-color to-black rounded-lg font-semibold lg:text-base text-white"
+          onClick={handleOpenModal}
+        >
+          Kirim
+        </button>
       </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg lg:max-w-full max-w-[330px]">
+            <h2 className="text-xl font-bold mb-4">Konfirmasi</h2>
+            <p>
+              Pastikan data yang Anda input sudah benar karena data tidak bisa
+              diubah kembali.
+            </p>
+            <div className="flex justify-end mt-4">
+              <button
+                className="px-4 py-2 mr-4 bg-red-700 hover:bg-red-400 text-white rounded"
+                onClick={handleCloseModal}
+              >
+                Periksa Kembali
+              </button>
+              <button
+                className="px-4 py-2 bg-blue-700 hover:bg-blue-400 text-white rounded"
+                onClick={handleSubmit}
+              >
+                Lanjut
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isLoading && (
+        <div className="fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-color"></div>
+        </div>
+      )}
     </div>
   );
 }
