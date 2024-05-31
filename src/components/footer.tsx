@@ -79,7 +79,7 @@ export default function Footer() {
                 <div>
                   <a href="">
                     <Image
-                      src={"/assets/icon/instagram.svg"}
+                      src={"/assets/icon/Vector1.png"}
                       alt="instagram"
                       width={35}
                       height={35}
