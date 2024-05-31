@@ -8,6 +8,7 @@ import FormBiodata from "./components/formBiodata";
 import FormPendidikan from "./components/formPendidikan";
 import FormPrestasi from "./components/formPrestasi";
 import FormUpload from "./components/formUpload";
+import FormDownload from "./components/formDownload";
 
 export default function Biodata() {
   const [steps, setSteps] = useState({
@@ -72,7 +73,7 @@ export default function Biodata() {
   return (
     <main className="">
       <div className="lg:bg-dark-color bg-white relative lg:py-16 lg:h-fit">
-        <div className="lg:max-w-[1300px] max-w-[330px] mx-auto">
+        <div className="lg:max-w-[1300px] max-w-[330px] mx-auto ">
           <Link href="/" className="lg:flex gap-5">
             <Image
               src="/assets/icon/back.svg"
@@ -98,7 +99,7 @@ export default function Biodata() {
               Lengkapi form data diri dibawah
             </p>
           </Link>
-          <div className="lg:max-w-[1200px] mx-auto bg-white lg:mt-10 rounded-xl">
+          <div className="lg:max-w-[1200px] mx-auto bg-white lg:mt-10 rounded-xl lg:pb-32">
             <h1 className=" lg:hidden text-center font-bold text-base text-blue-color">
               {" "}
               {`${
@@ -269,7 +270,8 @@ export default function Biodata() {
             </div>
             <div className="w-full h-[2px] lg:block hidden bg-[#D9D9D9]"></div>
             {steps.dataDiri === "inProgress" ? (
-              <FormBiodata />
+              // <FormBiodata />
+              <FormDownload />
             ) : steps.pendidikan === "inProgress" ? (
               <FormPendidikan />
             ) : steps.prestasi === "inProgress" ? (
@@ -277,7 +279,7 @@ export default function Biodata() {
             ) : steps.upload === "inProgress" ? (
               <FormUpload />
             ) : (
-              "Selesai isi form"
+              <FormDownload />
             )}
           </div>
         </div>
