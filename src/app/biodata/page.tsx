@@ -104,7 +104,7 @@ export default function Biodata() {
               {" "}
               {`${
                 steps.upload === "completed"
-                  ? "Finish"
+                  ? "Completed"
                   : steps.prestasi === "completed"
                   ? "Step 4"
                   : steps.pendidikan === "completed"
@@ -270,8 +270,7 @@ export default function Biodata() {
             </div>
             <div className="w-full h-[2px] lg:block hidden bg-[#D9D9D9]"></div>
             {steps.dataDiri === "inProgress" ? (
-              // <FormBiodata />
-              <FormDownload />
+              <FormBiodata />
             ) : steps.pendidikan === "inProgress" ? (
               <FormPendidikan />
             ) : steps.prestasi === "inProgress" ? (
