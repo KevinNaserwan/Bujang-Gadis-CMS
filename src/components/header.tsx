@@ -231,7 +231,7 @@ export default function Header() {
             leaveTo="opacity-0"
           >
             <div
-              className="fixed inset-0 bg-black bg-opacity-70 z-30 lg:hidden"
+              className="fixed inset-0 bg-black bg-opacity-80 z-30 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
           </Transition.Child>
