@@ -9,15 +9,17 @@ export default function Form() {
   const slideRef = useRef(null);
 
   const handleGeneratePdf = () => {
-    const opt = {
-      margin: 1,
-      filename: "myfile.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
+    import("html2pdf.js").then(({ default: html2pdf }) => {
+      const opt = {
+        margin: 1,
+        filename: "myfile.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      };
 
-    html2pdf().from(slideRef.current).set(opt).save();
+      html2pdf().from(slideRef.current).set(opt).save();
+    });
   };
 
   const data = {
