@@ -14,6 +14,8 @@ export default function Header() {
   const [showBackground, setShowBackground] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -27,12 +29,10 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Check for token and email in localStorage
     const token = localStorage.getItem("token");
     const email = localStorage.getItem("email");
     if (token && email) {
       setIsLoggedIn(true);
-      // Fetch user data
       fetchUserData(email);
     }
 
@@ -41,7 +41,7 @@ export default function Header() {
     };
   }, []);
 
-  const fetchUserData = async (email: string) => {
+  const fetchUserData = async (email: any) => {
     try {
       const response = await fetch(
         `http://localhost:5000/api/v1/user/${email}`,
@@ -53,7 +53,7 @@ export default function Header() {
       );
       const data = await response.json();
       if (response.ok) {
-        setUserName(data.value.username); // Assuming the API returns a field userName
+        setUserName(data.value.username);
         console.info("Success get data:", data.message);
       } else {
         console.error("Failed to fetch user data:", data.message);
@@ -67,7 +67,7 @@ export default function Header() {
     localStorage.removeItem("token");
     localStorage.removeItem("email");
     setIsLoggedIn(false);
-    router.push("/"); // Redirect to home page after logout
+    router.push("/");
   };
 
   return (
@@ -108,7 +108,7 @@ export default function Header() {
               </Link>
             </div>
           </div>
-          <div>
+          <div className="hidden lg:block">
             {!isLoggedIn && (
               <Button
                 href="/daftar"
@@ -208,7 +208,144 @@ export default function Header() {
               </Menu>
             )}
           </div>
+          <div className="lg:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <img
+                src="/assets/icon/menu.svg"
+                className="lg:hidden"
+                width={40}
+                height={40}
+                alt="Menu Icon"
+              />
+            </button>
+          </div>
         </div>
+        <Transition show={isMobileMenuOpen}>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition ease-in duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div
+              className="fixed inset-0 bg-black bg-opacity-70 z-30 lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-out duration-300"
+            enterFrom="translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in duration-300"
+            leaveFrom="translate-x-0"
+            leaveTo="translate-x-full"
+          >
+            <div className="fixed top-0 right-0 w-3/4 h-full bg-dark-color text-white shadow-lg z-40">
+              <div className="p-4 flex flex-col items-start">
+                <button
+                  className="mb-4 self-end"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <span className="text-2xl">&times;</span>
+                </button>
+                <div className="text-3xl font-bold mb-8">
+                  <Image
+                    src={"/assets/icon/icon.svg"}
+                    alt="Icon Image"
+                    width={80}
+                    height={80}
+                    className="w-[60px] h-[60px]"
+                  />
+                </div>
+                <nav className="flex flex-wrap mb-8 pl-4">
+                  <Link
+                    href={"/"}
+                    className={`text-base font-semibold text-white inline-block text-transparent w-[200px] bg-clip-text ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                  >
+                    Beranda
+                  </Link>
+                  <Link
+                    href={""}
+                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-[200px] bg-clip-text ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                    onClick={() => setIsAboutMenuOpen(!isAboutMenuOpen)}
+                  >
+                    Tentang Kami
+                  </Link>
+                  <Transition show={isAboutMenuOpen}>
+                    <Transition.Child
+                      as={Fragment}
+                      enter="transition ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="transition ease-in duration-300"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <div className="pb-5">
+                        <ul className="list-disc">
+                          <Link
+                            href={"/sejarah"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md "
+                          >
+                            &#9679;<span className=" pr-2"></span>Sejarah
+                          </Link>
+                          <Link
+                            href={"/visi-misi"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Visi & Misi
+                          </Link>
+                          <Link
+                            href={"/struktural"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Struktural
+                          </Link>
+                          <Link
+                            href={"/anggota"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Anggota
+                          </Link>
+                          <Link
+                            href={"/program-kerja"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Program
+                            Kerja
+                          </Link>
+                        </ul>
+                      </div>
+                    </Transition.Child>
+                  </Transition>
+
+                  <Link
+                    href={"/"}
+                    className={`text-base font-semibold ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                  >
+                    Vote Bujang Gadis 2024
+                  </Link>
+                </nav>
+                <Link
+                  href="/daftar"
+                  className="w-[240px] py-3 text-center mx-auto hover:bg-yellow-700 bg-primary-color text-white rounded-lg font-semibold"
+                >
+                  Daftar
+                </Link>
+              </div>
+            </div>
+          </Transition.Child>
+        </Transition>
       </nav>
     </header>
   );
