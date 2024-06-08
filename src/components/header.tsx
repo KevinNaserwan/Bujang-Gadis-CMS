@@ -264,7 +264,7 @@ export default function Header() {
                 <nav className="flex flex-wrap mb-8 pl-4">
                   <Link
                     href={"/"}
-                    className={`text-base font-semibold text-white inline-block text-transparent w-[600px] bg-clip-text ${
+                    className={`text-base font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
                       showBackground ? "text-white" : ""
                     }`}
                   >
@@ -272,7 +272,7 @@ export default function Header() {
                   </Link>
                   <Link
                     href={""}
-                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-[400px] bg-clip-text ${
+                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
                       showBackground ? "text-white" : ""
                     }`}
                     onClick={() => setIsAboutMenuOpen(!isAboutMenuOpen)}
@@ -329,7 +329,7 @@ export default function Header() {
 
                   <Link
                     href={"/"}
-                    className={`text-base font-semibold ${
+                    className={`text-base font-semibold w-full ${
                       showBackground ? "text-white" : ""
                     }`}
                   >
