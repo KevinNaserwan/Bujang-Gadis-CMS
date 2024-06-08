@@ -272,7 +272,7 @@ export default function Header() {
                   </Link>
                   <Link
                     href={""}
-                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-[600px] bg-clip-text ${
+                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-[400px] bg-clip-text ${
                       showBackground ? "text-white" : ""
                     }`}
                     onClick={() => setIsAboutMenuOpen(!isAboutMenuOpen)}
