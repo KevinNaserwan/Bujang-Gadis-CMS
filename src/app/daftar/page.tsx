@@ -162,7 +162,7 @@ export default function Daftar() {
                     {errors.confirmPassword}
                   </p>
                 )}
-                <div className=" flex justify-between items-center mb-5 mt-2">
+                {/* <div className=" flex justify-between items-center mb-5 mt-2">
                   <div className=" flex gap-2">
                     <input
                       type="checkbox"
@@ -182,8 +182,8 @@ export default function Daftar() {
                   >
                     Lupa Password?
                   </Link>
-                </div>
-                <button className=" w-full bg-blue-color rounded-lg hover:bg-dark-color">
+                </div> */}
+                <button className=" w-full bg-blue-color rounded-lg hover:bg-dark-color mt-4">
                   <p className=" font-bold text-white text-sm py-3">Daftar</p>
                 </button>
               </form>
