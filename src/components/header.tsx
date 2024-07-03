@@ -16,6 +16,7 @@ export default function Header() {
   const [userName, setUserName] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false);
+  const [isVoteMenuOpen, setIsVoteMenuOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -326,15 +327,55 @@ export default function Header() {
                       </div>
                     </Transition.Child>
                   </Transition>
-
                   <Link
-                    href={"/"}
-                    className={`text-base font-semibold w-full ${
+                    href={""}
+                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
                       showBackground ? "text-white" : ""
                     }`}
+                    onClick={() => setIsVoteMenuOpen(!isVoteMenuOpen)}
                   >
                     Vote Bujang Gadis 2024
                   </Link>
+                  <Transition show={isVoteMenuOpen}>
+                    <Transition.Child
+                      as={Fragment}
+                      enter="transition ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="transition ease-in duration-300"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <div className="pb-5">
+                        <ul className="list-disc">
+                          <Link
+                            href={"/tata-cara-vote"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md "
+                          >
+                            &#9679;<span className=" pr-2"></span>Tata Cara Vote
+                          </Link>
+                          <Link
+                            href={"/beli-voucher"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Beli Voucher
+                          </Link>
+                          <Link
+                            href={"/vote"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Vote
+                          </Link>
+                          <Link
+                            href={"/statistik"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Statistik
+                          </Link>
+                        </ul>
+                      </div>
+                    </Transition.Child>
+                  </Transition>
                 </nav>
                 <Link
                   href="/daftar"
