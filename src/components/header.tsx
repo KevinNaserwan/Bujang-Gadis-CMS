@@ -329,7 +329,7 @@ export default function Header() {
                   </Transition>
                   <Link
                     href={""}
-                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
+                    className={`text-base pt-1 mb-5 font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
                       showBackground ? "text-white" : ""
                     }`}
                     onClick={() => setIsVoteMenuOpen(!isVoteMenuOpen)}
