@@ -13,7 +13,7 @@ import dotenv from "dotenv";
 
 export default function Biodata() {
   dotenv.config();
-  const apiUrl = process.env.APP_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [steps, setSteps] = useState({
     dataDiri: "inProgress",
     pendidikan: "pending",

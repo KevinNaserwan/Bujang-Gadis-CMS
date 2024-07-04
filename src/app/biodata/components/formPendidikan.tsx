@@ -22,7 +22,7 @@ interface Errors {
 
 export default function FormPendidikan() {
   dotenv.config();
-  const apiUrl = process.env.APP_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [forms, setForms] = useState<FormEntry[]>([
     { id: 1, key: 1, nama: "", jenjang: "", tahun_masuk: "", tahun_keluar: "" },
   ]);

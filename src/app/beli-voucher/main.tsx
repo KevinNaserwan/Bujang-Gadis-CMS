@@ -107,7 +107,7 @@ const MainBeliVoucher = () => {
     };
 
     dotenv.config();
-    const apiUrl = process.env.APP_API_URL;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     try {
       const response = await axios.post(
         `${apiUrl}/api/v1/order/order`,

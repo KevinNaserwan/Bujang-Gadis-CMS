@@ -27,7 +27,7 @@ interface Errors {
 
 export default function FormBiodata() {
   dotenv.config();
-  const apiUrl = process.env.APP_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({

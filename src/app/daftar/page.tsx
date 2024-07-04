@@ -17,7 +17,7 @@ interface Errors {
 
 export default function Daftar() {
   dotenv.config();
-  const apiUrl = process.env.APP_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [email, setEmail] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");

@@ -11,7 +11,7 @@ interface User {
 
 export default function FormUpload() {
   dotenv.config();
-  const apiUrl = process.env.APP_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [username, setUsername] = useState<string>("");
   const [userId, setUserId] = useState<string>("");
   const [cvFile, setCvFile] = useState<File | null>(null);
