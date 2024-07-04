@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
+import dotenv from "dotenv";
 
 interface User {
   username: string;
@@ -9,6 +10,8 @@ interface User {
 }
 
 export default function FormUpload() {
+  dotenv.config();
+  const apiUrl = process.env.APP_API_URL;
   const [username, setUsername] = useState<string>("");
   const [userId, setUserId] = useState<string>("");
   const [cvFile, setCvFile] = useState<File | null>(null);
@@ -24,7 +27,7 @@ export default function FormUpload() {
     const token = localStorage.getItem("token");
     if (email && token) {
       axios
-        .get(`http://localhost:5000/api/v1/user/${email}`, {
+        .get(`${apiUrl}/api/v1/user/${email}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -111,16 +114,12 @@ export default function FormUpload() {
           formData.append("sertifikat", sertifikatFile);
         }
 
-        await axios.post(
-          "http://localhost:5000/api/v1/user-file/upload",
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        await axios.post(`${apiUrl}/api/v1/user-file/upload`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        });
       } catch (error) {
         console.error("Error uploading files:", error);
       } finally {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import dotenv from "dotenv";
 
 interface FormEntry {
   id: number;
@@ -18,6 +19,8 @@ interface Errors {
 }
 
 export default function FormPrestasi() {
+  dotenv.config();
+  const apiUrl = process.env.APP_API_URL;
   const [forms, setForms] = useState<FormEntry[]>([
     { id: 1, key: 1, nama: "", tingkat: "", tahun: "" },
   ]);
@@ -37,14 +40,11 @@ export default function FormPrestasi() {
 
   const fetchUserId = async (email: string) => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/v1/user/${email}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/v1/user/${email}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       const data = await response.json();
       if (response.ok) {
         setUserId(data.value.id.toString());
@@ -136,17 +136,14 @@ export default function FormPrestasi() {
 
       // Kirim permintaan POST ke API
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/v1/user-prestasi/upload",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-            body: JSON.stringify(formData),
-          }
-        );
+        const response = await fetch(`${apiUrl}/api/v1/user-prestasi/upload`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(formData),
+        });
 
         const data = await response.json();
         if (response.ok) {

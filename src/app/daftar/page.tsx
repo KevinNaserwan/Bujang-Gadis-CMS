@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Form from "@/components/form";
 import Image from "next/image";
 import Link from "next/link";
+import dotenv from "dotenv";
 
 interface Errors {
   email?: string;
@@ -15,6 +16,8 @@ interface Errors {
 }
 
 export default function Daftar() {
+  dotenv.config();
+  const apiUrl = process.env.APP_API_URL;
   const [email, setEmail] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -55,14 +58,11 @@ export default function Daftar() {
     if (Object.keys(validationErrors).length === 0) {
       setIsLoading(true);
       try {
-        const response = await axios.post(
-          "http://localhost:5000/api/v1/user/register",
-          {
-            username,
-            email,
-            password,
-          }
-        );
+        const response = await axios.post(`${apiUrl}/api/v1/user/register`, {
+          username,
+          email,
+          password,
+        });
         console.log("Form submitted successfully:", response.data);
         router.push(`/masuk?registered=true`);
       } catch (error) {

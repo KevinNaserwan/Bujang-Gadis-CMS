@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 
 interface FormProps {
   htmlFor: string;
@@ -10,20 +8,24 @@ interface FormProps {
   imageClassName: string;
   ClassName?: string;
   value?: string;
-  onChange?: (e: any) => void;
+  name: string;
+  required: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
 }
 
-export default function FormBeliVoucher(props: FormProps) {
-  const {
-    htmlFor,
-    label,
-    type,
-    placeholder,
-    imageClassName,
-    value,
-    ClassName,
-    onChange,
-  } = props;
+const FormBeliVoucher: React.FC<FormProps> = ({
+  htmlFor,
+  label,
+  type,
+  placeholder,
+  value = "",
+  ClassName,
+  name,
+  required,
+  onChange,
+  error,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -31,22 +33,43 @@ export default function FormBeliVoucher(props: FormProps) {
   };
 
   return (
-    <>
-      <div className=" my-5 lg:w-8/12 mx-auto">
-        <label className="font-medium text-xs lg:text-sm" htmlFor={htmlFor}>
-          {label}
-        </label>
-        <div className="border lg:border-[#D9D9D9] border-[#979797] flex items-center rounded-lg lg:pl-4 pl-3 gap-3 mt-[5px]">
-          <input
-            type={type === "password" && showPassword ? "text" : type}
-            id={htmlFor}
-            className="w-full lg:font-medium font-normal text-xs text-black lg:text-sm outline-none lg:py-3 py-[6px] bg-transparent"
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-          />
-        </div>
+    <div className="my-5 lg:w-8/12 mx-auto">
+      <label className="font-medium text-xs lg:text-sm" htmlFor={htmlFor}>
+        {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
+      </label>
+      <div
+        className={`border lg:border-[#D9D9D9] border-[#979797] flex items-center rounded-lg lg:pl-4 pl-3 gap-3 mt-[5px] ${
+          error ? "border-red-500" : ""
+        }`}
+      >
+        <input
+          type={type === "password" && showPassword ? "text" : type}
+          id={htmlFor}
+          name={name}
+          className="w-full lg:font-medium font-normal text-xs text-black lg:text-sm outline-none lg:py-3 py-[6px] bg-transparent"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          required={required}
+        />
+        {type === "password" && (
+          <button
+            type="button"
+            className="focus:outline-none"
+            onClick={togglePasswordVisibility}
+          >
+            <img
+              src="/path/to/eye-icon.svg" // Replace with your eye icon path
+              alt="Toggle password visibility"
+              className="w-4 h-4"
+            />
+          </button>
+        )}
       </div>
-    </>
+      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+    </div>
   );
-}
+};
+
+export default FormBeliVoucher;
