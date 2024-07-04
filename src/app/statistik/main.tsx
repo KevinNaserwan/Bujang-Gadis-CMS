@@ -1,58 +1,104 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import StatistikCard from "./components/StatistikCard";
+import axios from "axios";
 
 interface StatistikData {
   rank: number;
   name: string;
+  foto: string;
   percentage: string;
 }
 
 const MainStatistik: React.FC = () => {
-  // Array data untuk statistik
-  const statistikData: StatistikData[] = [
-    { rank: 1, name: "Chandra Saputra", percentage: "30%" },
-    { rank: 2, name: "Diana", percentage: "20%" },
-    { rank: 3, name: "Eka Putra", percentage: "16%" },
-    { rank: 4, name: "Fajar", percentage: "3.4%" },
-    { rank: 5, name: "Gilang", percentage: "3.4%" },
-    { rank: 6, name: "Hadi", percentage: "3.4%" },
-    { rank: 7, name: "Ika", percentage: "3.4%" },
-    { rank: 8, name: "Joko", percentage: "3.4%" },
-    { rank: 9, name: "Kiki", percentage: "3.4%" },
-    { rank: 10, name: "Lina", percentage: "3.4%" },
-  ];
+  const [gender, setGender] = useState("L");
+  const urlApi = process.env.NEXT_PUBLIC_API_URL;
+  const [statistikData, setStatistikData] = useState<StatistikData[]>([]);
+
+  useEffect(() => {
+    fetchData();
+  }, [gender]); // Fetch data again when gender changes
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${urlApi}/api/v1/user/statistik`, {
+        headers: {
+          "ngrok-skip-browser-warning": "any-value",
+        },
+      });
+      const data = response.data.value;
+
+      // Calculate percentages based on total_score
+      const totalScoreResponse = await axios.get(
+        `${urlApi}/api/v1/voucher/total-score`,
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "any-value",
+          },
+        }
+      );
+      const totalScore = totalScoreResponse.data.total_score;
+
+      let genderData: {
+        nama_lengkap: string;
+        foto: string;
+        user_score: number;
+      }[] = [];
+      if (gender === "L") {
+        genderData = data.male;
+      } else if (gender === "P") {
+        genderData = data.female;
+      }
+
+      const newData: StatistikData[] = genderData.map((item, index) => ({
+        rank: index + 1,
+        name: item.nama_lengkap,
+        foto: item.foto,
+        percentage: `${((item.user_score / totalScore) * 100).toFixed(1)}%`,
+      }));
+
+      setStatistikData(newData);
+    } catch (error) {
+      console.error("Error fetching statistik data:", error);
+    }
+  };
 
   return (
     <div className="relative bg-dark-color overflow-hidden">
       <div className="lg:py-24 py-20 container xl:max-w-[1300px] lg:max-w-[1100px] mx-auto">
-        <div className="absolute z-0 top-0 left-0">
-          <Image
-            src={"/assets/images/ellipse3.svg"}
-            alt=""
-            width={100}
-            height={75}
-          />
-        </div>
-        <div className="absolute z-0 bottom-0 -right-20">
-          <Image
-            src={"/assets/images/ellipse2.svg"}
-            alt=""
-            width={300}
-            height={150}
-          />
-        </div>
+        {/* Your existing JSX structure */}
         <h1 className="relative z-10 text-center text-4xl font-semibold text-white">
           Rangking
         </h1>
-        <h2 className="font-semibold text-[32px] text-center text-primary-color pt-2">
-          BUJANG TEKNIK UNIVERSITAS SRIWIJAYA
+        <h2 className="font-semibold text-[32px] text-center text-primary-color pt-2 mb-20">
+          {gender === "L" ? "BUJANG" : "GADIS"} TEKNIK UNIVERSITAS SRIWIJAYA
         </h2>
-        <div className="w-full flex-col justify-center items-center py-20">
+        <div className="grid grid-flow-row grid-cols-2 bg-white rounded-t-xl">
+          <div
+            className={`text-center  py-6 font-bold text-2xl hover:bg-gray-200 hover:rounded-tl-xl ${
+              gender === "L" ? "border-b-4 border-primary-color" : ""
+            }`}
+            onClick={() => setGender("L")}
+          >
+            Bujang
+          </div>
+          <div
+            className={`text-center py-6 font-bold text-2xl hover:bg-gray-200 hover:rounded-tr-xl ${
+              gender === "P" ? " border-b-4  border-primary-color" : ""
+            }`}
+            onClick={() => setGender("P")}
+          >
+            Gadis
+          </div>
+        </div>
+        <div className="w-full flex-col relative z-10 bg-[#F1F1F1] justify-center items-center pb-20 pt-10 px-20 rounded-b-xl">
           {statistikData.map((item) => (
             <StatistikCard
               key={item.rank}
               rank={item.rank}
+              foto={item.foto}
               name={item.name}
               percentage={item.percentage}
             />

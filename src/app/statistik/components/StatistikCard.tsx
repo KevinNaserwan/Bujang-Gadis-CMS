@@ -5,12 +5,14 @@ interface StatistikCardProps {
   rank: number;
   name: string;
   percentage: string;
+  foto: string;
 }
 
 const StatistikCard: React.FC<StatistikCardProps> = ({
   rank,
   name,
   percentage,
+  foto,
 }) => {
   const getRankImage = (rank: number): string | null => {
     switch (rank) {
@@ -26,6 +28,7 @@ const StatistikCard: React.FC<StatistikCardProps> = ({
   };
 
   const rankImage = getRankImage(rank);
+  const urlApi = process.env.NEXT_PUBLIC_API_URL;
 
   // Calculate width based on percentage
   const width = `${percentage}`;
@@ -69,7 +72,7 @@ const StatistikCard: React.FC<StatistikCardProps> = ({
               </h1>
             )}
             <Image
-              src={"/assets/images/ketua-1.svg"}
+              src={`${urlApi}/uploads/foto/${foto}`}
               alt=""
               width={120}
               height={120}

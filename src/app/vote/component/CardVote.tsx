@@ -1,33 +1,49 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
 import Link from "next/link";
+import axios from "axios";
 
-const CardVote = () => {
+interface User {
+  user_id: number;
+  nama_lengkap: string;
+  foto: string;
+}
+
+interface CardVoteProps {
+  user: User;
+}
+
+const CardVote: React.FC<CardVoteProps> = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const inputRefs = useRef<React.RefObject<HTMLInputElement>[]>([]);
+  const [voucherCode, setVoucherCode] = useState<string[]>(Array(6).fill(""));
+  const [error, setError] = useState<string | null>(null);
+  const urlApi = process.env.NEXT_PUBLIC_API_URL;
+  const inputRefs = useRef<Array<React.RefObject<HTMLInputElement>>>([]);
+
   React.useEffect(() => {
     inputRefs.current = Array(6)
       .fill(null)
       .map(() => React.createRef<HTMLInputElement>());
   }, []);
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
   const handleInput = (e: React.FormEvent<HTMLInputElement>, index: number) => {
-    if (
-      e.currentTarget.value.length === 1 &&
-      index < inputRefs.current.length - 1
-    ) {
+    const value = e.currentTarget.value.toUpperCase();
+    const newVoucherCode = [...voucherCode];
+    newVoucherCode[index] = value;
+    setVoucherCode(newVoucherCode);
+
+    if (value.length === 1 && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1]?.current?.focus();
     }
   };
@@ -47,19 +63,45 @@ const CardVote = () => {
     }
   };
 
+  const handleSubmit = async () => {
+    const code = voucherCode.join("");
+    try {
+      const response = await axios.post(
+        `${urlApi}/api/v1/voucher/vote`,
+        {
+          user_id: user.user_id,
+          code: code,
+        },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "any-value",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Response:", response.data);
+      setError(null);
+      closeModal();
+      // Tambahkan logika tambahan untuk menampilkan pesan sukses atau melakukan tindakan lainnya
+    } catch (error) {
+      console.error("Error submitting voucher code:", error);
+      setError("Error submitting voucher code");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="lg:w-[300px] relative rounded-lg">
         <Image
           alt=""
-          src={"/assets/images/ketua-1.svg"}
+          src={`${urlApi}/uploads/foto/${user.foto}`}
           width={300}
           height={0}
           className="rounded-lg"
         />
         <div className="lg:w-[300px] bg-black/80 rounded-b-lg absolute bottom-0 z-10">
           <p className="text-white font-semibold text-lg text-center pt-3 pb-10">
-            Chandra Saputra
+            {user.nama_lengkap}
           </p>
         </div>
         <div
@@ -69,7 +111,9 @@ const CardVote = () => {
           <h1>Vote</h1>
         </div>
         <div className="w-[70px] h-[70px] flex items-center justify-center absolute top-0 left-0 bg-black/80 rounded-tl-lg rounded-br-lg">
-          <h1 className="text-white text-[30px] font-semibold">1</h1>
+          <h1 className="text-white text-[30px] font-semibold">
+            {user.user_id}
+          </h1>
         </div>
       </div>
 
@@ -107,28 +151,28 @@ const CardVote = () => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-sm p-6 pl-8  my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-sm p-6 pl-8 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <div className="flex-col justify-center items-center mb-5 mt-3">
                   <Image
                     alt=""
                     src={"/assets/images/vote.png"}
                     width={100}
                     height={100}
-                    className=" mx-auto"
+                    className="mx-auto"
                   />
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-normal leading-6 text-gray-900 text-center w-full mt-4"
                   >
                     Vote{" "}
-                    <span className=" font-bold text-dark-color">
-                      Chandra Saputra
+                    <span className="font-bold text-dark-color">
+                      {user.nama_lengkap}
                     </span>
                   </Dialog.Title>
                 </div>
-                <div className=" w-full h-1 bg-primary-color absolute z-10 left-0"></div>
-                <div className=" pt-6">
-                  <p className=" text-base font-bold text-black text-center">
+                <div className="w-full h-1 bg-primary-color absolute z-10 left-0"></div>
+                <div className="pt-6">
+                  <p className="text-base font-bold text-black text-center">
                     Masukkan kode voucher
                   </p>
                   <div className="mt-4 grid grid-cols-6">
@@ -146,22 +190,30 @@ const CardVote = () => {
                         />
                       ))}
                   </div>
-                  <div className=" pt-4">
-                    <p className=" text-sm">
-                      Belum Punya Kode Voucher?<span> </span>
+                  {error && (
+                    <p className="text-red-500 text-sm text-center mt-4">
+                      {error}
+                    </p>
+                  )}
+                  <div className="pt-4">
+                    <p className="text-sm">
+                      Belum Punya Kode Voucher?{" "}
                       <span>
                         <Link
                           href={""}
-                          className=" text-sm font-bold text-dark-color"
+                          className="text-sm font-bold text-dark-color"
                         >
                           Beli Voucher
                         </Link>
                       </span>
                     </p>
                   </div>
-                  <div className=" py-10"></div>
+                  <div className="py-10"></div>
                   <div className="mt-4 text-center">
-                    <button className="bg-dark-color hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-lg">
+                    <button
+                      onClick={handleSubmit}
+                      className="bg-dark-color hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-lg"
+                    >
                       Kirim Voucher
                     </button>
                   </div>

@@ -184,7 +184,7 @@ export default function Header() {
               </Menu>
             </div>
           </div>
-          <div className="hidden lg:block">
+          <div className="block mr-5 lg:mr-0">
             {!isLoggedIn && (
               <Button
                 href="/daftar"
@@ -205,9 +205,10 @@ export default function Header() {
                       width={40}
                       height={40}
                       alt="User Icon"
+                      className=" lg:w-[40px] lg:h-[40px] w-[30px] h-[30px]"
                     />
                     <p
-                      className={`lg:block text-base font-medium bg-gradient-to-r from-secondary-color to-black inline-block text-transparent bg-clip-text ${
+                      className={`lg:block lg:text-base text-sm font-medium bg-gradient-to-r from-secondary-color to-black inline-block text-transparent bg-clip-text ${
                         showBackground ? "text-white" : ""
                       }`}
                     >
@@ -289,8 +290,8 @@ export default function Header() {
               <img
                 src="/assets/icon/menu.svg"
                 className="lg:hidden"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 alt="Menu Icon"
               />
             </button>
