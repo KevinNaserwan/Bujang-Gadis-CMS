@@ -459,12 +459,12 @@ export default function Header() {
                     </Transition.Child>
                   </Transition>
                 </nav>
-                <Link
+                {/* <Link
                   href="/daftar"
                   className="w-[240px] py-3 text-center mx-auto hover:bg-yellow-700 bg-primary-color text-white rounded-lg font-semibold"
                 >
                   Daftar
-                </Link>
+                </Link> */}
               </div>
             </div>
           </Transition.Child>
