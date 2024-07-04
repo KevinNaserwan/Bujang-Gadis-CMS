@@ -29,6 +29,7 @@ export default function FormUpload() {
       axios
         .get(`${apiUrl}/api/v1/user/${email}`, {
           headers: {
+            "ngrok-skip-browser-warning": "any-value",
             Authorization: `Bearer ${token}`,
           },
         })
@@ -116,6 +117,7 @@ export default function FormUpload() {
 
         await axios.post(`${apiUrl}/api/v1/user-file/upload`, formData, {
           headers: {
+            "ngrok-skip-browser-warning": "any-value",
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
           },

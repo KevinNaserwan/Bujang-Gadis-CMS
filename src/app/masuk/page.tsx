@@ -62,6 +62,7 @@ function LoginContent() {
         const response = await fetch(`${apiUrl}/api/v1/user/login`, {
           method: "POST",
           headers: {
+            "ngrok-skip-browser-warning": "any-value",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ email, password }),

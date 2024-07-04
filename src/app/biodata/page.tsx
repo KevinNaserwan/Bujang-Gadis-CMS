@@ -29,6 +29,7 @@ export default function Biodata() {
         try {
           const response = await fetch(`${apiUrl}/api/v1/user/${email}`, {
             headers: {
+              "ngrok-skip-browser-warning": "any-value",
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           });

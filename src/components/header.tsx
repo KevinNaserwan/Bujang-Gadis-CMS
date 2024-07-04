@@ -49,6 +49,7 @@ export default function Header() {
     try {
       const response = await fetch(`${apiUrl}/api/v1/user/${email}`, {
         headers: {
+          "ngrok-skip-browser-warning": "any-value",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
