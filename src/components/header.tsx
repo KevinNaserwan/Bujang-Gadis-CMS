@@ -8,8 +8,11 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 import Button from "./button";
 import DropdownButton from "./dropdownbutton";
+import dotenv from "dotenv";
 
 export default function Header() {
+  dotenv.config();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const TOP_OFFSET = 10;
   const [showBackground, setShowBackground] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,14 +47,11 @@ export default function Header() {
 
   const fetchUserData = async (email: any) => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/v1/user/${email}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/v1/user/${email}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       const data = await response.json();
       if (response.ok) {
         setUserName(data.value.username);
