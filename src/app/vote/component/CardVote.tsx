@@ -97,21 +97,21 @@ const CardVote: React.FC<CardVoteProps> = ({ user }) => {
           src={`${urlApi}/uploads/foto/${user.foto}`}
           width={300}
           height={0}
-          className="rounded-lg"
+          className="rounded-lg lg:w-[300px] w-[200px]"
         />
         <div className="lg:w-[300px] bg-black/80 rounded-b-lg absolute bottom-0 z-10">
-          <p className="text-white font-semibold text-lg text-center pt-3 pb-10">
+          <p className="text-white font-semibold lg:text-lg text-base text-center pt-3 lg:pb-10 pb-7">
             {user.nama_lengkap}
           </p>
         </div>
         <div
-          className="lg:w-9/12 bg-primary-color hover:bg-yellow-600 rounded-lg relative z-20 -bottom-5 text-center left-9 py-3 cursor-pointer"
+          className="lg:w-9/12 w-6/12 bg-primary-color hover:bg-yellow-600 rounded-lg relative z-20 -bottom-5 text-center lg:left-9 left-[50px] lg:py-3 py-2 cursor-pointer"
           onClick={openModal}
         >
-          <h1>Vote</h1>
+          <h1 className=" font-semibold">Vote</h1>
         </div>
-        <div className="w-[70px] h-[70px] flex items-center justify-center absolute top-0 left-0 bg-black/80 rounded-tl-lg rounded-br-lg">
-          <h1 className="text-white text-[30px] font-semibold">
+        <div className="lg:w-[70px] lg:h-[70px] w-[50px] h-[50px] flex items-center justify-center absolute top-0 left-0 bg-black/80 rounded-tl-lg rounded-br-lg">
+          <h1 className="text-white lg:text-[30px] text-base font-semibold">
             {user.user_id}
           </h1>
         </div>

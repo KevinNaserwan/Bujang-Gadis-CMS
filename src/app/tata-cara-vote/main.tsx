@@ -21,14 +21,17 @@ const MainTataCaraVote = () => {
             height={150}
           />
         </div>
-        <h1 className="relative z-10 text-center text-4xl font-semibold text-white">
+        <h1 className="relative z-10 text-center text-lg lg:w-full w-6/12 mx-auto lg:text-4xl font-semibold text-white">
           Tutorial Vote BG Teknik Unsri Website
         </h1>
-        <div className="px-24 pt-10 pb-20">
-          <h3 className="font-normal text-2xl text-primary-color">
+        <div className="lg:px-24 px-10 pt-10 pb-20">
+          <h3 className="font-normal lg:text-2xl text-base text-primary-color">
             Tutorial voting:
           </h3>
-          <ol type="1" className="pt-5 text-white font-medium text-lg">
+          <ol
+            type="1"
+            className="pt-5 text-white lg:font-medium font-normal text-sm lg:text-lg"
+          >
             <li>1. Pastikan sudah membeli voucher !</li>
             <li>
               2. Jika belum, beli voucher dengan memasukan data diri,
@@ -43,10 +46,10 @@ const MainTataCaraVote = () => {
             </li>
           </ol>
         </div>
-        <div className="px-24 pb-20">
+        <div className="lg:px-2 px-10 lg:pb-20 pb-5">
           <div className=" relative">
             <iframe
-              className="w-full h-[600px] rounded-2xl border-white border relative z-10"
+              className="w-full lg:h-[600px] h-[200px] rounded-2xl border-white border relative z-10"
               src="https://www.youtube.com/embed/h-iQJHcWhAg?si=gSU5-73Ow4SfyX1H"
               title="YouTube video player"
               frameBorder="0"

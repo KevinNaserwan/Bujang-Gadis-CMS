@@ -67,15 +67,15 @@ const DaftarVote: React.FC = () => {
             height={150}
           />
         </div>
-        <h1 className="relative z-10 text-center text-4xl font-semibold text-white">
+        <h1 className="relative z-10 text-center lg:text-4xl text-lg font-semibold text-white">
           DAFTAR
         </h1>
-        <h2 className="font-semibold text-[32px] text-center text-primary-color pt-2 mb-12">
+        <h2 className=" relative z-10 w-7/12 mx-auto font-semibold lg:text-[32px] text-lg text-center text-primary-color pt-2 mb-12">
           {gender === "L" ? "BUJANG" : "GADIS"} TEKNIK UNIVERSITAS SRIWIJAYA
         </h2>
-        <div className="grid grid-flow-row grid-cols-2 bg-white rounded-t-xl">
+        <div className="grid grid-flow-row lg:w-full w-[350px] mx-auto grid-cols-2 bg-white rounded-t-xl">
           <div
-            className={`text-center  py-6 font-bold text-2xl hover:bg-gray-200 hover:rounded-tl-xl ${
+            className={`text-center  lg:py-6 py-3 font-bold lg:text-2xl text-lg hover:bg-gray-200 hover:rounded-tl-xl ${
               gender === "L" ? "border-b-4 border-primary-color" : ""
             }`}
             onClick={() => setGender("L")}
@@ -83,7 +83,7 @@ const DaftarVote: React.FC = () => {
             Bujang
           </div>
           <div
-            className={`text-center py-6 font-bold text-2xl hover:bg-gray-200 hover:rounded-tr-xl ${
+            className={`text-center lg:py-6 py-3 font-bold lg:text-2xl text-lg hover:bg-gray-200 hover:rounded-tr-xl ${
               gender === "P" ? " border-b-4  border-primary-color" : ""
             }`}
             onClick={() => setGender("P")}
@@ -91,7 +91,7 @@ const DaftarVote: React.FC = () => {
             Gadis
           </div>
         </div>
-        <div className="relative z-10 grid grid-flow-row grid-cols-3 gap-16 py-12 pb-24 bg-white rounded-b-xl">
+        <div className="relative z-10 grid lg:w-full w-[350px] mx-auto lg:grid-flow-row grid-flow-col lg:grid-cols-3 grid-rows-1 gap-16 py-12 lg:pb-24 pb-16 bg-white rounded-b-xl">
           {error ? (
             <div className="col-span-3 text-center text-red-500">{error}</div>
           ) : users && users.length > 0 ? (

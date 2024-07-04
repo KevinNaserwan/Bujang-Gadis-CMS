@@ -148,16 +148,12 @@ const MainBeliVoucher = () => {
 
   return (
     <div className="relative bg-white overflow-hidden">
-      <div className="lg:py-24 py-20 container xl:max-w-[1300px] lg:max-w-[1100px] mx-auto">
-        <h1 className="relative z-10 text-center text-4xl font-semibold text-black">
-          BELI VOUCHER
-        </h1>
-        <p className="font-bold text-[32px] text-primary-color text-center mt-2">
-          BUJANG GADIS TEKNIK UNIVERSITAS SRIWIJAYA
-        </p>
-        <div className="bg-white shadow-2xl mt-14 p-20 rounded-t-2xl w-full h-full flex-col justify-center">
+      <div className="lg:py-24 pb-10 pt-5 container xl:max-w-[1300px] lg:max-w-[1100px] max-w-[330px] mx-auto">
+        <div className="bg-white shadow-2xl mt-2 lg:p-20 p-10 rounded-t-2xl w-full h-full flex-col justify-center">
           <div>
-            <h1 className="font-bold text-2xl text-center">Lengkapi Biodata</h1>
+            <h1 className="font-bold lg:text-2xl text-lg text-center">
+              Lengkapi Biodata
+            </h1>
             <form className="lg:my-4 my-5">
               <FormBeliVoucher
                 htmlFor="name"
@@ -199,8 +195,10 @@ const MainBeliVoucher = () => {
           </div>
           <div className="bg-[#D9D9D9] w-full h-[2px] rounded-full my-10"></div>
           <div>
-            <h1 className="font-bold text-2xl text-center">Pilih Voucher</h1>
-            <div className="grid grid-flow-row grid-cols-3 gap-10">
+            <h1 className="font-bold lg:text-2xl text-lg text-center">
+              Pilih Voucher
+            </h1>
+            <div className="grid lg:grid-flow-row grid-flow-col lg:grid-cols-3 grid-rows-3  lg:grid-rows-1 lg:gap-10">
               {selectedVouchers.map((voucher, index) => (
                 <VoucherCard
                   key={index}
@@ -216,9 +214,11 @@ const MainBeliVoucher = () => {
           </div>
         </div>
         <div className="bg-dark-color rounded-b-2xl py-10 shadow-2xl">
-          <div className="w-4/12 mx-auto h-full border border-white rounded-md flex flex-col">
-            <div className="p-6">
-              <h1 className="font-bold text-xl text-white">Detail Harga</h1>
+          <div className="lg:w-4/12 w-9/12 mx-auto h-full border border-white rounded-md flex flex-col">
+            <div className="lg:p-6 p-4">
+              <h1 className="font-bold lg:text-xl text-base text-white">
+                Detail Harga
+              </h1>
               <div className="flex flex-col pt-4">
                 {selectedVouchers
                   .filter((voucher) => voucher.isActive)
@@ -233,7 +233,7 @@ const MainBeliVoucher = () => {
                       <p>Rp{voucher.price * voucher.quantity},00</p>
                     </div>
                   ))}
-                <div className="bg-white w-full h-[2px] mt-5 mb-7"></div>
+                <div className="bg-white w-full h-[2px] mt-5 lg:mb-7 mb-3"></div>
                 <div className="flex flex-row justify-between text-white font-bold">
                   <p>Total</p>
                   <p>Rp{totalPrice},00</p>
@@ -242,7 +242,7 @@ const MainBeliVoucher = () => {
             </div>
           </div>
           <div
-            className={`bg-primary-color rounded-lg w-2/12 text-center font-bold mx-auto mt-10 text-black px-5 py-3 ${
+            className={`bg-primary-color rounded-lg lg:w-2/12 w-6/12 text-center font-bold mx-auto mt-10 text-black px-5 py-3 ${
               isFormValid() ? "cursor-pointer" : "opacity-50 cursor-not-allowed"
             }`}
             onClick={isFormValid() ? handleConfirmOrder : undefined}

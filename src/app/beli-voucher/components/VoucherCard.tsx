@@ -61,7 +61,7 @@ const VoucherCard: React.FC<VoucherCardProps> = ({
         <p className="font-normal text-base w-10/12 mt-5">
           Dapatkan 10 point dengan membayar {voucherPrice}
         </p>
-        <div className="flex flex-row justify-between mt-10">
+        <div className="flex lg:flex-row flex-col lg:gap-0 gap-4 justify-between mt-10">
           <h3 className="font-bold text-base">{voucherPrice}</h3>
           <div className="flex flex-row">
             <div

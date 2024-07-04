@@ -69,15 +69,15 @@ const MainStatistik: React.FC = () => {
     <div className="relative bg-dark-color overflow-hidden">
       <div className="lg:py-24 py-20 container xl:max-w-[1300px] lg:max-w-[1100px] mx-auto">
         {/* Your existing JSX structure */}
-        <h1 className="relative z-10 text-center text-4xl font-semibold text-white">
+        <h1 className="relative z-10 text-center lg:text-4xl text-lg font-semibold text-white">
           Rangking
         </h1>
-        <h2 className="font-semibold text-[32px] text-center text-primary-color pt-2 mb-20">
+        <h2 className=" relative z-10 w-7/12 mx-auto font-semibold lg:text-[32px] text-lg text-center text-primary-color pt-2 mb-12">
           {gender === "L" ? "BUJANG" : "GADIS"} TEKNIK UNIVERSITAS SRIWIJAYA
         </h2>
-        <div className="grid grid-flow-row grid-cols-2 bg-white rounded-t-xl">
+        <div className="grid grid-flow-row lg:w-full w-[350px] mx-auto grid-cols-2 bg-white rounded-t-xl">
           <div
-            className={`text-center  py-6 font-bold text-2xl hover:bg-gray-200 hover:rounded-tl-xl ${
+            className={`text-center  lg:py-6 py-3 font-bold lg:text-2xl text-lg hover:bg-gray-200 hover:rounded-tl-xl ${
               gender === "L" ? "border-b-4 border-primary-color" : ""
             }`}
             onClick={() => setGender("L")}
@@ -85,7 +85,7 @@ const MainStatistik: React.FC = () => {
             Bujang
           </div>
           <div
-            className={`text-center py-6 font-bold text-2xl hover:bg-gray-200 hover:rounded-tr-xl ${
+            className={`text-center lg:py-6 py-3 font-bold lg:text-2xl text-lg hover:bg-gray-200 hover:rounded-tr-xl ${
               gender === "P" ? " border-b-4  border-primary-color" : ""
             }`}
             onClick={() => setGender("P")}
@@ -93,7 +93,7 @@ const MainStatistik: React.FC = () => {
             Gadis
           </div>
         </div>
-        <div className="w-full flex-col relative z-10 bg-[#F1F1F1] justify-center items-center pb-20 pt-10 px-20 rounded-b-xl">
+        <div className="lg:w-full w-[350px] mx-auto  flex-col relative z-10 bg-[#F1F1F1] justify-center items-center lg:pb-20 lg:pt-10 py-3 lg:px-20 px-5 rounded-b-xl">
           {statistikData.map((item) => (
             <StatistikCard
               key={item.rank}

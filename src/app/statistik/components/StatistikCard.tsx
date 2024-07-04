@@ -51,20 +51,21 @@ const StatistikCard: React.FC<StatistikCardProps> = ({
   }
 
   return (
-    <div className="relative w-full h-[160px] rounded-lg my-10 overflow-hidden">
+    <div className="relative lg:w-full lg:h-[160px] h-[110px] rounded-lg lg:my-10 my-6 overflow-hidden">
       <div
         className="absolute top-0 left-0 h-full"
         style={{ width, backgroundColor: bgColor }}
       />
-      <div className="top-0 left-0 w-full h-full bg-white  flex items-center justify-between px-7">
-        <div className="flex w-11/12 justify-between items-center absolute z-10">
-          <div className="flex items-center gap-10">
+      <div className="top-0 left-0 w-full h-full bg-white  flex items-center justify-between lg:px-7">
+        <div className="flex lg:w-11/12 w-12/12 lg:justify-between justify-center items-center absolute z-10">
+          <div className="flex items-center lg:justify-normal justify-center lg:gap-10 gap-4">
             {rankImage ? (
               <Image
                 src={rankImage}
                 alt={`Juara ${rank}`}
                 width={50}
                 height={50}
+                className=" lg:w-[50px] lg:h-[50px] w-[30px] h-[30px]"
               />
             ) : (
               <h1 className="font-semibold text-[30px] w-[50px] h-[50px] text-center">
@@ -76,12 +77,21 @@ const StatistikCard: React.FC<StatistikCardProps> = ({
               alt=""
               width={120}
               height={120}
-              className="rounded-xl"
+              className="rounded-xl lg:w-[100px] lg:h-[100px] w-[80px] h-[80px]"
             />
-            <h1 className="font-semibold text-[30px]">{name}</h1>
+            <div className="lg:w-full w-5/12">
+              <h1 className="font-semibold lg:text-[30px] text-sm ">{name}</h1>
+              <div className=" lg:mt-0 mt-1">
+                <h1 className="lg:font-semibold font-bold   lg:text-[30px] text-2xl lg:hidden block">
+                  {percentage}
+                </h1>
+              </div>
+            </div>
           </div>
           <div>
-            <h1 className="font-semibold text-[30px]">{percentage}</h1>
+            <h1 className="font-semibold lg:text-[30px] text-sm lg:block hidden">
+              {percentage}
+            </h1>
           </div>
         </div>
       </div>
