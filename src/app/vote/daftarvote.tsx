@@ -91,7 +91,7 @@ const DaftarVote: React.FC = () => {
             Gadis
           </div>
         </div>
-        <div className="relative z-10 grid lg:w-full w-[350px] mx-auto lg:grid-flow-row grid-flow-col lg:grid-cols-3 grid-rows-1 gap-16 py-12 lg:pb-24 pb-16 bg-white rounded-b-xl">
+        <div className="relative z-10 grid lg:w-full w-[350px] mx-auto grid-flow-row lg:grid-cols-3 grid-cols-1 gap-16 py-12 lg:pb-24 pb-16 bg-white rounded-b-xl">
           {error ? (
             <div className="col-span-3 text-center text-red-500">{error}</div>
           ) : users && users.length > 0 ? (

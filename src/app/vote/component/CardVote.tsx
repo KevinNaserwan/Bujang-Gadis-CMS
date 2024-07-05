@@ -91,15 +91,15 @@ const CardVote: React.FC<CardVoteProps> = ({ user }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="lg:w-[300px] relative rounded-lg">
+      <div className="lg:w-[300px] lg:h-[280px] relative rounded-lg">
         <Image
           alt=""
           src={`${urlApi}/uploads/foto/${user.foto}`}
           width={300}
           height={0}
-          className="rounded-lg lg:w-[300px] w-[200px]"
+          className="rounded-lg lg:w-[300px] w-[200px] lg:h-[240px] h-[200px] object-cover"
         />
-        <div className="lg:w-[300px] bg-black/80 rounded-b-lg absolute bottom-0 z-10">
+        <div className="lg:w-[300px] w-full bg-black/80 rounded-b-lg absolute bottom-0 z-10">
           <p className="text-white font-semibold lg:text-lg text-base text-center pt-3 lg:pb-10 pb-7">
             {user.nama_lengkap}
           </p>
