@@ -46,10 +46,12 @@ const MainStatistik: React.FC = () => {
         foto: string;
         user_score: number;
       }[] = [];
-      if (gender === "L") {
-        genderData = data.male;
-      } else if (gender === "P") {
-        genderData = data.female;
+
+      // Check if data for the selected gender exists
+      if (gender === "L" && data.L) {
+        genderData = data.L;
+      } else if (gender === "P" && data.P) {
+        genderData = data.P;
       }
 
       const newData: StatistikData[] = genderData.map((item, index) => ({
@@ -94,15 +96,19 @@ const MainStatistik: React.FC = () => {
           </div>
         </div>
         <div className="lg:w-full w-[350px] mx-auto  flex-col relative z-10 bg-[#F1F1F1] justify-center items-center lg:pb-20 lg:pt-10 py-3 lg:px-20 px-5 rounded-b-xl">
-          {statistikData.map((item) => (
-            <StatistikCard
-              key={item.rank}
-              rank={item.rank}
-              foto={item.foto}
-              name={item.name}
-              percentage={item.percentage}
-            />
-          ))}
+          {statistikData.length > 0 ? (
+            statistikData.map((item) => (
+              <StatistikCard
+                key={item.rank}
+                rank={item.rank}
+                foto={item.foto}
+                name={item.name}
+                percentage={item.percentage}
+              />
+            ))
+          ) : (
+            <p className="text-center text-gray-600">No data available</p>
+          )}
         </div>
       </div>
     </div>

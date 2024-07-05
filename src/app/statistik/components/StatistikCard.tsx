@@ -58,7 +58,7 @@ const StatistikCard: React.FC<StatistikCardProps> = ({
       />
       <div className="top-0 left-0 w-full h-full bg-white  flex items-center justify-between lg:px-7">
         <div className="flex lg:w-11/12 w-12/12 lg:justify-between justify-center items-center absolute z-10">
-          <div className="flex items-center lg:justify-normal justify-center lg:gap-10 gap-4">
+          <div className="flex items-center lg:w-full w-11/12 mx-auto lg:justify-normal lg:gap-10 gap-4">
             {rankImage ? (
               <Image
                 src={rankImage}
@@ -79,7 +79,7 @@ const StatistikCard: React.FC<StatistikCardProps> = ({
               height={120}
               className="rounded-xl lg:w-[100px] lg:h-[100px] w-[80px] h-[80px]"
             />
-            <div className="lg:w-full w-5/12">
+            <div className="lg:w-full w-[130px]">
               <h1 className="font-semibold lg:text-[30px] text-sm ">{name}</h1>
               <div className=" lg:mt-0 mt-1">
                 <h1 className="lg:font-semibold font-bold   lg:text-[30px] text-2xl lg:hidden block">
