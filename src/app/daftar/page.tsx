@@ -33,6 +33,10 @@ export default function Daftar() {
     }
     if (!username) {
       errors.username = "Username is required.";
+    } else {
+      if (username.length < 8) {
+        errors.username = "Username must be at least 8 characters long.";
+      }
     }
     if (!password) {
       errors.password = "Password is required.";

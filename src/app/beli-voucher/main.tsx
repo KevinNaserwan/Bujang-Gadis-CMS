@@ -124,7 +124,6 @@ const MainBeliVoucher = () => {
         window.open(response.data.snap_url, "_blank");
       }
     } catch (error) {
-      console.error("Error placing order:", error);
       setOrderStatus("Order gagal. Silakan coba lagi.");
       setSnapUrl(null);
     } finally {
@@ -253,7 +252,7 @@ const MainBeliVoucher = () => {
       </div>
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+          <div className="bg-white p-6 rounded-lg shadow-lg lg:w-1/3">
             <h2 className="text-2xl font-bold mb-4">Konfirmasi Order</h2>
             <p>Apakah Anda yakin ingin membeli voucher ini?</p>
             <div className="mt-4 flex justify-end">
@@ -275,7 +274,7 @@ const MainBeliVoucher = () => {
       )}
       {orderStatus && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+          <div className="bg-white p-6 rounded-lg shadow-lg lg:w-1/3">
             <h2 className="text-2xl font-bold mb-4">Status Order</h2>
             <p>{orderStatus}</p>
             <div className="mt-4 flex justify-end">

@@ -5,7 +5,7 @@ const nextConfig = {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: '84b2-125-167-50-252.ngrok-free.app',
+          hostname: 'aec2-125-167-48-100.ngrok-free.app',
           port: '',
           pathname: '/uploads/foto/**',
         },
