@@ -8,7 +8,7 @@ import FormUpdateProfile from "./components/FormUpdateProfile";
 const Profile = () => {
   return (
     <div className=" bg-dark-color w-full">
-      <div className=" lg:max-w-[1300px] lg:w-[1200px] py-16 mx-auto">
+      <div className=" lg:max-w-[1300px] lg:w-[1200px] w-[320px] py-16 mx-auto">
         <div>
           {" "}
           <Link href="/" className="lg:flex gap-5">
@@ -20,7 +20,7 @@ const Profile = () => {
               className="lg:pt-0 pt-10 hidden lg:block"
             />
             <Image
-              src="/assets/icon/back-mobile.svg"
+              src="/assets/icon/back.svg"
               width={30}
               height={22}
               alt=""
@@ -31,23 +31,26 @@ const Profile = () => {
             </h1>
           </Link>
         </div>
-        <div className=" lg:w-6/12 bg-white rounded-lg mx-auto my-16 py-11 px-20">
-          <p className=" font-bold text-2xl text-center">Edit Profile</p>
+        <div className=" lg:w-6/12 bg-white rounded-lg mx-auto my-16 py-11 lg:px-20 px-7">
+          <p className=" font-bold lg:text-2xl text-xl text-center">
+            Edit Profile
+          </p>
           <div className=" bg-[#D9D9D9] w-full mx-auto h-1 my-6"></div>
-          <div className=" relative my-10">
+          <div className=" relative lg:my-10 my-5">
             <Image
               src={"/assets/images/profile.png"}
               alt=""
               width={128}
               height={128}
-              className="w-4/12 mx-auto rounded-full"
+              className="lg:w-4/12 w-5/12 mx-auto rounded-full"
             />
-            <div className=" w-[40px] h-[40px] absolute right-36 top-24 flex items-center justify-center rounded-full bg-dark-color">
+            <div className=" lg:w-[40px] lg:h-[40px] w-[30px] h-[30px] absolute lg:right-36 right-20 top-20 lg:top-24 flex items-center justify-center rounded-full bg-dark-color">
               <Image
                 src="/assets/images/add.svg"
                 alt=""
                 width={20}
                 height={20}
+                className=" lg:w-[20px] lg:h-[20px] w-[15px] h-[15px]"
               />
             </div>
           </div>
@@ -80,12 +83,12 @@ const Profile = () => {
               required
             />
           </div>
-          <div className=" my-12 flex justify-center">
+          <div className=" lg:my-12 my-6 flex justify-center">
             <button className=" bg-dark-color text-white w-6/12 py-3 rounded-lg">
               Simpan
             </button>
           </div>
-          <p className=" text-black font-normal text-base text-center">
+          <p className=" text-black font-normal lg:text-lg text-sm text-center">
             Ingin merubah password?{" "}
             <span className=" font-bold text-blue-color hover:underline">
               ubah password
