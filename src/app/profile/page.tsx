@@ -91,7 +91,7 @@ const Profile = () => {
           <p className=" text-black font-normal lg:text-lg text-sm text-center">
             Ingin merubah password?{" "}
             <span className=" font-bold text-blue-color hover:underline">
-              ubah password
+              <Link href={"/update-password"}>ubah password</Link>
             </span>
           </p>
         </div>
