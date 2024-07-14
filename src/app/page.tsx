@@ -13,6 +13,7 @@ import Term from "@/components/term";
 import Timeline from "@/components/timeline";
 import Image from "next/image";
 import Link from "next/link";
+import dotenv from "dotenv";
 
 interface VerifyResponse {
   status: string;
@@ -20,6 +21,8 @@ interface VerifyResponse {
 }
 
 function HomeComponent() {
+  dotenv.config();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const searchParams = useSearchParams();
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,7 +39,7 @@ function HomeComponent() {
   const verifyToken = async (token: string) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/user/verify?token=${token}`,
+        `${apiUrl}/api/v1/user/verify?token=${token}`,
         {
           method: "POST",
           headers: {

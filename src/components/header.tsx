@@ -8,12 +8,18 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 import Button from "./button";
 import DropdownButton from "./dropdownbutton";
+import dotenv from "dotenv";
 
 export default function Header() {
+  dotenv.config();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const TOP_OFFSET = 10;
   const [showBackground, setShowBackground] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false);
+  const [isVoteMenuOpen, setIsVoteMenuOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -27,12 +33,10 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Check for token and email in localStorage
     const token = localStorage.getItem("token");
     const email = localStorage.getItem("email");
     if (token && email) {
       setIsLoggedIn(true);
-      // Fetch user data
       fetchUserData(email);
     }
 
@@ -41,19 +45,17 @@ export default function Header() {
     };
   }, []);
 
-  const fetchUserData = async (email: string) => {
+  const fetchUserData = async (email: any) => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/v1/user/${email}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/v1/user/${email}`, {
+        headers: {
+          "ngrok-skip-browser-warning": "any-value",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       const data = await response.json();
       if (response.ok) {
-        setUserName(data.value.username); // Assuming the API returns a field userName
+        setUserName(data.value.username);
         console.info("Success get data:", data.message);
       } else {
         console.error("Failed to fetch user data:", data.message);
@@ -67,7 +69,7 @@ export default function Header() {
     localStorage.removeItem("token");
     localStorage.removeItem("email");
     setIsLoggedIn(false);
-    router.push("/"); // Redirect to home page after logout
+    router.push("/");
   };
 
   return (
@@ -98,17 +100,91 @@ export default function Header() {
               <DropdownButton
                 className={`${showBackground ? " text-white" : ""} `}
               />
-              <Link
-                href={"/"}
-                className={`text-base font-bold ${
-                  showBackground ? "text-white" : ""
-                }`}
-              >
-                Vote Bujang Gadis 2024
-              </Link>
+              <Menu as={"div"} className="relative inline-block text-left">
+                <div>
+                  <Menu.Button
+                    className={`text-base font-bold ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                  >
+                    Vote Bujang Gadis 2024{" "}
+                    <ChevronDownIcon className="inline-block w-5 h-5" />
+                  </Menu.Button>
+                </div>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                    <div className="px-1 py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="/tata-cara-vote"
+                            className={`${
+                              active
+                                ? "bg-black/10 text-black"
+                                : "text-gray-900"
+                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                          >
+                            Tata Cara Vote
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="/beli-voucher"
+                            className={`${
+                              active
+                                ? "bg-black/10 text-black"
+                                : "text-gray-900"
+                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                          >
+                            Beli Voucher
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="/vote"
+                            className={`${
+                              active
+                                ? "bg-black/10 text-black"
+                                : "text-gray-900"
+                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                          >
+                            Vote
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="/statistik"
+                            className={`${
+                              active
+                                ? "bg-black/10 text-black"
+                                : "text-gray-900"
+                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                          >
+                            Statistik
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
             </div>
           </div>
-          <div>
+          <div className="block mr-5 lg:mr-0">
             {!isLoggedIn && (
               <Button
                 href="/daftar"
@@ -129,9 +205,10 @@ export default function Header() {
                       width={40}
                       height={40}
                       alt="User Icon"
+                      className=" lg:w-[40px] lg:h-[40px] w-[30px] h-[30px]"
                     />
                     <p
-                      className={`lg:block text-base font-medium bg-gradient-to-r from-secondary-color to-black inline-block text-transparent bg-clip-text ${
+                      className={`lg:block lg:text-base text-sm font-medium bg-gradient-to-r from-secondary-color to-black inline-block text-transparent bg-clip-text ${
                         showBackground ? "text-white" : ""
                       }`}
                     >
@@ -208,7 +285,190 @@ export default function Header() {
               </Menu>
             )}
           </div>
+          <div className="lg:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <img
+                src="/assets/icon/menu.svg"
+                className="lg:hidden"
+                width={50}
+                height={50}
+                alt="Menu Icon"
+              />
+            </button>
+          </div>
         </div>
+        <Transition show={isMobileMenuOpen}>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition ease-in duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div
+              className="fixed inset-0 bg-black bg-opacity-80 z-30 lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-out duration-300"
+            enterFrom="translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in duration-300"
+            leaveFrom="translate-x-0"
+            leaveTo="translate-x-full"
+          >
+            <div className="fixed top-0 right-0 w-3/4 h-full bg-dark-color text-white shadow-lg z-40">
+              <div className="p-4 flex flex-col items-start">
+                <button
+                  className="mb-4 self-end"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <span className="text-2xl">&times;</span>
+                </button>
+                <div className="text-3xl font-bold mb-8">
+                  <Image
+                    src={"/assets/icon/icon.svg"}
+                    alt="Icon Image"
+                    width={80}
+                    height={80}
+                    className="w-[60px] h-[60px]"
+                  />
+                </div>
+                <nav className="flex flex-wrap mb-8 pl-4">
+                  <Link
+                    href={"/"}
+                    className={`text-base font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                  >
+                    Beranda
+                  </Link>
+                  <Link
+                    href={""}
+                    className={`text-base pt-5 mb-5 font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                    onClick={() => {
+                      setIsAboutMenuOpen(!isAboutMenuOpen);
+                      setIsVoteMenuOpen(false);
+                    }}
+                  >
+                    Tentang Kami
+                  </Link>
+                  <Transition show={isAboutMenuOpen}>
+                    <Transition.Child
+                      as={Fragment}
+                      enter="transition ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="transition ease-in duration-300"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <div className="pb-5">
+                        <ul className="list-disc">
+                          <Link
+                            href={"/sejarah"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md "
+                          >
+                            &#9679;<span className=" pr-2"></span>Sejarah
+                          </Link>
+                          <Link
+                            href={"/visi-misi"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Visi & Misi
+                          </Link>
+                          <Link
+                            href={"/struktural"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Struktural
+                          </Link>
+                          <Link
+                            href={"/anggota"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Anggota
+                          </Link>
+                          <Link
+                            href={"/program-kerja"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Program
+                            Kerja
+                          </Link>
+                        </ul>
+                      </div>
+                    </Transition.Child>
+                  </Transition>
+                  <Link
+                    href={""}
+                    className={`text-base pt-1 mb-5 font-semibold text-white inline-block text-transparent w-full bg-clip-text ${
+                      showBackground ? "text-white" : ""
+                    }`}
+                    onClick={() => {
+                      setIsVoteMenuOpen(!isVoteMenuOpen);
+                      setIsAboutMenuOpen(false);
+                    }}
+                  >
+                    Vote Bujang Gadis 2024
+                  </Link>
+                  <Transition show={isVoteMenuOpen}>
+                    <Transition.Child
+                      as={Fragment}
+                      enter="transition ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="transition ease-in duration-300"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <div className="pb-5">
+                        <ul className="list-disc">
+                          <Link
+                            href={"/tata-cara-vote"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md "
+                          >
+                            &#9679;<span className=" pr-2"></span>Tata Cara Vote
+                          </Link>
+                          <Link
+                            href={"/beli-voucher"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Beli Voucher
+                          </Link>
+                          <Link
+                            href={"/vote"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Vote
+                          </Link>
+                          <Link
+                            href={"/statistik"}
+                            className="block px-4 py-2 text-sm text-white hover:bg-gray-700 rounded-md"
+                          >
+                            &#9679; <span className=" pr-2"></span> Statistik
+                          </Link>
+                        </ul>
+                      </div>
+                    </Transition.Child>
+                  </Transition>
+                </nav>
+                {/* <Link
+                  href="/daftar"
+                  className="w-[240px] py-3 text-center mx-auto hover:bg-yellow-700 bg-primary-color text-white rounded-lg font-semibold"
+                >
+                  Daftar
+                </Link> */}
+              </div>
+            </div>
+          </Transition.Child>
+        </Transition>
       </nav>
     </header>
   );

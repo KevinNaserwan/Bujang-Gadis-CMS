@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import dotenv from "dotenv";
 
 interface Errors {
   email?: string;
@@ -15,6 +16,8 @@ interface Errors {
 }
 
 function LoginContent() {
+  dotenv.config();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({});
@@ -56,16 +59,14 @@ function LoginContent() {
     if (Object.keys(validationErrors).length === 0) {
       setIsLoading(true);
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/v1/user/login",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-          }
-        );
+        const response = await fetch(`${apiUrl}/api/v1/user/login`, {
+          method: "POST",
+          headers: {
+            "ngrok-skip-browser-warning": "any-value",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        });
         const data = await response.json();
         if (response.ok) {
           localStorage.setItem("token", data.value.token);

@@ -9,8 +9,11 @@ import FormPendidikan from "./components/formPendidikan";
 import FormPrestasi from "./components/formPrestasi";
 import FormUpload from "./components/formUpload";
 import FormDownload from "./components/formDownload";
+import dotenv from "dotenv";
 
 export default function Biodata() {
+  dotenv.config();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [steps, setSteps] = useState({
     dataDiri: "inProgress",
     pendidikan: "pending",
@@ -24,14 +27,12 @@ export default function Biodata() {
     const fetchData = async () => {
       if (email) {
         try {
-          const response = await fetch(
-            `http://localhost:5000/api/v1/user/${email}`,
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-            }
-          );
+          const response = await fetch(`${apiUrl}/api/v1/user/${email}`, {
+            headers: {
+              "ngrok-skip-browser-warning": "any-value",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          });
 
           if (response.ok) {
             const dbData = await response.json();

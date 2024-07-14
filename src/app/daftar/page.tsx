@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Form from "@/components/form";
 import Image from "next/image";
 import Link from "next/link";
+import dotenv from "dotenv";
 
 interface Errors {
   email?: string;
@@ -15,6 +16,8 @@ interface Errors {
 }
 
 export default function Daftar() {
+  dotenv.config();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [email, setEmail] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -30,6 +33,10 @@ export default function Daftar() {
     }
     if (!username) {
       errors.username = "Username is required.";
+    } else {
+      if (username.length < 8) {
+        errors.username = "Username must be at least 8 characters long.";
+      }
     }
     if (!password) {
       errors.password = "Password is required.";
@@ -55,14 +62,11 @@ export default function Daftar() {
     if (Object.keys(validationErrors).length === 0) {
       setIsLoading(true);
       try {
-        const response = await axios.post(
-          "http://localhost:5000/api/v1/user/register",
-          {
-            username,
-            email,
-            password,
-          }
-        );
+        const response = await axios.post(`${apiUrl}/api/v1/user/register`, {
+          username,
+          email,
+          password,
+        });
         console.log("Form submitted successfully:", response.data);
         router.push(`/masuk?registered=true`);
       } catch (error) {
@@ -162,7 +166,7 @@ export default function Daftar() {
                     {errors.confirmPassword}
                   </p>
                 )}
-                <div className=" flex justify-between items-center mb-5 mt-2">
+                {/* <div className=" flex justify-between items-center mb-5 mt-2">
                   <div className=" flex gap-2">
                     <input
                       type="checkbox"
@@ -182,8 +186,8 @@ export default function Daftar() {
                   >
                     Lupa Password?
                   </Link>
-                </div>
-                <button className=" w-full bg-blue-color rounded-lg hover:bg-dark-color">
+                </div> */}
+                <button className=" w-full bg-blue-color rounded-lg hover:bg-dark-color mt-4">
                   <p className=" font-bold text-white text-sm py-3">Daftar</p>
                 </button>
               </form>

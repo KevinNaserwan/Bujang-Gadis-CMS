@@ -82,7 +82,7 @@ export function CarouselBujang() {
             />
           </div>
         </CarouselItem>
-        <CarouselItem className=" lg;hidden">
+        <CarouselItem className=" lg:hidden">
           <div className="p-0">
             <BujangGadisCard
               nameBujang="Agus"
