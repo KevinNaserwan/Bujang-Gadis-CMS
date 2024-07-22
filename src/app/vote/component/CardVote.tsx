@@ -92,7 +92,7 @@ const CardVote: React.FC<CardVoteProps> = ({ user }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="lg:w-[300px] lg:h-[280px] relative rounded-lg">
-        <img
+        <Image
           alt=""
           src={`${urlApi}/uploads/foto/${user.foto}`}
           width={300}
